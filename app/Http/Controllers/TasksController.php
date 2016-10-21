@@ -37,7 +37,7 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Task::create($request->all());
     }
 
     /**
@@ -48,7 +48,7 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-        //
+        return Task::findOrFail($id);
     }
 
     /**
