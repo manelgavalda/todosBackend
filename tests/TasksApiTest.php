@@ -18,8 +18,15 @@ class TasksApiTest extends TestCase
     }
 
     public function testShowAllTasks(){
+        $task = factory(App\Task::class) ->create();
         $this->json('GET', $this->uri)
             //->dump();
+            ->seeJsonContains([
+                "name" => $task->name,
+                //"done" => $task->done,
+                //"priority" => $task->priority
+
+            ])
             ->seeJson();
     }
 
