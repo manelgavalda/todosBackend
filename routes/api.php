@@ -18,4 +18,8 @@ use Illuminate\Http\Request;
 //})->middleware('auth:api');
 
 //Mapejar funcions.
-Route::resource('task','TasksController');
+//Route::resource('task','TasksController');
+
+Route::group(['prefix' => 'v1'], function () {
+    Route::resource('task', 'TasksController');
+});

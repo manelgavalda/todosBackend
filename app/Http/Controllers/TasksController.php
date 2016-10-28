@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use Illuminate\Http\Request;
+use Response;
 
 use App\Http\Requests;
 
@@ -16,7 +17,15 @@ class TasksController extends Controller
      */
     public function index()
     {
-        return Task::all();
+        //Pagination
+        //No metadata->
+        //No error message
+        $tasks= Task::all();
+
+        return Response:json([
+        'data' => $tasks->toArray()
+    ],200);
+
     }
 
     /**
@@ -37,7 +46,8 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        Task::create($request->all());
+        Task::create($request->all
+        ());
     }
 
     /**
