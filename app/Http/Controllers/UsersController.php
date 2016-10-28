@@ -2,31 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
+use App\User;
 use Illuminate\Http\Request;
-use Response;
 
 use App\Http\Requests;
+use Response;
 
-class TasksController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-//        $tasks = Task::all();
-//        return Response::json([
-//            'data' => $tasks->toArray()
-//        ],200);
+        $users=User::paginate('15');
 
-        //return Task::paginate(Request::input(per_page));
-
-        $resouce=Task::paginate('15');
-
-        return $this->generatePaginatedResponse($resouce);
+        return Response::json([
+            'propietari' => 'manel',
+            'total' => $users->total(),
+            'perPage' => $users->perPage()
+        ],404);
     }
 
     /**
@@ -47,8 +44,6 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        Task::create($request->all
-        ());
     }
 
     /**
@@ -59,21 +54,6 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-//        try {
-//            return Task::findOrFail($id);
-//        } catch (\Exception $e ){
-//            return Response::json([
-//                "error" => "Hi ha hagut una excepció",
-//                "codi" => 10
-//
-//            ],404);
-//        }
-        $task = Task::find($id);
-
-        if ($resource != null) {
-            return $resource;
-        }
-        return $this->generatePaginatedResponse($resource);
     }
 
     /**
@@ -109,6 +89,4 @@ class TasksController extends Controller
     {
         //
     }
-
-
 }
