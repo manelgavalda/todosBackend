@@ -17,15 +17,20 @@ class TasksController extends Controller
      */
     public function index()
     {
-        //Pagination
-        //No metadata->
-        //No error message
-        $tasks= Task::all();
+//        $tasks = Task::all();
+//        return Response::json([
+//            'data' => $tasks->toArray()
+//        ],200);
 
-        return Response:json([
-        'data' => $tasks->toArray()
-    ],200);
+        //return Task::paginate(Request::input(per_page));
 
+        $tasks=Task::paginate('15');
+
+        return Response::json([
+            'propietari' => 'manel',
+            'total' => $tasks->total(),
+            'perPage' => $tasks->perPage()
+        ],404);
     }
 
     /**
@@ -58,7 +63,25 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-        return Task::findOrFail($id);
+//        try {
+//            return Task::findOrFail($id);
+//        } catch (\Exception $e ){
+//            return Response::json([
+//                "error" => "Hi ha hagut una excepció",
+//                "codi" => 10
+//
+//            ],404);
+//        }
+        $task = Task::find($id);
+
+        if ($task != null) {
+            return $task;
+        }
+        return Response::json([
+            'propietari' => 'manel',
+            'total' => $tasks->total(),
+            'perPage' => $tasks->perPage()
+        ],404);
     }
 
     /**
