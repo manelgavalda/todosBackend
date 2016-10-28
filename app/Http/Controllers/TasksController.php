@@ -24,9 +24,9 @@ class TasksController extends Controller
 
         //return Task::paginate(Request::input(per_page));
 
-        $resouce=Task::paginate('15');
+        $tasks=Task::paginate('15');
 
-        return $this->generatePaginatedResponse($resouce);
+        return $this->generatePaginatedResponse($tasks);
     }
 
     /**

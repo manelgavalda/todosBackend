@@ -17,13 +17,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users=User::paginate('15');
+        $users = User::paginate('15');
 
-        return Response::json([
-            'propietari' => 'manel',
-            'total' => $users->total(),
-            'perPage' => $users->perPage()
-        ],404);
+        return $this->generatePaginatedResponse($users);
     }
 
     /**
