@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Response;
 
@@ -69,11 +70,13 @@ class TasksController extends Controller
 //            ],404);
 //        }
         $task = Task::find($id);
-
+        return $this->transform($task);
+/*
         if ($resource != null) {
             return $resource;
         }
         return $this->generatePaginatedResponse($resource);
+        */
     }
 
     /**
@@ -108,6 +111,16 @@ class TasksController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function transform(Model $task)
+    {
+        //retornem un simple.
+        return [
+            'name' => $task->name,
+            'done' => (boolean) $task->done,
+            'priority' => (integer) $task->priority
+        ];
     }
 
 
