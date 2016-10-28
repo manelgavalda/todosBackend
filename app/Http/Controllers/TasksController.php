@@ -115,24 +115,4 @@ class TasksController extends Controller
     }
 
 
-    private function transformCollection($tasks){
-    //Collections: Laravel Collections
-
-        return array_map(function($task) {
-            return $this->transform($task);
-        }, $tasks->toArray());
-
-    }
-
-    private function transform(Model $task)
-    {
-        //retornem un simple.
-        return [
-            'name' => $task['name'],
-            'done' => (boolean) $task['done'],
-            'priority' => (integer) $task['priority']
-        ];
-    }
-
-
 }
