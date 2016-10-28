@@ -24,6 +24,7 @@ class TasksController extends Controller
 //        ],200);
 
         //return Task::paginate(Request::input(per_page));
+    //dd($this->transformCollection(Task::all()));
 
         $tasks=Task::paginate('15');
 
@@ -113,13 +114,23 @@ class TasksController extends Controller
         //
     }
 
+
+    private function transformCollection($tasks){
+    //Collections: Laravel Collections
+
+        return array_map(function($task) {
+            return $this->transform($task);
+        }, $tasks->toArray());
+
+    }
+
     private function transform(Model $task)
     {
         //retornem un simple.
         return [
-            'name' => $task->name,
-            'done' => (boolean) $task->done,
-            'priority' => (integer) $task->priority
+            'name' => $task['name'],
+            'done' => (boolean) $tasks['done'],
+            'priority' => (integer) $task['priority']
         ];
     }
 
