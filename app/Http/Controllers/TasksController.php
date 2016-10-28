@@ -129,7 +129,7 @@ class TasksController extends Controller
         //retornem un simple.
         return [
             'name' => $task['name'],
-            'done' => (boolean) $tasks['done'],
+            'done' => (boolean) $task['done'],
             'priority' => (integer) $task['priority']
         ];
     }
