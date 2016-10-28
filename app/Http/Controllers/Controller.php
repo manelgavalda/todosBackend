@@ -52,7 +52,7 @@ class Controller extends BaseController
 
     }
 
-    //abstracte per cada usuari per injeccio de dependencies $this->transform. transform es un objecte que he injectat.
+    //Crear test users a partir de tasks . abstracte per cada usuari per injeccio de dependencies $this->transform. transform es un objecte que he injectat.
     protected function transform($resource)
     {
         //retornem un simple.
