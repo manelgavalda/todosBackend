@@ -9,7 +9,7 @@ class TasksApiTest extends TestCase
     use DatabaseMigrations;
 
     //Per no repetir la uri.
-    private $uri = '/api/task';
+    private $uri = '/api/v1/task';
 
     public function testExample()
     {
