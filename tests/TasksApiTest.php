@@ -6,10 +6,10 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class TasksApiTest extends TestCase
 {
-    //Per no repetir la uri.
-
-    private $uri = '/api/task';
     use DatabaseMigrations;
+
+    //Per no repetir la uri.
+    private $uri = '/api/v1/task';
 
     public function testExample()
     {
@@ -20,12 +20,12 @@ class TasksApiTest extends TestCase
     public function testShowAllTasks(){
         $task = factory(App\Task::class) ->create();
         $this->json('GET', $this->uri)
-            //->dump();
+            //->dump()
+
             ->seeJsonContains([
                 "name" => $task->name,
-                //"done" => $task->done,
-                //"priority" => $task->priority
-
+                "done" => $task->done,
+                "priority" => $task->priority
             ])
             ->seeJson();
     }
@@ -38,12 +38,12 @@ class TasksApiTest extends TestCase
         $this->json('GET', $this->uri . '/' . $task->id)
             //->dump();
                 ->seeJsonStructure(
-                    ["id","name","done","priority"]
+                    ["name","done","priority"]
             )
             ->seeJsonContains([
                "name" => $task->name,
-               //"done" => $task->done,
-               //"priority" => $task->priority
+               "done" => $task->done,
+               "priority" => $task->priority
             ]);
     }
 }
