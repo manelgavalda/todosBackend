@@ -15,11 +15,11 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $users = User::paginate('15');
 
-        return $this->generatePaginatedResponse($users);
+        return $this->generatePaginatedResponse($users,["propitari" => "Manel Gavaldà"]);
     }
 
     /**

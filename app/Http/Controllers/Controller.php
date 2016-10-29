@@ -22,7 +22,7 @@ class Controller extends BaseController
 
         $paginationData = $this->generatePaginationData($resources);
 
-        $data = ['data' => $resources->items()
+        $data = ['data' => $this->transformCollection($resources->items())
     ];
         return Response::json(array_merge($metadata, $paginationData, $data), 200);
     }
@@ -34,10 +34,12 @@ class Controller extends BaseController
     protected function generatePaginationData($resources)
     {
         $paginationData = [
-            'propietari' => 'manel',
             'total' => $resources->total(),
             'perPage' => $resources->perPage(),
-            'currentPage' => $resources->currentPage()
+            'currentPage' => $resources->currentPage(),
+            'last_page' => $resources->lastPage(),
+            'previous_page_url' => $resources->previousPageUrl(),
+            'next_page_url' => $resources->nextPageUrl()
         ];
         return $paginationData;
     }
@@ -48,7 +50,7 @@ class Controller extends BaseController
 
         return array_map(function ($resource) {
             return $this->transform($resource);
-        }, $resources->toArray());
+        }, $resources);
 
     }
 

@@ -28,7 +28,7 @@ class TasksController extends Controller
 
         $tasks=Task::paginate('15');
 
-        return $this->generatePaginatedResponse($tasks);
+        return $this->generatePaginatedResponse($tasks, ["propietari" => "Manel Gavaldà"]);
     }
 
     /**
@@ -70,7 +70,7 @@ class TasksController extends Controller
 //
 //            ],404);
 //        }
-        $task = Task::find($id);
+        $task = Task::findOrFail($id);
         return $this->transform($task);
 /*
         if ($resource != null) {
@@ -100,7 +100,8 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Task::findOrFail($id);
+        Task::create([$request->all()]);
     }
 
     /**
@@ -111,7 +112,7 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Task::destroy($id);
     }
 
 
