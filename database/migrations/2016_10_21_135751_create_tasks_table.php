@@ -19,6 +19,7 @@ class CreateTasksTable extends Migration
             $table->boolean('done');
             $table->integer('priority');
             $table->timestamps();
+            //$table->dropTimestamps(); //necessari "doctrine/dbal": "~2.3"
         });
     }
 

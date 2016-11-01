@@ -35,8 +35,8 @@ class Controller extends BaseController
     {
         $paginationData = [
             'total' => $resources->total(),
-            'perPage' => $resources->perPage(),
-            'currentPage' => $resources->currentPage(),
+            'per_page' => $resources->perPage(),
+            'current_page' => $resources->currentPage(),
             'last_page' => $resources->lastPage(),
             'previous_page_url' => $resources->previousPageUrl(),
             'next_page_url' => $resources->nextPageUrl()
@@ -61,7 +61,9 @@ class Controller extends BaseController
         return [
             'name' => $resource['name'],
             'done' => (boolean)$resource['done'],
-            'priority' => (integer)$resource['priority']
+            'priority' => (integer)$resource['priority'],
+            'created_at' => $resource['created_at'],
+            'updated_at' => $resource['updated_at']
         ];
     }
 }
