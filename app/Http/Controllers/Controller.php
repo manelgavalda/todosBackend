@@ -57,13 +57,27 @@ class Controller extends BaseController
     //Crear test users a partir de tasks . abstracte per cada usuari per injeccio de dependencies $this->transform. transform es un objecte que he injectat.
     protected function transform($resource)
     {
-        //retornem un simple.
+        //dd($resource['created_at']);
+//
+        //$resource['created_at']->pull('timezone_type');
+//
+//        $collection = collect($resource['created_at']);
+//
+//        $timezone=$collection->pull('timezone');
+//
+//        $collection->put('timezone',$timezone);
+//
+//
+//        //$resource['created_at']=$collection;
+//
+        //dd($resource['created_at']);
+
         return [
             'name' => $resource['name'],
             'done' => (boolean)$resource['done'],
             'priority' => (integer)$resource['priority'],
-            'created_at' => $resource['created_at']->toDateTimeString(),
-            'updated_at' => $resource['updated_at']->toDateTimeString()
+            'created_at' => $resource['created_at']->toDateString(),
+            'updated_at' => $resource['updated_at']->toDateString()
         ];
     }
 }

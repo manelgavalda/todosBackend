@@ -85,6 +85,7 @@ class TasksApiTest extends TestCase
 
     //Ok
 
+
     public function testRetrieveAllTasks()
     {
         //Seed database
@@ -108,7 +109,7 @@ class TasksApiTest extends TestCase
 //                            'timezone_type',
 //                            'timezone',
 //                        ],
-                        'updated_at' //=> [
+                        'updated_at' // => [
 //                            'date',
 //                           'timezone_type',
 //                            'timezone',
@@ -136,8 +137,8 @@ class TasksApiTest extends TestCase
                 "name" => $task->name,
                 "done" => $task->done,
                 "priority" => $task->priority,
-                "created_at" => $task->created_at->toDateTimeString(),
-                "updated_at" => $task->updated_at->toDateTimeString(),
+                "created_at" => $task->created_at->toDateString(),
+                "updated_at" => $task->updated_at->toDateString(),
             ]);
 
     }

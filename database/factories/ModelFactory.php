@@ -31,4 +31,5 @@ $factory->define(App\Task::class, function (Faker\Generator $faker) {
         'done' => $faker->boolean(),
         'priority' => $faker->randomDigit,
     ];
+
 });
