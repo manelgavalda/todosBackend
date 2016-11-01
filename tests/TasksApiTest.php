@@ -103,16 +103,16 @@ class TasksApiTest extends TestCase
                         'name',
                         'done',
                         'priority',
-                        'created_at'=> [
-                            'date',
-                            'timezone_type',
-                            'timezone',
-                        ],
-                        'updated_at' => [
-                            'date',
-                            'timezone_type',
-                            'timezone',
-                        ]
+                        'created_at', //=> [
+//                            'date',
+//                            'timezone_type',
+//                            'timezone',
+//                        ],
+                        'updated_at' //=> [
+//                            'date',
+//                           'timezone_type',
+//                            'timezone',
+//                        ]
                     ]
                 ]
             ])
@@ -136,8 +136,8 @@ class TasksApiTest extends TestCase
                 "name" => $task->name,
                 "done" => $task->done,
                 "priority" => $task->priority,
-                "created_at" => $task->created_at,
-                "updated_at" => $task->updated_at,
+                "created_at" => $task->created_at->toDateTimeString(),
+                "updated_at" => $task->updated_at->toDateTimeString(),
             ]);
 
     }

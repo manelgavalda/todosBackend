@@ -62,8 +62,8 @@ class Controller extends BaseController
             'name' => $resource['name'],
             'done' => (boolean)$resource['done'],
             'priority' => (integer)$resource['priority'],
-            'created_at' => $resource['created_at'],
-            'updated_at' => $resource['updated_at']
+            'created_at' => $resource['created_at']->toDateTimeString(),
+            'updated_at' => $resource['updated_at']->toDateTimeString()
         ];
     }
 }
