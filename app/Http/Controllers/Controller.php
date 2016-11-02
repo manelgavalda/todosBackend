@@ -58,19 +58,17 @@ class Controller extends BaseController
     protected function transform($resource)
     {
         //dd($resource['created_at']);
-//
-        //$resource['created_at']->pull('timezone_type');
-//
+
+
 //        $collection = collect($resource['created_at']);
 //
 //        $timezone=$collection->pull('timezone');
 //
 //        $collection->put('timezone',$timezone);
-//
-//
 //        //$resource['created_at']=$collection;
-//
-        //dd($resource['created_at']);
+//        //dd($collection);
+//        dd($collection);
+//        dump($resource['created_at']);
 
         return [
             'name' => $resource['name'],
@@ -80,4 +78,19 @@ class Controller extends BaseController
             'updated_at' => $resource['updated_at']->toDateString()
         ];
     }
-}
+
+    /*
+    protected function carbonObjectToArray($array){
+        $collection = collect($array);
+
+        $timezone=$collection->pull('timezone');
+
+        $collection->put('timezone',$timezone);
+
+        //dd($collection);
+
+        return $collection;
+
+    }
+*/
+    }

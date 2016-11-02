@@ -57,8 +57,8 @@ class TasksApiTest extends TestCase
             "name" => $task->name,
             "done" => $task->done,
             "priority" => $task->priority,
-            "created_at" => $task->created_at,
-            "updated_at" => $task->updated_at
+ //           "created_at" => $task->created_at,
+ //           "updated_at" => $task->updated_at
         ];
     }
 
@@ -104,16 +104,16 @@ class TasksApiTest extends TestCase
                         'name',
                         'done',
                         'priority',
-                        'created_at', //=> [
+                        'created_at',// => [
 //                            'date',
 //                            'timezone_type',
 //                            'timezone',
 //                        ],
-                        'updated_at' // => [
+                        'updated_at'  //=> [
 //                            'date',
 //                           'timezone_type',
 //                            'timezone',
-//                        ]
+ //                       ]
                     ]
                 ]
             ])
@@ -129,6 +129,7 @@ class TasksApiTest extends TestCase
     {
         //Create task in database
         $task = $this->createAndPersistTask();
+
         $this->json('GET', $this->uri . $task->id)
             ->seeJsonStructure(
                 ["name", "done", "priority", "created_at", "updated_at"])
@@ -138,9 +139,23 @@ class TasksApiTest extends TestCase
                 "done" => $task->done,
                 "priority" => $task->priority,
                 "created_at" => $task->created_at->toDateString(),
-                "updated_at" => $task->updated_at->toDateString(),
+                "updated_at" => $task->updated_at->toDateString()
             ]);
+        //->dump($task->created_at);
 
+    }
+
+
+
+    public function testCreateNewTask()
+    {
+        $task = $this->createTask();
+        $this->json('POST', $this->uri, $atask = $this->convertTaskToArray($task))
+//            ->seeJson([
+//                'created' => true,
+//            ])
+            ->dump()
+            ->seeInDatabase('tasks',$atask);
     }
 
 

@@ -38,7 +38,6 @@ class TasksController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
