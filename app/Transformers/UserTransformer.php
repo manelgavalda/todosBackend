@@ -12,6 +12,7 @@ namespace App\Transformers;
 use App\Exceptions\IncorrectModelException;
 use App\Task;
 use App\Transformers\Contracts\Transformer;
+use App\User;
 
 //Usem el polimorfisme per evitar crear mètodes iguals.
 
@@ -20,7 +21,7 @@ class UserTransformer implements Transformer
 
 public function transform($resource)
 {
-    if(! $resource instanceof Task){
+    if(! $resource instanceof User){
         throw new IncorrectModelException;
     }
         return [

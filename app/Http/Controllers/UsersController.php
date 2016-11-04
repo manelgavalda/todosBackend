@@ -48,8 +48,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        User::create($request->all
-        ());
+        User::create([$request->all()]);
     }
 
     /**
@@ -61,8 +60,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        //T
-        $this->transformer->transform($user);
+        return $this->transformer->transform($user);
     }
 
     /**

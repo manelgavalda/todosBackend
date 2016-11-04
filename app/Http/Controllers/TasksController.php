@@ -56,8 +56,8 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        Task::create($request->all
-        ());
+        Task::create([$request->all
+        ()]);
     }
 
     /**
@@ -79,7 +79,7 @@ class TasksController extends Controller
 //        }
         $task = Task::findOrFail($id);
         //T
-        $this->transformer->transform($task);
+        return $this->transformer->transform($task);
 /*
         if ($resource != null) {
             return $resource;

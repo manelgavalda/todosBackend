@@ -38,7 +38,8 @@ class Controller extends BaseController
 
         $paginationData = $this->generatePaginationData($resources);
 
-        $data = ['data' => $this->transformCollection($resources->items())
+        $data = [
+            'data' => $this->transformCollection($resources->items())
     ];
         return Response::json(array_merge($metadata, $paginationData, $data), 200);
     }
