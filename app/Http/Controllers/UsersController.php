@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Transformers\UserTransformer;
 use App\User;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use Response;
 
 class UsersController extends Controller
@@ -39,7 +37,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -50,6 +48,8 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+        User::create($request->all
+        ());
     }
 
     /**
@@ -60,6 +60,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
+        $user = User::findOrFail($id);
+        //T
+        $this->transformer->transform($user);
     }
 
     /**
@@ -82,7 +85,8 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        User::findOrFail($id);
+        User::create([$request->all()]);
     }
 
     /**
@@ -93,6 +97,6 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
     }
 }
