@@ -53,7 +53,7 @@ class Handler extends ExceptionHandler
             ],404);
         }
 
-        /* Todo incorrectmodelexception response
+        /* Todo incorrectmodelexception response */
 
         if($exception instanceof IncorrectModelException) {
             return Response::json([
@@ -61,7 +61,6 @@ class Handler extends ExceptionHandler
                 "code" => 10
             ],404);
         }
-        */
         return parent::render($request, $exception);
     }
 

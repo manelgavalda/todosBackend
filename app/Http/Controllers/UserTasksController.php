@@ -31,12 +31,12 @@ class UserTasksController extends Controller
         $user = User::findOrFail($id);
 
         //mateix que abans pero nomes ab les tasques del usuari que ens han donat, i fer el mateix al show.
-        $user->tasks()->paginate(5);
+        $tasks=$user->tasks()->paginate(5);
         /*
         $tasks=Task::paginate('15');
-
+*/
         return $this->generatePaginatedResponse($tasks, ["propietari" => "Manel Gavaldà"]);
-        */
+
     }
 
     /**
