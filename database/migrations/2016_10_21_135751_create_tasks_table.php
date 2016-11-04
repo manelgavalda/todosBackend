@@ -15,6 +15,9 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
+            //positiu.
+            //->nullable() perque no sigui necessari indicar el camp.
+            $table->integer('user_id')->unsigned()->nullable();
             $table->string('name');
             $table->boolean('done');
             $table->integer('priority');
