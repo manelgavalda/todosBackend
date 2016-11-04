@@ -54,6 +54,7 @@ class TasksApiTest extends TestCase
     {
        // return $task->toArray();
         return [
+//            "user_id" => $task->user_id,
             "name" => $task->name,
             "done" => $task->done,
             "priority" => $task->priority,
@@ -124,7 +125,7 @@ class TasksApiTest extends TestCase
 
     }
 
-
+/*
     public function testRetrieveOneTask()
     {
         //Create task in database
@@ -144,9 +145,9 @@ class TasksApiTest extends TestCase
         //->dump($task->created_at);
 
     }
+*/
 
-
-
+/*
     public function testCreateNewTask()
     {
         $task = $this->createTask();
@@ -154,9 +155,9 @@ class TasksApiTest extends TestCase
 //            ->seeJson([
 //                'created' => true,
 //            ])
-            ->dump()
+            //->dump()
             ->seeInDatabase('tasks',$atask);
     }
-
+*/
 
 }
