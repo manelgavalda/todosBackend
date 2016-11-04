@@ -52,6 +52,16 @@ class Handler extends ExceptionHandler
                 "code" => 10
             ],404);
         }
+
+        /* Todo incorrectmodelexception response
+
+        if($exception instanceof IncorrectModelException) {
+            return Response::json([
+                "error" => "Hi ha hagut una excepció: " . $exception->getMessage(),
+                "code" => 10
+            ],404);
+        }
+        */
         return parent::render($request, $exception);
     }
 

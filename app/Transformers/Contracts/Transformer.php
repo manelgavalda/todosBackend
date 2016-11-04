@@ -9,9 +9,10 @@ namespace App\Transformers\Contracts;
  * Time: 15:44
  */
 
+//Amb la interfície podem pasar qualsevol tipus d'ojecte.
 //Representa la carcasa de la informació.
 interface Transformer
 {
-    public function transform();
+    public function transform($resource);
 
 }

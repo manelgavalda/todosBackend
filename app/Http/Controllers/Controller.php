@@ -65,35 +65,35 @@ class Controller extends BaseController
         //Collections: Laravel Collections
 
         return array_map(function ($resource) {
-            return $this->transform($resource);
+            return $this->transformer->transform($resource);
         }, $resources);
 
     }
 
     //Crear test users a partir de tasks . abstracte per cada usuari per injeccio de dependencies $this->transform. transform es un objecte que he injectat.
-    protected function transform($resource)
-    {
-        //dd($resource['created_at']);
-
-
-//        $collection = collect($resource['created_at']);
+//    protected function transform($resource)
+//    {
+//        //dd($resource['created_at']);
 //
-//        $timezone=$collection->pull('timezone');
 //
-//        $collection->put('timezone',$timezone);
-//        //$resource['created_at']=$collection;
-//        //dd($collection);
-//        dd($collection);
-//        dump($resource['created_at']);
-
-        return [
-            'name' => $resource['name'],
-            'done' => (boolean)$resource['done'],
-            'priority' => (integer)$resource['priority'],
-            'created_at' => $resource['created_at']->toDateString(),
-            'updated_at' => $resource['updated_at']->toDateString()
-        ];
-    }
+////        $collection = collect($resource['created_at']);
+////
+////        $timezone=$collection->pull('timezone');
+////
+////        $collection->put('timezone',$timezone);
+////        //$resource['created_at']=$collection;
+////        //dd($collection);
+////        dd($collection);
+////        dump($resource['created_at']);
+//
+//        return [
+//            'name' => $resource['name'],
+//            'done' => (boolean)$resource['done'],
+//            'priority' => (integer)$resource['priority'],
+//            'created_at' => $resource['created_at']->toDateString(),
+//            'updated_at' => $resource['updated_at']->toDateString()
+//        ];
+//    }
 
     /*
     protected function carbonObjectToArray($array){

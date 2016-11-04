@@ -3,14 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use App\Transformers\TaskTransformer;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Response;
 
-use App\Http\Requests;
-
 class TasksController extends Controller
 {
+    /**
+     * TasksController constructor.
+     */
+    public function __construct(TaskTransformer $transformer)
+    {
+        parent::__construct($transformer);
+    }
+
+
     /**
      * Display a listing of the resource.
      *
