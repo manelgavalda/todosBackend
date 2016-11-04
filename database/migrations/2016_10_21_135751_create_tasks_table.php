@@ -17,7 +17,7 @@ class CreateTasksTable extends Migration
             $table->increments('id');
             //positiu.
             //->nullable() perque no sigui necessari indicar el camp.
-            $table->integer('user_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned();
             $table->string('name');
             $table->boolean('done');
             $table->integer('priority');
