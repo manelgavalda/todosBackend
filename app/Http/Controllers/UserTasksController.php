@@ -70,17 +70,8 @@ class UserTasksController extends Controller
      */
     public function show($id_user,$id_task)
     {
-
-        $user = User::findOrFail($id_user);
-        //dump($user->name);
-        //task from user(now from task).
-        //$task = $user->tasks("$id_task");
-        dd($task->user->name);
-        //dd($user->task);
+        $task= User::findOrFail($id_user)->tasks[$id_task];
         return $this->transformer->transform($task);
-
-//        dump($task->name);
-
     }
 
             /**
