@@ -103,8 +103,8 @@ class UserTasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_user,$id_task)
     {
-        //
+        User::destroy($id_user)->tasks[$id_task];
     }
 }
