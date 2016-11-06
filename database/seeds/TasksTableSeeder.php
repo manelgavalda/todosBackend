@@ -15,6 +15,7 @@ class TasksTableSeeder extends Seeder
             $user->tasks()->saveMany(
                 factory(App\Task::class, 5)->create(["user_id" => $user->id])
             );
+            //dd($user);
         });
     }
 }

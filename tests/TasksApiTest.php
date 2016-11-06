@@ -89,6 +89,7 @@ class TasksApiTest extends TestCase
 
     public function testRetrieveAllTasks()
     {
+
         //Seed database
         $this->seedDatabaseWithTasks();
         $this->json('GET', $this->uri)

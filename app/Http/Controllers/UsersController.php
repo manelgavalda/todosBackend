@@ -27,7 +27,7 @@ class UsersController extends Controller
     {
         $users = User::paginate('15');
 
-        return $this->generatePaginatedResponse($users,["propitari" => "Manel Gavaldà"]);
+        return $this->generatePaginatedResponse($users,["propietari" => "Manel Gavaldà"]);
     }
 
     /**

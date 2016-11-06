@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Task;
 use App\Transformers\TaskTransformer;
 use App\User;
 use Illuminate\Http\Request;
@@ -57,7 +58,10 @@ class UserTasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->tasks()->create([$request->all
+        ()]);
     }
 
     /**
@@ -68,15 +72,21 @@ class UserTasksController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $user = User::findOrFail($id);
+        $task = $user->tasks()->paginate(5);
+        return $this->transformer->transform($task);
+
+//        dump($task->name);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+            /**
+             * Show the form for editing the specified resource.
+             *
+             * @param  int  $id
+             * @return \Illuminate\Http\Response
+             */
     public function edit($id)
     {
         //

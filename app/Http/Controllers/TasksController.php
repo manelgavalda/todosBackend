@@ -24,7 +24,7 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
 //        $tasks = Task::all();
 //        return Response::json([
