@@ -78,7 +78,8 @@ class TasksController extends Controller
 //            ],404);
 //        }
         $task = Task::findOrFail($id);
-        //T
+
+        //dd($task);
         return $this->transformer->transform($task);
 /*
         if ($resource != null) {

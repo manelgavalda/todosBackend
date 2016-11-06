@@ -28,14 +28,12 @@ class UserTasksController extends Controller
     public function index($id)
     {
 
-        //dd($id);
         $user = User::findOrFail($id);
+        $tasks=$user->tasks()->paginate(5);
 
         //mateix que abans pero nomes ab les tasques del usuari que ens han donat, i fer el mateix al show.
-        $tasks=$user->tasks()->paginate(5);
-        /*
-        $tasks=Task::paginate('15');
-*/
+
+
         return $this->generatePaginatedResponse($tasks, ["propietari" => "Manel Gavaldà"]);
 
     }
@@ -70,11 +68,15 @@ class UserTasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_user,$id_task)
     {
 
-        $user = User::findOrFail($id);
-        $task = $user->tasks()->paginate(5);
+        $user = User::findOrFail($id_user);
+        //dump($user->name);
+        //task from user(now from task).
+        //$task = $user->tasks("$id_task");
+        dd($task->user->name);
+        //dd($user->task);
         return $this->transformer->transform($task);
 
 //        dump($task->name);
