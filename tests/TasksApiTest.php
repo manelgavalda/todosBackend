@@ -31,7 +31,9 @@ class TasksApiTest extends TestCase
 
     protected function seedDatabaseWithTasks($numberOfTasks = self::DEFAULT_NUMBER_OF_TASKS)
     {
-        return factory(App\Task::class,$numberOfTasks)->create();
+
+        factory(App\Task::class, $numberOfTasks)->create(["user_id" => 1]);
+
     }
 
     /**
@@ -50,11 +52,12 @@ class TasksApiTest extends TestCase
      * @param $task
      * @return array
      */
+
     protected function convertTaskToArray(Model $task)
     {
        // return $task->toArray();
         return [
-//            "user_id" => $task->user_id,
+            "user_id" => 1,
             "name" => $task->name,
             "done" => $task->done,
             "priority" => $task->priority,
@@ -70,7 +73,7 @@ class TasksApiTest extends TestCase
      */
     protected function createAndPersistTask()
     {
-        return factory(App\Task::class)->create();
+        return factory(App\Task::class)->create(["user_id" => 1]);
     }
 
     //TODO ADD TEST FOR AUTHENTICATION AND REFACTOR EXISTING TESTS
@@ -126,7 +129,7 @@ class TasksApiTest extends TestCase
 
     }
 
-/*
+
     public function testRetrieveOneTask()
     {
         //Create task in database
@@ -143,22 +146,19 @@ class TasksApiTest extends TestCase
                 "created_at" => $task->created_at->toDateString(),
                 "updated_at" => $task->updated_at->toDateString()
             ]);
-        //->dump($task->created_at);
-
     }
-*/
 
-/*
+
+
     public function testCreateNewTask()
     {
-        $task = $this->createTask();
+        $task = $this->createAndPersistTask();
         $this->json('POST', $this->uri, $atask = $this->convertTaskToArray($task))
-//            ->seeJson([
-//                'created' => true,
-//            ])
-            //->dump()
+            ->seeJson([
+                'created' => true,
+            ])
             ->seeInDatabase('tasks',$atask);
     }
-*/
+
 
 }
