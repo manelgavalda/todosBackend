@@ -105,6 +105,8 @@ class UserTasksController extends Controller
      */
     public function destroy($id_user,$id_task)
     {
-        User::destroy($id_user)->tasks[$id_task];
+        //$task = User::findOrFail($id_user)->tasks[$id_task];
+        //dd($task);
+        //Task::destroy($task);
     }
 }
