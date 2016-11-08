@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use App\Transformers\TaskTransformer;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Response;
 
@@ -18,7 +17,6 @@ class TasksController extends Controller
         parent::__construct($transformer);
     }
 
-
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +24,7 @@ class TasksController extends Controller
      */
     public function index()
     {
-//        $tasks = Task::all();
+        //        $tasks = Task::all();
 //        return Response::json([
 //            'data' => $tasks->toArray()
 //        ],200);
@@ -34,9 +32,9 @@ class TasksController extends Controller
         //return Task::paginate(Request::input(per_page));
     //dd($this->transformCollection(Task::all()));
 
-        $tasks=Task::paginate('15');
+        $tasks = Task::paginate('15');
 
-        return $this->generatePaginatedResponse($tasks, ["propietari" => "Manel Gavaldà"]);
+        return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
     }
 
     /**
@@ -51,24 +49,25 @@ class TasksController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        Task::create([$request->all
-        ()]);
+        Task::create([$request->all(), ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-//        try {
+        //        try {
 //            return Task::findOrFail($id);
 //        } catch (\Exception $e ){
 //            return Response::json([
@@ -78,6 +77,7 @@ class TasksController extends Controller
 //            ],404);
 //        }
         $task = Task::findOrFail($id);
+
         return $this->transformer->transform($task);
 /*
         if ($resource != null) {
@@ -90,7 +90,8 @@ class TasksController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -101,8 +102,9 @@ class TasksController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -114,13 +116,12 @@ class TasksController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         Task::destroy($id);
     }
-
-
 }
