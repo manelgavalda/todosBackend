@@ -6,7 +6,7 @@ namespace App\Transformers\Contracts;
  * Created by PhpStorm.
  * User: manel
  * Date: 4/11/16
- * Time: 15:44
+ * Time: 15:44.
  */
 
 //Amb la interfície podem pasar qualsevol tipus d'ojecte.
@@ -14,5 +14,4 @@ namespace App\Transformers\Contracts;
 interface Transformer
 {
     public function transform($resource);
-
 }
