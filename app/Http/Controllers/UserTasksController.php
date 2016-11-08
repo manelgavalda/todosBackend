@@ -7,7 +7,6 @@ use App\Transformers\TaskTransformer;
 use App\User;
 use Illuminate\Http\Request;
 
-
 class UserTasksController extends Controller
 {
     public function __construct(TaskTransformer $transformer)
@@ -52,7 +51,7 @@ class UserTasksController extends Controller
     {
         $user = User::findOrFail($id);
 
-        $user->tasks()->create([$request->all(), ]);
+        $user->tasks()->create([$request->all()]);
     }
 
     /**
