@@ -7,9 +7,6 @@ use App\Transformers\TaskTransformer;
 use App\User;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use Illuminate\Routing\Controller as BaseController;
-
 
 class UserTasksController extends Controller
 {
@@ -18,8 +15,6 @@ class UserTasksController extends Controller
         parent::__construct($transformer);
     }
 
-
-
     /**
      * Display a listing of the resource.
      *
@@ -27,15 +22,13 @@ class UserTasksController extends Controller
      */
     public function index($id)
     {
-
         $user = User::findOrFail($id);
-        $tasks=$user->tasks()->paginate(5);
+        $tasks = $user->tasks()->paginate(5);
 
         //mateix que abans pero nomes ab les tasques del usuari que ens han donat, i fer el mateix al show.
 
 
-        return $this->generatePaginatedResponse($tasks, ["propietari" => "Manel Gavaldà"]);
-
+        return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
     }
 
     /**
@@ -51,35 +44,38 @@ class UserTasksController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $user = User::findOrFail($id);
 
-        $user->tasks()->create([$request->all
-        ()]);
+        $user->tasks()->create([$request->all(), ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function show($id_user,$id_task)
+    public function show($id_user, $id_task)
     {
-            $task = User::findOrFail($id_user)->tasks[$id_task];
-            return $this->transformer->transform($task);
+        $task = User::findOrFail($id_user)->tasks[$id_task];
+
+        return $this->transformer->transform($task);
     }
 
-            /**
-             * Show the form for editing the specified resource.
-             *
-             * @param  int  $id
-             * @return \Illuminate\Http\Response
-             */
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
         //
@@ -88,8 +84,9 @@ class UserTasksController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -100,10 +97,11 @@ class UserTasksController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_user,$id_task)
+    public function destroy($id_user, $id_task)
     {
         //$task = User::findOrFail($id_user)->tasks[$id_task];
         //dd($task);

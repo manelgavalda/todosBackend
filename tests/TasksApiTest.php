@@ -2,13 +2,10 @@
 
 use App\Task;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class TasksApiTest extends TestCase
 {
-
     use DatabaseMigrations;
 
     /**
@@ -19,7 +16,7 @@ class TasksApiTest extends TestCase
     protected $uri = '/api/v1/task/';
 
     /**
-     * Default number of tasks created in database
+     * Default number of tasks created in database.
      */
     const DEFAULT_NUMBER_OF_TASKS = 8;
 
@@ -28,12 +25,9 @@ class TasksApiTest extends TestCase
      *
      * @param int $numberOfTasks to create
      */
-
     protected function seedDatabaseWithTasks($numberOfTasks = self::DEFAULT_NUMBER_OF_TASKS)
     {
-
-        factory(App\Task::class, $numberOfTasks)->create(["user_id" => 1]);
-
+        factory(App\Task::class, $numberOfTasks)->create(['user_id' => 1]);
     }
 
     /**
@@ -50,17 +44,17 @@ class TasksApiTest extends TestCase
      * Convert task to array.
      *
      * @param $task
+     *
      * @return array
      */
-
     protected function convertTaskToArray(Model $task)
     {
-       // return $task->toArray();
+        // return $task->toArray();
         return [
-            "user_id" => 1,
-            "name" => $task->name,
-            "done" => $task->done,
-            "priority" => $task->priority,
+            'user_id'  => 1,
+            'name'     => $task->name,
+            'done'     => $task->done,
+            'priority' => $task->priority,
  //           "created_at" => $task->created_at,
  //           "updated_at" => $task->updated_at
         ];
@@ -73,7 +67,7 @@ class TasksApiTest extends TestCase
      */
     protected function createAndPersistTask()
     {
-        return factory(App\Task::class)->create(["user_id" => 1]);
+        return factory(App\Task::class)->create(['user_id' => 1]);
     }
 
     //TODO ADD TEST FOR AUTHENTICATION AND REFACTOR EXISTING TESTS
@@ -84,11 +78,11 @@ class TasksApiTest extends TestCase
      * Test Retrieve all tasks.
      *
      * @group failing
+     *
      * @return void
      */
 
     //Ok
-
 
     public function testRetrieveAllTasks()
     {
@@ -109,46 +103,42 @@ class TasksApiTest extends TestCase
                         'name',
                         'done',
                         'priority',
-                        'created_at',// => [
+                        'created_at', // => [
 //                            'date',
 //                            'timezone_type',
 //                            'timezone',
 //                        ],
-                        'updated_at'  //=> [
+                        'updated_at',  //=> [
 //                            'date',
 //                           'timezone_type',
 //                            'timezone',
  //                       ]
-                    ]
-                ]
+                    ],
+                ],
             ])
             ->assertEquals(
                 self::DEFAULT_NUMBER_OF_TASKS,
                  count($this->decodeResponseJson())
             );
-
     }
-
 
     public function testRetrieveOneTask()
     {
         //Create task in database
         $task = $this->createAndPersistTask();
 
-        $this->json('GET', $this->uri . $task->id)
+        $this->json('GET', $this->uri.$task->id)
             ->seeJsonStructure(
-                ["name", "done", "priority", "created_at", "updated_at"])
+                ['name', 'done', 'priority', 'created_at', 'updated_at'])
 //TODO  Needs Transformers to work: convert string to booelan and string to integer
             ->seeJsonContains([
-                "name" => $task->name,
-                "done" => $task->done,
-                "priority" => $task->priority,
-                "created_at" => $task->created_at->toDateString(),
-                "updated_at" => $task->updated_at->toDateString()
+                'name'       => $task->name,
+                'done'       => $task->done,
+                'priority'   => $task->priority,
+                'created_at' => $task->created_at->toDateString(),
+                'updated_at' => $task->updated_at->toDateString(),
             ]);
     }
-
-
 
     public function testCreateNewTask()
     {
@@ -157,8 +147,6 @@ class TasksApiTest extends TestCase
             ->seeJson([
                 'created' => true,
             ])
-            ->seeInDatabase('tasks',$atask);
+            ->seeInDatabase('tasks', $atask);
     }
-
-
 }
