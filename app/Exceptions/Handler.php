@@ -28,7 +28,8 @@ class Handler extends ExceptionHandler
      *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
-     * @param  \Exception  $exception
+     * @param \Exception $exception
+     *
      * @return void
      */
     public function report(Exception $exception)
@@ -39,44 +40,45 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
+     * @param \Illuminate\Http\Request $request
+     * @param \Exception               $exception
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function render($request, Exception $exception)
     {
-
-        if($exception instanceof ModelNotFoundException) {
+        if ($exception instanceof ModelNotFoundException) {
             return Response::json([
-                "error" => "Hi ha hagut una excepció: " . $exception->getMessage(),
-                "code" => 10
-            ],404);
+                'error' => 'Hi ha hagut una excepció: '.$exception->getMessage(),
+                'code'  => 10,
+            ], 404);
         }
 
 
-        if($exception instanceof IncorrectModelException) {
+        if ($exception instanceof IncorrectModelException) {
             return Response::json([
-                "error" => "Hi ha hagut una excepció: " . $exception->getMessage(),
-                "code" => 10
-            ],404);
+                'error' => 'Hi ha hagut una excepció: '.$exception->getMessage(),
+                'code'  => 10,
+            ], 404);
         }
 
-        if($exception instanceof \ErrorException){
+        if ($exception instanceof \ErrorException) {
             return Response::json([
-                "error" => "Hi ha hagut una excepció: " . $exception->getMessage(),
-                "code" => 10
-            ],404);
+                'error' => 'Hi ha hagut una excepció: '.$exception->getMessage(),
+                'code'  => 10,
+            ], 404);
         }
 
         return parent::render($request, $exception);
     }
 
-
     /**
      * Convert an authentication exception into an unauthenticated response.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
+     *
      * @internal param AuthenticationException $exception
      */
     protected function unauthenticated($request)
