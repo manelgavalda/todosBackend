@@ -12,8 +12,10 @@ class TasksController extends Controller
     /**
      * TasksController constructor.
      */
-    public function __construct(TaskTransformer $transformer)
+    public function __construct(TaskTransformer $transformer) //pasar paginator (TaskTransformer $transformer,Paginator $paginator).
     {
+        //$this-> paginator= new Paginator($transformer)
+        //pasar el transformer al apginator
         parent::__construct($transformer);
     }
 

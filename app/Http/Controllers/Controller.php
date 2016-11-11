@@ -111,4 +111,6 @@ class Controller extends BaseController
 
     }
 */
+
+    // TODO: Traure mètodes d'aquest controlador i ficar-lo a una nova classe Paginator(necessitarà implementar el transformer).
 }
