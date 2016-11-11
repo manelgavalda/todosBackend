@@ -13,8 +13,11 @@ class TasksTableSeeder extends Seeder
     {
         factory(App\User::class, 20)->create()->each(function ($user) {
             $user->tasks()->saveMany(
-                factory(App\Task::class, 5)->create(['user_id' => $user->id])
-            );
+                factory(App\Task::class, 5)->create(['user_id' => $user->id]));
+//                return response()->json([
+//                    'created' => true
+//                ]);
+
         });
     }
 }

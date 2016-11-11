@@ -37,7 +37,13 @@ class TasksApiTest extends TestCase
      */
     protected function createTask()
     {
-        return factory(App\Task::class)->make();
+        return factory(App\Task::class)->make(
+            [
+            'user_id' => 1,
+     //       'updated_at' => $task->created_at,
+     //       'created-at' => $task->updated_at
+            ]
+    );
     }
 
     /**
@@ -51,12 +57,13 @@ class TasksApiTest extends TestCase
     {
         // return $task->toArray();
         return [
-            'user_id'  => 1,
-            'name'     => $task->name,
-            'done'     => $task->done,
-            'priority' => $task->priority,
- //           "created_at" => $task->created_at,
- //           "updated_at" => $task->updated_at
+            'id'         => $task->id,
+            'user_id'    => $task->user_id,
+            'name'       => $task->name,
+            'done'       => $task->done,
+            'priority'   => $task->priority,
+            'created_at' => $task->created_at->toDateString(),
+            'updated_at' => $task->updated_at->toDateString()
         ];
     }
 
@@ -142,13 +149,16 @@ class TasksApiTest extends TestCase
 
     public function testCreateNewTask()
     {
-        $task = $this->createAndPersistTask();
+        $task = $this->createTask();
+        //dd($this->convertTaskToArray($task));
         $this->json('POST', $this->uri, $atask = $this->convertTaskToArray($task))
+
             ->seeJson([
-                'created' => true,
+                'created' => 'true'
             ])
-            ->seeInDatabase('tasks', $atask)
-            ->dump("hola");
+
+            ->seeInDatabase('tasks', $atask);
     }
+
 
 }
