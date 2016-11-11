@@ -83,7 +83,7 @@ class TasksController extends Controller
 //
 //            ],404);
 //        }
-        $task = $this->repository->find($id);
+
 
         return $this->transformer->transform($task);
 /*
