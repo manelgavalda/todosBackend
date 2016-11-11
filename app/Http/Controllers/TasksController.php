@@ -74,17 +74,7 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-        //        try {
-//            return Task::findOrFail($id);
-//        } catch (\Exception $e ){
-//            return Response::json([
-//                "error" => "Hi ha hagut una excepció",
-//                "codi" => 10
-//
-//            ],404);
-//        }
-
-
+        $task = $this->repository->find($id);
         return $this->transformer->transform($task);
 /*
         if ($resource != null) {

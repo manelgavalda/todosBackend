@@ -125,6 +125,7 @@ class TasksApiTest extends TestCase
     public function testRetrieveOneTask()
     {
         //Create task in database
+
         $task = $this->createAndPersistTask();
 
         $this->json('GET', $this->uri.$task->id)
@@ -148,4 +149,5 @@ class TasksApiTest extends TestCase
             ])
             ->seeInDatabase('tasks', $atask);
     }
+
 }
