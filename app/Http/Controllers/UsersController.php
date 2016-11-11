@@ -17,7 +17,7 @@ class UsersController extends Controller
     public function __construct(UserTransformer $transformer, UserRepository $repository)
     {
         parent::__construct($transformer);
-        $this->repository=$repository;
+        $this->repository = $repository;
     }
 
     /**

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
 use App\Transformers\TaskTransformer;
 use App\User;
 use Illuminate\Http\Request;
@@ -100,7 +99,7 @@ class UserTasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id,$id_task)
+    public function destroy($id, $id_task)
     {
         dd($id_task);
     }
