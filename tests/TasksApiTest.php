@@ -147,7 +147,8 @@ class TasksApiTest extends TestCase
             ->seeJson([
                 'created' => true,
             ])
-            ->seeInDatabase('tasks', $atask);
+            ->seeInDatabase('tasks', $atask)
+            ->dump("hola");
     }
 
 }
