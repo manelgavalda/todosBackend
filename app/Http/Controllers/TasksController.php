@@ -21,7 +21,7 @@ class TasksController extends Controller
         //$this-> paginator= new Paginator($transformer)
         //pasar el transformer al apginator
         parent::__construct($transformer);
-        $this->repository =$repository;
+        $this->repository = $repository;
     }
 
     /**

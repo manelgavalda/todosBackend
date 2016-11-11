@@ -8,7 +8,7 @@ abstract class Transformer implements TransformerContract
 {
     public function transformCollection($resources)
     {
-        return array_map(function($resource){
+        return array_map(function ($resource) {
             return $this->transform($resource);
         }, $resources);
     }
