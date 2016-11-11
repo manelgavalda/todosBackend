@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\UserRepository;
 use App\Transformers\UserTransformer;
 use App\User;
 use Illuminate\Http\Request;
@@ -11,9 +12,12 @@ class UsersController extends Controller
     /**
      * UsersController constructor.
      */
-    public function __construct(UserTransformer $transformer)
+    protected $repository;
+
+    public function __construct(UserTransformer $transformer, UserRepository $repository)
     {
         parent::__construct($transformer);
+        $this->repository=$repository;
     }
 
     /**
@@ -58,7 +62,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
+        $user = $this->repository->find($id);
 
         return $this->transformer->transform($user);
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\TaskRepository;
 use App\Task;
 use App\Transformers\TaskTransformer;
 use Illuminate\Http\Request;
@@ -9,14 +10,18 @@ use Response;
 
 class TasksController extends Controller
 {
+    //Més avant ja veurem si el pujem al pare.
+    protected $repository;
+
     /**
      * TasksController constructor.
      */
-    public function __construct(TaskTransformer $transformer) //pasar paginator (TaskTransformer $transformer,Paginator $paginator).
+    public function __construct(TaskTransformer $transformer, TaskRepository $repository) //pasar paginator (TaskTransformer $transformer,Paginator $paginator).
     {
         //$this-> paginator= new Paginator($transformer)
         //pasar el transformer al apginator
         parent::__construct($transformer);
+        $this->repository =$repository;
     }
 
     /**
@@ -78,7 +83,7 @@ class TasksController extends Controller
 //
 //            ],404);
 //        }
-        $task = Task::findOrFail($id);
+        $task = $this->repository->find($id);
 
         return $this->transformer->transform($task);
 /*
