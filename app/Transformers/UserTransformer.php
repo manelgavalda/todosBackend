@@ -8,12 +8,11 @@
 namespace App\Transformers;
 
 use App\Exceptions\IncorrectModelException;
-use App\Transformers\Contracts\Transformer;
 use App\User;
 
 //Usem el polimorfisme per evitar crear mètodes iguals.
 
-class UserTransformer implements Transformer
+class UserTransformer extends Transformer
 {
     public function transform($resource)
     {
