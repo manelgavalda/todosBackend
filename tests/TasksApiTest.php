@@ -130,7 +130,6 @@ class TasksApiTest extends TestCase
         $this->json('GET', $this->uri.$task->id)
             ->seeJsonStructure(
                 ['name', 'done', 'priority', 'created_at', 'updated_at'])
-//TODO  Needs Transformers to work: convert string to booelan and string to integer
             ->seeJsonContains([
                 'name'       => $task->name,
                 'done'       => $task->done,
