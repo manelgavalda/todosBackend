@@ -63,6 +63,12 @@ class TasksController extends Controller
     public function store(Request $request)
     {
         Task::create([$request->all()]);
+
+        return response([
+            'error'   => false,
+            'created' => true,
+            'message' => 'Task created successfully',
+        ], 200);
     }
 
     /**

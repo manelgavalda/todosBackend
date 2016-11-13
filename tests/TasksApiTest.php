@@ -37,7 +37,11 @@ class TasksApiTest extends TestCase
      */
     protected function createTask()
     {
-        return factory(App\Task::class)->make();
+        return factory(App\Task::class)->make([
+            'user_id' => 1,
+                'created_at'=> 'pene2',
+                'updated_at' => 'pene3'
+        ]);
     }
 
     /**
@@ -142,7 +146,7 @@ class TasksApiTest extends TestCase
 
     public function testCreateNewTask()
     {
-        $task = $this->createAndPersistTask();
+        $task = $this->createTask();
         $this->json('POST', $this->uri, $atask = $this->convertTaskToArray($task))
             ->seeJson([
                 'created' => true,
