@@ -65,9 +65,7 @@ class TasksController extends Controller
         Task::create([$request->all()]);
 
         return response([
-            'error'   => false,
-            'created' => true,
-            'message' => 'Task created successfully',
+            'created' => true
         ], 200);
     }
 
