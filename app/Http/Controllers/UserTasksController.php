@@ -51,6 +51,10 @@ class UserTasksController extends Controller
         $user = User::findOrFail($id);
 
         $user->tasks()->create([$request->all()]);
+
+        return response([
+            'created' => true
+        ], 200);
     }
 
     /**
