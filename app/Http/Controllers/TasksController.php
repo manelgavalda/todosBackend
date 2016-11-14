@@ -21,7 +21,7 @@ class TasksController extends Controller
         //$this-> paginator= new Paginator($transformer)
         //pasar el transformer al apginator
         parent::__construct($transformer);
-        $this->repository =$repository;
+        $this->repository = $repository;
     }
 
     /**
@@ -63,6 +63,10 @@ class TasksController extends Controller
     public function store(Request $request)
     {
         Task::create([$request->all()]);
+
+        return response([
+            'created' => true
+        ], 200);
     }
 
     /**

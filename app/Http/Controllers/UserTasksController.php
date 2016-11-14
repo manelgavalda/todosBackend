@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
 use App\Transformers\TaskTransformer;
 use App\User;
 use Illuminate\Http\Request;
@@ -52,6 +51,10 @@ class UserTasksController extends Controller
         $user = User::findOrFail($id);
 
         $user->tasks()->create([$request->all()]);
+
+        return response([
+            'created' => true
+        ], 200);
     }
 
     /**
@@ -100,8 +103,10 @@ class UserTasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+    public function destroy($id_user, $id_task)
     {
-        Task::destroy($id);
+        //dd($id_task);
+        User::findOrFail($id_user)->tasks[$id_task]->delete();
     }
 }
