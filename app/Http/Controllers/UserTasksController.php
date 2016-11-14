@@ -46,7 +46,7 @@ class UserTasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $user = User::findOrFail($id);
 
@@ -99,7 +99,7 @@ class UserTasksController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param int $id_user, int $id_task
      *
      * @return \Illuminate\Http\Response
      */
