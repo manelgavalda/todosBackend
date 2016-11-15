@@ -8,13 +8,27 @@ use App\Transformers\TaskTransformer;
 use Illuminate\Http\Request;
 use Response;
 
+/**
+ * Class TasksController
+ *
+ * Descripció de la classe.(Opcional) Pots usar format HTMl per desprès al generar la documentació.
+ *
+ * @package App\Http\Controllers
+ */
 class TasksController extends Controller
 {
     //Més avant ja veurem si el pujem al pare.
+    /**
+     * Respository object
+     * @var TaskRepository
+     */
     protected $repository;
 
     /**
      * TasksController constructor.
+     *
+     * @param TaskTransformer $transformer
+     * @param TaskRepository $repository
      */
     public function __construct(TaskTransformer $transformer, TaskRepository $repository) //pasar paginator (TaskTransformer $transformer,Paginator $paginator).
     {

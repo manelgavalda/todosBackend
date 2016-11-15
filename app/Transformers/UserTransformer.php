@@ -12,8 +12,17 @@ use App\User;
 
 //Usem el polimorfisme per evitar crear mètodes iguals.
 
+/**
+ * Class UserTransformer
+ * @package App\Transformers
+ */
 class UserTransformer extends Transformer
 {
+    /**
+     * @param $resource
+     * @return array
+     * @throws IncorrectModelException
+     */
     public function transform($resource)
     {
         if (!$resource instanceof User) {

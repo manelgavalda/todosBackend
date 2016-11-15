@@ -6,8 +6,16 @@ use App\Transformers\TaskTransformer;
 use App\User;
 use Illuminate\Http\Request;
 
+/**
+ * Class UserTasksController
+ * @package App\Http\Controllers
+ */
 class UserTasksController extends Controller
 {
+    /**
+     * UserTasksController constructor.
+     * @param TaskTransformer $transformer
+     */
     public function __construct(TaskTransformer $transformer)
     {
         parent::__construct($transformer);

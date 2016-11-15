@@ -9,6 +9,10 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Response;
 
+/**
+ * Class Controller
+ * @package App\Http\Controllers
+ */
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -63,6 +67,10 @@ class Controller extends BaseController
         return $paginationData;
     }
 
+    /**
+     * @param $resources
+     * @return array
+     */
     protected function transformCollection($resources)
     {
         //Collections: Laravel Collections

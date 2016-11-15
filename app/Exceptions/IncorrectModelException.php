@@ -9,6 +9,10 @@ namespace App\Exceptions;
 
 use Exception;
 
+/**
+ * Class IncorrectModelException
+ * @package App\Exceptions
+ */
 class IncorrectModelException extends Exception
 {
 }
