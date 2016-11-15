@@ -48,9 +48,9 @@ class Controller extends BaseController
         return Response::json(array_merge($metadata, $paginationData, $data), 200);
     }
 
+
     /**
-     * @param $resource
-     *
+     * @param $resources
      * @return array
      */
     protected function generatePaginationData($resources)

@@ -8,25 +8,23 @@ use App\Transformers\TaskTransformer;
 use Illuminate\Http\Request;
 use Response;
 
+
 /**
  * Class TasksController
- *
- * Descripció de la classe.(Opcional) Pots usar format HTMl per desprès al generar la documentació.
- *
  * @package App\Http\Controllers
  */
 class TasksController extends Controller
 {
     //Més avant ja veurem si el pujem al pare.
+
     /**
-     * Respository object
      * @var TaskRepository
      */
     protected $repository;
 
+
     /**
      * TasksController constructor.
-     *
      * @param TaskTransformer $transformer
      * @param TaskRepository $repository
      */
@@ -38,10 +36,9 @@ class TasksController extends Controller
         $this->repository = $repository;
     }
 
+
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
@@ -58,21 +55,18 @@ class TasksController extends Controller
         return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
     }
 
+
     /**
-     * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
     }
 
+
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -83,12 +77,10 @@ class TasksController extends Controller
         ], 200);
     }
 
+
     /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return mixed
      */
     public function show($id)
     {
@@ -102,24 +94,19 @@ class TasksController extends Controller
         */
     }
 
+
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
+     * @param $id
      */
     public function edit($id)
     {
         //
     }
 
+
     /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function update(Request $request)
     {
@@ -129,12 +116,9 @@ class TasksController extends Controller
         ], 200);
     }
 
+
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
+     * @param $id
      */
     public function destroy($id)
     {

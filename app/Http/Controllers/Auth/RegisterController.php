@@ -36,19 +36,16 @@ class RegisterController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @return void
      */
     public function __construct()
     {
         $this->middleware('guest');
     }
 
+
     /**
-     * Get a validator for an incoming registration request.
-     *
      * @param array $data
-     *
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @return mixed
      */
     protected function validator(array $data)
     {

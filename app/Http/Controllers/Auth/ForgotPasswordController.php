@@ -24,10 +24,9 @@ class ForgotPasswordController extends Controller
 
     use SendsPasswordResetEmails;
 
+
     /**
-     * Create a new controller instance.
-     *
-     * @return void
+     * ForgotPasswordController constructor.
      */
     public function __construct()
     {
