@@ -16,5 +16,31 @@ require('./bootstrap');
 Vue.component('example', require('./components/Example.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        message: 'Hello vue!',
+        seen:false,
+        todos: [
+            {
+                name: 'Learn Javascript',
+                done: true,
+                priority: 4
+            },
+            {
+                name: 'Estudiar HPH',
+                done: false,
+                priority: 4
+            },
+            {
+                name: 'comprar pe',
+                done: true,
+                priority: 3
+            }
+        ]
+    },
+    methods: {
+        reverseMessage: function () {
+            this.message=this.message.split('').reverse().join('');
+        }
+    }
 });

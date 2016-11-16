@@ -13,6 +13,6 @@ require('laravel-elixir-vue-2');
  |
  */
 
-elixir(mix => {
-    mix.phpUnit();
+elixir((mix) => {
+    mix.webpack('app.js');
 });
