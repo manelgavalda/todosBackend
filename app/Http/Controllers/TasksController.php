@@ -42,6 +42,7 @@ class TasksController extends Controller
      */
     public function index()
     {
+         //provem alert
         //        $tasks = Task::all();
 //        return Response::json([
 //            'data' => $tasks->toArray()

@@ -43,5 +43,3 @@ const app = new Vue({
             this.fetchData()
         }
     });
-    //TODO: Afegir home i tasks al sidebar.
-});
