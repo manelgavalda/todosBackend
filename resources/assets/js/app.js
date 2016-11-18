@@ -55,4 +55,5 @@ const app = new Vue({
         console.log('app created');
         //this.fetchData();
     }
+    //TODO: Afegir home i tasks al sidebar.
 });
