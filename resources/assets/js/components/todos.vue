@@ -15,6 +15,33 @@
     export default {
         created() {
             console.log('Component todolist created.')
+            this.fetchData()
         }
     }
 </script>
+
+
+<!--data: {-->
+<!--message: 'Hello vue!',-->
+<!--seen:false,-->
+<!--todos: []-->
+<!--},-->
+<!--methods: {-->
+<!--reverseMessage: function () {-->
+<!--this.message=this.message.split('').reverse().join('');-->
+<!--},-->
+<!--fetchData: function() {-->
+<!--// GET /someUrl-->
+<!--this.$http.get('/api/v1/task').then((response) => {-->
+<!--this.todos = response.data.data;-->
+<!--}, (response) => {-->
+<!--// error callback-->
+<!--sweetAlert("Oops...", "Something went wrong!", "error");-->
+<!--console.log(response);-->
+<!--});-->
+<!--//Promises-->
+<!--}-->
+<!--},-->
+<!--created: function() {-->
+<!--console.log('Component created!');-->
+<!--}-->
