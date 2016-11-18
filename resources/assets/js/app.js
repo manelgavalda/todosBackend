@@ -20,40 +20,28 @@ const app = new Vue({
     data: {
         message: 'Hello vue!',
         seen:false,
-        todos: [
-            {
-                name: 'Learn Javascript',
-                done: true,
-                priority: 4
-            },
-            {
-                name: 'Estudiar HPH',
-                done: false,
-                priority: 4
-            },
-            {
-                name: 'comprar pe',
-                done: true,
-                priority: 3
-            }
-        ]
+        todos: []
     },
     methods: {
         reverseMessage: function () {
             this.message=this.message.split('').reverse().join('');
         },
-        // fetchData: function(){
-        //   //Axios: PEr fer peticions Javascript.
-        //     var req = new XMLHttpRequest();
-        //     req.open('GET', 'http://localhost:8001/api/v1/task', false);
-        //     req.send(null);
-        //     if (req.status == 200)
-        //         console.log(req.responseText);
-        // }
-    },
-    created: function () {
-        console.log('app created');
-        //this.fetchData();
-    }
+            fetchData: function() {
+                // GET /someUrl
+                this.$http.get('/api/v1/task').then((response) => {
+                    this.todos = response.data.data;
+            }, (response) => {
+                    // error callback
+                    sweetAlert("Oops...", "Something went wrong!", "error");
+                    console.log(response);
+                });
+                //Promises
+            }
+        },
+        created: function() {
+            console.log('Component created!');
+            this.fetchData()
+        }
+    });
     //TODO: Afegir home i tasks al sidebar.
 });
