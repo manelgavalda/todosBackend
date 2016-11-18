@@ -61,16 +61,14 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 11:
+/******/ ([
+/* 0 */
 /***/ function(module, exports) {
 
-eval("throw new Error(\"Module build failed: SyntaxError: Unexpected token (47:0)\\n    at Parser.pp$4.raise (/home/manel/Code/laravel/todosBackend/node_modules/buble/node_modules/acorn/dist/acorn.js:2221:15)\\n    at Parser.pp.unexpected (/home/manel/Code/laravel/todosBackend/node_modules/buble/node_modules/acorn/dist/acorn.js:603:10)\\n    at Parser.pp$3.parseExprAtom (/home/manel/Code/laravel/todosBackend/node_modules/buble/node_modules/acorn/dist/acorn.js:1822:12)\\n    at Parser.parseExprAtom (/home/manel/Code/laravel/todosBackend/node_modules/buble/dist/buble.umd.js:656:26)\\n    at Parser.pp$3.parseExprSubscripts (/home/manel/Code/laravel/todosBackend/node_modules/buble/node_modules/acorn/dist/acorn.js:1715:21)\\n    at Parser.pp$3.parseMaybeUnary (/home/manel/Code/laravel/todosBackend/node_modules/buble/node_modules/acorn/dist/acorn.js:1692:19)\\n    at Parser.pp$3.parseExprOps (/home/manel/Code/laravel/todosBackend/node_modules/buble/node_modules/acorn/dist/acorn.js:1637:21)\\n    at Parser.pp$3.parseMaybeConditional (/home/manel/Code/laravel/todosBackend/node_modules/buble/node_modules/acorn/dist/acorn.js:1620:21)\\n    at Parser.pp$3.parseMaybeAssign (/home/manel/Code/laravel/todosBackend/node_modules/buble/node_modules/acorn/dist/acorn.js:1597:21)\\n    at Parser.pp$3.parseExpression (/home/manel/Code/laravel/todosBackend/node_modules/buble/node_modules/acorn/dist/acorn.js:1573:21)\");//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTEuanMiLCJzb3VyY2VzIjpbXSwibWFwcGluZ3MiOiIiLCJzb3VyY2VSb290IjoiIn0=");
+eval("throw new Error(\"Module build failed: SyntaxError: Unexpected token (47:0)\\n    at Parser.pp$4.raise (/home/manel/Code/laravel/todosBackend/node_modules/acorn/dist/acorn.js:2221:15)\\n    at Parser.pp.unexpected (/home/manel/Code/laravel/todosBackend/node_modules/acorn/dist/acorn.js:603:10)\\n    at Parser.pp$3.parseExprAtom (/home/manel/Code/laravel/todosBackend/node_modules/acorn/dist/acorn.js:1822:12)\\n    at Parser.parseExprAtom (/home/manel/Code/laravel/todosBackend/node_modules/buble/dist/buble.umd.js:656:26)\\n    at Parser.pp$3.parseExprSubscripts (/home/manel/Code/laravel/todosBackend/node_modules/acorn/dist/acorn.js:1715:21)\\n    at Parser.pp$3.parseMaybeUnary (/home/manel/Code/laravel/todosBackend/node_modules/acorn/dist/acorn.js:1692:19)\\n    at Parser.pp$3.parseExprOps (/home/manel/Code/laravel/todosBackend/node_modules/acorn/dist/acorn.js:1637:21)\\n    at Parser.pp$3.parseMaybeConditional (/home/manel/Code/laravel/todosBackend/node_modules/acorn/dist/acorn.js:1620:21)\\n    at Parser.pp$3.parseMaybeAssign (/home/manel/Code/laravel/todosBackend/node_modules/acorn/dist/acorn.js:1597:21)\\n    at Parser.pp$3.parseExpression (/home/manel/Code/laravel/todosBackend/node_modules/acorn/dist/acorn.js:1573:21)\");//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMC5qcyIsInNvdXJjZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ==");
 
 /***/ }
-
-/******/ });
+/******/ ]);

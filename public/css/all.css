@@ -9534,15 +9534,15 @@ button.close {
   content: "\f3aa"; }
 
 /*!
- *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
+ *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot?v=4.6.3");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.6.3") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.6.3") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.6.3") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.6.3") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular") format("svg");
+  src: url("../fonts/fontawesome-webfont.eot?v=4.7.0");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -11356,6 +11356,7 @@ button.close {
   content: ""; }
 
 .fa-battery-4:before,
+.fa-battery:before,
 .fa-battery-full:before {
   content: ""; }
 
@@ -11701,6 +11702,143 @@ button.close {
 .fa-fa:before,
 .fa-font-awesome:before {
   content: ""; }
+
+.fa-handshake-o:before {
+  content: ""; }
+
+.fa-envelope-open:before {
+  content: ""; }
+
+.fa-envelope-open-o:before {
+  content: ""; }
+
+.fa-linode:before {
+  content: ""; }
+
+.fa-address-book:before {
+  content: ""; }
+
+.fa-address-book-o:before {
+  content: ""; }
+
+.fa-vcard:before,
+.fa-address-card:before {
+  content: ""; }
+
+.fa-vcard-o:before,
+.fa-address-card-o:before {
+  content: ""; }
+
+.fa-user-circle:before {
+  content: ""; }
+
+.fa-user-circle-o:before {
+  content: ""; }
+
+.fa-user-o:before {
+  content: ""; }
+
+.fa-id-badge:before {
+  content: ""; }
+
+.fa-drivers-license:before,
+.fa-id-card:before {
+  content: ""; }
+
+.fa-drivers-license-o:before,
+.fa-id-card-o:before {
+  content: ""; }
+
+.fa-quora:before {
+  content: ""; }
+
+.fa-free-code-camp:before {
+  content: ""; }
+
+.fa-telegram:before {
+  content: ""; }
+
+.fa-thermometer-4:before,
+.fa-thermometer:before,
+.fa-thermometer-full:before {
+  content: ""; }
+
+.fa-thermometer-3:before,
+.fa-thermometer-three-quarters:before {
+  content: ""; }
+
+.fa-thermometer-2:before,
+.fa-thermometer-half:before {
+  content: ""; }
+
+.fa-thermometer-1:before,
+.fa-thermometer-quarter:before {
+  content: ""; }
+
+.fa-thermometer-0:before,
+.fa-thermometer-empty:before {
+  content: ""; }
+
+.fa-shower:before {
+  content: ""; }
+
+.fa-bathtub:before,
+.fa-s15:before,
+.fa-bath:before {
+  content: ""; }
+
+.fa-podcast:before {
+  content: ""; }
+
+.fa-window-maximize:before {
+  content: ""; }
+
+.fa-window-minimize:before {
+  content: ""; }
+
+.fa-window-restore:before {
+  content: ""; }
+
+.fa-times-rectangle:before,
+.fa-window-close:before {
+  content: ""; }
+
+.fa-times-rectangle-o:before,
+.fa-window-close-o:before {
+  content: ""; }
+
+.fa-bandcamp:before {
+  content: ""; }
+
+.fa-grav:before {
+  content: ""; }
+
+.fa-etsy:before {
+  content: ""; }
+
+.fa-imdb:before {
+  content: ""; }
+
+.fa-ravelry:before {
+  content: ""; }
+
+.fa-eercast:before {
+  content: ""; }
+
+.fa-microchip:before {
+  content: ""; }
+
+.fa-snowflake-o:before {
+  content: ""; }
+
+.fa-superpowers:before {
+  content: ""; }
+
+.fa-wpexplorer:before {
+  content: ""; }
+
+.fa-meetup:before {
+  content: ""; }
 
 .sr-only {
   position: absolute;
@@ -13494,7 +13632,7 @@ button.close {
 }
 
 /*!
- *   AdminLTE v2.3.6
+ *   AdminLTE v2.3.8
  *   Author: Almsaeed Studio
  *	 Website: Almsaeed Studio <http://almsaeedstudio.com>
  *   License: Open source - MIT
@@ -14029,7 +14167,14 @@ a:focus {
   padding: 0;
   margin-right: 10px;
 }
-.sidebar-menu li.active > a > .fa-angle-left > a > .pull-right-container > .fa-angle-left {
+.sidebar-menu li > a > .fa-angle-left {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -8px;
+}
+.sidebar-menu li.active > a > .fa-angle-left,
+.sidebar-menu li.active > a > .pull-right-container > .fa-angle-left {
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
@@ -14757,7 +14902,8 @@ a:focus {
 .form-group.has-success label {
   color: #00a65a;
 }
-.form-group.has-success .form-control {
+.form-group.has-success .form-control,
+.form-group.has-success .input-group-addon {
   border-color: #00a65a;
   box-shadow: none;
 }
@@ -14767,7 +14913,8 @@ a:focus {
 .form-group.has-warning label {
   color: #f39c12;
 }
-.form-group.has-warning .form-control {
+.form-group.has-warning .form-control,
+.form-group.has-warning .input-group-addon {
   border-color: #f39c12;
   box-shadow: none;
 }
@@ -14777,7 +14924,8 @@ a:focus {
 .form-group.has-error label {
   color: #dd4b39;
 }
-.form-group.has-error .form-control {
+.form-group.has-error .form-control,
+.form-group.has-error .input-group-addon {
   border-color: #dd4b39;
   box-shadow: none;
 }
@@ -19042,7 +19190,7 @@ fieldset[disabled] .btn-yahoo.active {
   }
 }
 
-/*# sourceMappingURL=adminlte_less.css.map */
+/*# sourceMappingURL=adminlte-less.css.map */
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
