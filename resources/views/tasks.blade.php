@@ -7,7 +7,8 @@
 
 @section('main-content')
 	<div id="app">
-		<todos-list></todos-list>
+
+		<todos></todos>
 
 	</div>
 @endsection
