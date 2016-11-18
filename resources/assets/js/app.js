@@ -42,17 +42,17 @@ const app = new Vue({
         reverseMessage: function () {
             this.message=this.message.split('').reverse().join('');
         },
-        fetchData: function(){
-          //Axios: PEr fer peticions Javascript.
-            var req = new XMLHttpRequest();
-            req.open('GET', 'http://localhost:8001/api/v1/task', false);
-            req.send(null);
-            if (req.status == 200)
-                console.log(req.responseText);
-        }
+        // fetchData: function(){
+        //   //Axios: PEr fer peticions Javascript.
+        //     var req = new XMLHttpRequest();
+        //     req.open('GET', 'http://localhost:8001/api/v1/task', false);
+        //     req.send(null);
+        //     if (req.status == 200)
+        //         console.log(req.responseText);
+        // }
     },
     created: function () {
         console.log('app created');
-        this.fetchData();
+        //this.fetchData();
     }
 });
