@@ -17,7 +17,8 @@
             return {
                 message: 'Hola que tal',
                 seen: false,
-                todos: [],
+                todos: [
+                ],
             }
         },
         created() {

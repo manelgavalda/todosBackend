@@ -42,7 +42,6 @@ class TasksController extends Controller
      */
     public function index()
     {
-        //abort(500);
          //provem alert
         //        $tasks = Task::all();
 //        return Response::json([
