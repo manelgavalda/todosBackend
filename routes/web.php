@@ -5,6 +5,11 @@ Route::group(['middleware' => 'auth'], function () {
 
         return view('tasks');
     });
+
+    Route::get('/profile', function() {
+        return view('tokens');
+    });
+
 });
 
 Route::get('/', function () {
