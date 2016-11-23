@@ -19,6 +19,7 @@
                 <th>Progress</th>
                 <th style="width: 40px">Label</th>
             </tr>
+            <tbody>
             <tr v-for="todo in todos">
                 <td>#</td>
                 <td>{{todo.name}}</td>
@@ -29,6 +30,7 @@
                     </div>
                 <td><span class="badge bg-red">55%</span></td>
             </tr>
+            </tbody>
         </table>
     </div>
 
