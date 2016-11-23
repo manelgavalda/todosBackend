@@ -4,10 +4,35 @@
         <input type="text" v-model="message">
         <button v-on:click="reverseMessage">Reverse</button>
 
-        <ol>
-            <li v-for="todo in todos">{{todo.name}} | {{todo.priority}} | {{todo.done}}</li>
-        </ol>
+        <!--<ol>-->
+            <!--<li v-for="todo in todos">{{todo.name}} | {{todo.priority}} | {{todo.done}}</li>-->
+        <!--</ol>-->
+
+
+
+        <table class="table table-bordered">
+            <tr>
+                <th style="width: 10px">#</th>
+                <th>Task</th>
+                <th>Priority</th>
+                <th>Done</th>
+                <th>Progress</th>
+                <th style="width: 40px">Label</th>
+            </tr>
+            <tr v-for="todo in todos">
+                <td>#</td>
+                <td>{{todo.name}}</td>
+                <td>{{todo.priotity}}</td>
+                <td>{{todo.done}}</td>
+                    <div class="progress progress-xs">
+                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                    </div>
+                <td><span class="badge bg-red">55%</span></td>
+            </tr>
+        </table>
     </div>
+
+
 </template>
 <style>
 </style>
