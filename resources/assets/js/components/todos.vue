@@ -5,6 +5,7 @@
                 <h3 class="box-title">Tasques</h3>
             </div>
             <!-- /.box-header -->
+
             <div class="box-body">
                 <table class="table table-bordered">
                     <thead>
@@ -44,6 +45,18 @@
                     <li><a href="#">&raquo;</a></li>
                 </ul>
             </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default">Action</button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#" v-on:click="setVisibility('all')">All</a></li>
+                    <li><a href="#" @click="setVisibility('active')">Active</a></li>
+                    <li><a href="#" @click="setVisibility('completed')">Completed</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
@@ -56,37 +69,33 @@
                 message: 'Hola que tal',
                 seen: false,
                 todos: [
-                visibility: 'all' // 'active' 'completed'
                 ],
+
+                visibility: 'all'// 'active' 'completed'
             }
         },
         computed: {
             filteredTodos: function() {
-            var filters: [
+            var filters = {
                 all:function(todos){
-                return this.todos;
+                    return todos;
                 },
                 active:function(todos){
-                    return this.todos.filter(function(todo){
-                        return todo.done;
-                    });
-                },
-                completed:function(todos){
-                    return this.todos.filter(function(todo){
+                    return todos.filter(function(todo){
                         return !todo.done;
                     });
                 },
-            ];
+                completed:function(todos){
+                    return todos.filter(function(todo){
+                        return todo.done;
+                    });
+                }
+            }
             //Filters
             //return this.todos;
             //Active
-            return filters[this.visibility];
-                <!--return this.todos.filter(function(todo) {-->
-                    <!--return !todo.done;-->
-                <!--});-->
-                <!--return this.todos.filter(function(todo) {-->
-                    <!--return !todo.done;-->
-                <!--});-->
+            return filters[this.visibility](this.todos);
+
             }
         },
         created() {
@@ -94,6 +103,11 @@
             this.fetchData();
         },
         methods: {
+
+            setVisibility: function(visibility) {
+                console.log("Han fet click");
+                this.visibility=visibility;
+            },
             reverseMessage: function() {
                 this.message = this.message.split('').reverse().join('');
             },
