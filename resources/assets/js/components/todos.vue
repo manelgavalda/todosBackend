@@ -56,17 +56,37 @@
                 message: 'Hola que tal',
                 seen: false,
                 todos: [
+                visibility: 'all' // 'active' 'completed'
                 ],
             }
         },
         computed: {
             filteredTodos: function() {
+            var filters: [
+                all:function(todos){
+                return this.todos;
+                },
+                active:function(todos){
+                    return this.todos.filter(function(todo){
+                        return todo.done;
+                    });
+                },
+                completed:function(todos){
+                    return this.todos.filter(function(todo){
+                        return !todo.done;
+                    });
+                },
+            ];
             //Filters
             //return this.todos;
             //Active
-                return this.todos.filter(function(todo) {
-                    return !todo.done;
-                });
+            return filters[this.visibility];
+                <!--return this.todos.filter(function(todo) {-->
+                    <!--return !todo.done;-->
+                <!--});-->
+                <!--return this.todos.filter(function(todo) {-->
+                    <!--return !todo.done;-->
+                <!--});-->
             }
         },
         created() {
