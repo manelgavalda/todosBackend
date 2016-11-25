@@ -7,6 +7,18 @@
             <!-- /.box-header -->
 
             <div class="box-body">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default">{{visibility}}</button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" v-on:click="setVisibility('all')">All</a></li>
+                        <li><a href="#" @click="setVisibility('active')">Active</a></li>
+                        <li><a href="#" @click="setVisibility('completed')">Completed</a></li>
+                    </ul>
+                </div>
                 <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -43,18 +55,6 @@
                     <li><a href="#">2</a></li>
                     <li><a href="#">3</a></li>
                     <li><a href="#">&raquo;</a></li>
-                </ul>
-            </div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-default">Action</button>
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#" v-on:click="setVisibility('all')">All</a></li>
-                    <li><a href="#" @click="setVisibility('active')">Active</a></li>
-                    <li><a href="#" @click="setVisibility('completed')">Completed</a></li>
                 </ul>
             </div>
         </div>
