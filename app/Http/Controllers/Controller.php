@@ -10,8 +10,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Response;
 
 /**
- * Class Controller
- * @package App\Http\Controllers
+ * Class Controller.
  */
 class Controller extends BaseController
 {
@@ -48,9 +47,9 @@ class Controller extends BaseController
         return Response::json(array_merge($metadata, $paginationData, $data), 200);
     }
 
-
     /**
      * @param $resources
+     *
      * @return array
      */
     protected function generatePaginationData($resources)
@@ -69,6 +68,7 @@ class Controller extends BaseController
 
     /**
      * @param $resources
+     *
      * @return array
      */
     protected function transformCollection($resources)

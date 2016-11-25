@@ -8,8 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 
 /**
- * Class UsersController
- * @package App\Http\Controllers
+ * Class UsersController.
  */
 class UsersController extends Controller
 {
@@ -20,8 +19,9 @@ class UsersController extends Controller
 
     /**
      * UsersController constructor.
+     *
      * @param UserTransformer $transformer
-     * @param UserRepository $repository
+     * @param UserRepository  $repository
      */
     public function __construct(UserTransformer $transformer, UserRepository $repository)
     {
@@ -60,8 +60,9 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         User::create([$request->all()]);
+
         return response([
-            'created' => true
+            'created' => true,
         ], 200);
     }
 

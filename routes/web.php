@@ -2,14 +2,12 @@
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/tasks', function () {
-
         return view('tasks');
     });
 
-    Route::get('/profile', function() {
+    Route::get('/profile', function () {
         return view('tokens');
     });
-
 });
 
 Route::get('/', function () {
