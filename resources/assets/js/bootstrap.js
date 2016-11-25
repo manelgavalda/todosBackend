@@ -36,7 +36,8 @@ require('sweetalert');
  */
 
 //Vue.http.interceptors.push((request, next) => {
-//    request.headers['X-CSRF-TOKEN'] = Laravel.csrfToken;
+//request.headers['X-CSRF-TOKEN'] = Laravel.csrfToken;
+//-axios.defaults.headers.common['X-CSRF-TOKEN'] = Laravel.csrfToken;
 
 //    next();
 //});
