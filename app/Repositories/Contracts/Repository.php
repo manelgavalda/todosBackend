@@ -11,11 +11,12 @@ namespace App\Repositories\Contracts;
 interface Repository
 {
     //TODO: implementar l5-repository (si volem).
+
     /**
      * @param $id
      * @param array $columns
+     *
      * @return mixed
      */
-    public function find($id, $columns = array('*'));
-
+    public function find($id, $columns = ['*']);
 }
