@@ -18,7 +18,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(todo, index) in todos">
+                    <tr v-for="(todo, index) in filteredTodos">
                         <td>{{index}}</td>
                         <td>{{todo.name}}</td>
                         <td>{{todo.priority}}</td>
@@ -59,8 +59,15 @@
                 ],
             }
         },
-        computed(){
-
+        computed: {
+            filteredTodos: function() {
+            //Filters
+            //return this.todos;
+            //Active
+                return this.todos.filter(function(todo) {
+                    return !todo.done;
+                });
+            }
         },
         created() {
             console.log('Component todolist created.');
