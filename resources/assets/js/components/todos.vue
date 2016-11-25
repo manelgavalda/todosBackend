@@ -2,10 +2,27 @@
     <div>
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Tasques</h3>
+            <h3 class="box-title">Add task</h3>
             </div>
-            <!-- /.box-header -->
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form role="form" action="#">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="name" class="form-control" id="name" placeholder="Enter task Name"
+                        v-model="newTodo"
+                        @keyup.enter="addNewTodo"
+                           >
+                </div>
+            </div>
+            <!-- /.box-body -->
 
+            <!--<div class="box-footer">-->
+                <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+            <!--</div>-->
+        </form>
+    </div>
             <div class="box-body">
                 <div class="btn-group">
                     <button type="button" class="btn btn-default">{{visibility}}</button>
@@ -58,7 +75,6 @@
                 </ul>
             </div>
         </div>
-    </div>
 </template>
 <style>
 </style>
@@ -66,12 +82,12 @@
     export default {
         data() {
             return {
-                message: 'Hola que tal',
-                seen: false,
+                //message: 'Hola que tal',
+                //seen: false,
                 todos: [
                 ],
-
-                visibility: 'all'// 'active' 'completed'
+                visibility: 'all',// 'active' 'completed'
+                newTodo: ''
             }
         },
         computed: {
@@ -103,7 +119,19 @@
             this.fetchData();
         },
         methods: {
-
+            addNewTodo: function(newTodo) {
+                console.log(this.newTodo);
+                var value = this.newTodo && this.newTodo.trmim()
+                if(!value){
+                    return
+                }
+                this.todos.push({
+                name: value,
+                priority: 1,
+                done:false
+                }
+                );
+            },
             setVisibility: function(visibility) {
                 console.log("Han fet click");
                 this.visibility=visibility;
