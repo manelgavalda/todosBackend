@@ -8,18 +8,18 @@ use App\Task;
 //Usem el polimorfisme per evitar crear mètodes iguals.
 
 /**
- * Class TaskTransformer
- * @package App\Transformers
+ * Class TaskTransformer.
  */
 class TaskTransformer extends Transformer
 {
     /**
-     *
-     * Transform a task
+     * Transform a task.
      *
      * @param $resource
-     * @return array
+     *
      * @throws IncorrectModelException
+     *
+     * @return array
      */
     public function transform($resource)
     {

@@ -5,13 +5,13 @@ namespace App\Transformers;
 use App\Transformers\Contracts\Transformer as TransformerContract;
 
 /**
- * Class Transformer
- * @package App\Transformers
+ * Class Transformer.
  */
 abstract class Transformer implements TransformerContract
 {
     /**
      * @param $resources
+     *
      * @return array
      */
     public function transformCollection($resources)

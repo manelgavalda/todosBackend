@@ -8,10 +8,8 @@ use App\Transformers\TaskTransformer;
 use Illuminate\Http\Request;
 use Response;
 
-
 /**
- * Class TasksController
- * @package App\Http\Controllers
+ * Class TasksController.
  */
 class TasksController extends Controller
 {
@@ -22,11 +20,11 @@ class TasksController extends Controller
      */
     protected $repository;
 
-
     /**
      * TasksController constructor.
+     *
      * @param TaskTransformer $transformer
-     * @param TaskRepository $repository
+     * @param TaskRepository  $repository
      */
     public function __construct(TaskTransformer $transformer, TaskRepository $repository) //pasar paginator (TaskTransformer $transformer,Paginator $paginator).
     {
@@ -36,13 +34,12 @@ class TasksController extends Controller
         $this->repository = $repository;
     }
 
-
     /**
      * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-         //provem alert
+        //provem alert
         //        $tasks = Task::all();
 //        return Response::json([
 //            'data' => $tasks->toArray()
@@ -57,16 +54,13 @@ class TasksController extends Controller
     }
 
 
-    /**
-     *
-     */
     public function create()
     {
     }
 
-
     /**
      * @param Request $request
+     *
      * @return Response
      */
     public function store(Request $request)
@@ -74,18 +68,19 @@ class TasksController extends Controller
         Task::create([$request->all()]);
 
         return response([
-            'created' => true
+            'created' => true,
         ], 200);
     }
 
-
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function show($id)
     {
         $task = $this->repository->find($id);
+
         return $this->transformer->transform($task);
 /*
         if ($resource != null) {
@@ -95,7 +90,6 @@ class TasksController extends Controller
         */
     }
 
-
     /**
      * @param $id
      */
@@ -104,19 +98,19 @@ class TasksController extends Controller
         //
     }
 
-
     /**
      * @param Request $request
+     *
      * @return Response
      */
     public function update(Request $request)
     {
         Task::create([$request->all()]);
+
         return response([
             'created' => true,
         ], 200);
     }
-
 
     /**
      * @param $id

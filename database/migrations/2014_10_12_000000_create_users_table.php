@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Class CreateUsersTable
+ * Class CreateUsersTable.
  */
 class CreateUsersTable extends Migration
 {
@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             //
-            $table->string('api_token',60)->unique();
+            $table->string('api_token', 60)->unique();
             $table->rememberToken();
             //$table->dropTimestamps();
         });

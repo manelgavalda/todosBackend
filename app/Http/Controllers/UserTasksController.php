@@ -6,16 +6,14 @@ use App\Transformers\TaskTransformer;
 use App\User;
 use Illuminate\Http\Request;
 
-
 /**
- * Class UserTasksController
- * @package App\Http\Controllers
+ * Class UserTasksController.
  */
 class UserTasksController extends Controller
 {
-
     /**
      * UserTasksController constructor.
+     *
      * @param TaskTransformer $transformer
      */
     public function __construct(TaskTransformer $transformer)
@@ -23,9 +21,9 @@ class UserTasksController extends Controller
         parent::__construct($transformer);
     }
 
-
     /**
      * @param $id
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function index($id)
@@ -40,18 +38,15 @@ class UserTasksController extends Controller
     }
 
 
-    /**
-     *
-     */
     public function create()
     {
         //
     }
 
-
     /**
      * @param Request $request
      * @param $id
+     *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
     public function store(Request $request, $id)
@@ -61,14 +56,14 @@ class UserTasksController extends Controller
         $user->tasks()->create([$request->all()]);
 
         return response([
-            'created' => true
+            'created' => true,
         ], 200);
     }
-
 
     /**
      * @param $id_user
      * @param $id_task
+     *
      * @return mixed
      */
     public function show($id_user, $id_task)
@@ -77,7 +72,6 @@ class UserTasksController extends Controller
 
         return $this->transformer->transform($task);
     }
-
 
     /**
      * @param $id
@@ -95,7 +89,6 @@ class UserTasksController extends Controller
     {
         //
     }
-
 
     /**
      * @param $id_user

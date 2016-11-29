@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 
 /**
- * Class TasksTableSeeder
+ * Class TasksTableSeeder.
  */
 class TasksTableSeeder extends Seeder
 {
@@ -20,7 +20,6 @@ class TasksTableSeeder extends Seeder
 //                return response()->json([
 //                    'created' => true
 //                ]);
-
         });
     }
 }

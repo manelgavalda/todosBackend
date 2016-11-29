@@ -63,7 +63,7 @@ class TasksApiTest extends TestCase
             'done'       => $task->done,
             'priority'   => $task->priority,
             'created_at' => $task->created_at->toDateString(),
-            'updated_at' => $task->updated_at->toDateString()
+            'updated_at' => $task->updated_at->toDateString(),
         ];
     }
 
@@ -154,11 +154,9 @@ class TasksApiTest extends TestCase
         $this->json('POST', $this->uri, $atask = $this->convertTaskToArray($task))
 
             ->seeJson([
-                'created' => 'true'
+                'created' => 'true',
             ])
 
             ->seeInDatabase('tasks', $atask);
     }
-
-
 }
