@@ -1,0 +1,20 @@
+TAP version 13
+ok 1 - AcachaAdminLTELaravelTest::testLandingPage
+ok 2 - AcachaAdminLTELaravelTest::testLandingPageWithUserLogged
+ok 3 - AcachaAdminLTELaravelTest::testLoginPage
+ok 4 - AcachaAdminLTELaravelTest::testLogin
+ok 5 - AcachaAdminLTELaravelTest::testLoginRequiredFields
+ok 6 - AcachaAdminLTELaravelTest::testRegisterPage
+ok 7 - AcachaAdminLTELaravelTest::testPasswordResetPage
+ok 8 - AcachaAdminLTELaravelTest::testHomePageForUnauthenticatedUsers
+ok 9 - AcachaAdminLTELaravelTest::testHomePageForAuthenticatedUsers
+ok 10 - AcachaAdminLTELaravelTest::testLogout
+ok 11 - AcachaAdminLTELaravelTest::test404Page
+ok 12 - AcachaAdminLTELaravelTest::testNewUserRegistration
+ok 13 - AcachaAdminLTELaravelTest::testRequiredFieldsOnRegistrationPage
+ok 14 - AcachaAdminLTELaravelTest::testSendPasswordReset
+ok 15 - AcachaAdminLTELaravelTest::testSendPasswordResetUserNotExists
+ok 16 - TasksApiTest::testRetrieveAllTasks
+ok 17 - TasksApiTest::testRetrieveOneTask
+not ok 18 - Error: TasksApiTest::testCreateNewTask
+1..18
