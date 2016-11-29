@@ -77,6 +77,12 @@ class TasksApiTest extends TestCase
         return factory(App\Task::class)->create(['user_id' => 1]);
     }
 
+    protected function login()
+    {
+        $user = factory(App\User::class)->create();
+        $this->actingAs($user, 'api');
+    }
+
     //TODO ADD TEST FOR AUTHENTICATION AND REFACTOR EXISTING TESTS (ho farem al MP9), no fer-ho. i els de test validation igual.
     //NOT AUTHORIZED: $this->assertEquals(301, $response->status());
 
@@ -96,6 +102,7 @@ class TasksApiTest extends TestCase
 
         //Seed database
         $this->seedDatabaseWithTasks();
+        $this->login();
         $this->json('GET', $this->uri)
             ->seeJsonStructure([
                 'propietari',
