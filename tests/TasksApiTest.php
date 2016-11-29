@@ -84,6 +84,11 @@ class TasksApiTest extends TestCase
     }
 
     //TODO ADD TEST FOR AUTHENTICATION AND REFACTOR EXISTING TESTS (ho farem al MP9), no fer-ho. i els de test validation igual.
+    public function userNotAuthenticated() {
+        $response=$this->json('GET', $this->uri)->getResult();
+        $this->assertEquals(401, $response->status());
+        //TODO: Test message error.
+}
     //NOT AUTHORIZED: $this->assertEquals(301, $response->status());
 
 
