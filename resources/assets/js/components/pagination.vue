@@ -19,13 +19,6 @@
       type: Number,
       required: true
     },
-    // Total page
-    totalPages: Number,
-    // Items per page
-    itemsPerPage: Number,
-    // Total items
-    totalItems: Number,
-    // Visible Pages
     visiblePages: {
       type: Number,
       default: 5,
@@ -38,6 +31,15 @@
        }
     },
     computed: {
+     lastPage () {
+      if (this.totalPages) {
+        return this.totalPages
+      } else {
+        return this.totalItems % this.itemsPerPage === 0
+          ? this.totalItems / this.itemsPerPage
+          : Math.floor(this.totalItems / this.itemsPerPage) + 1
+      }
+    },
         paginationRange () {
           let start = this.currentPage - this.visiblePages / 2 <= 0
                         ? 1 : this.currentPage + this.visiblePages / 2 > this.lastPage
