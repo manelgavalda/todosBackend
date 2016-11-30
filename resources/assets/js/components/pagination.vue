@@ -13,6 +13,11 @@
 </style>
 <script>
     export default {
+    methods: {
+      lowerBound (num, limit) {
+        return num >= limit ? num : limit
+       }
+    },
     computed: {
         paginationRange () {
           let start = this.currentPage - this.visiblePages / 2 <= 0
