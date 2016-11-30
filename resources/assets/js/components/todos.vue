@@ -121,6 +121,8 @@ import Pagination from './pagination.vue'
             this.fetchData();
         },
         methods: {
+         pageChanged: function(pageNum) {
+        },
             addNewTodo: function() {
                 var value = this.newTodo && this.newTodo.trim()
                 if(!value){
