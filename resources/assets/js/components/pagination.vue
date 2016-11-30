@@ -13,6 +13,25 @@
 </style>
 <script>
     export default {
+      props: {
+    // Current Page
+    currentPage: {
+      type: Number,
+      required: true
+    },
+    // Total page
+    totalPages: Number,
+    // Items per page
+    itemsPerPage: Number,
+    // Total items
+    totalItems: Number,
+    // Visible Pages
+    visiblePages: {
+      type: Number,
+      default: 5,
+      coerce: (val) => parseInt(val)
+    }
+  },
     methods: {
       lowerBound (num, limit) {
         return num >= limit ? num : limit
