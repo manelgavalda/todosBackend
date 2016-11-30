@@ -121,18 +121,16 @@ import Pagination from './pagination.vue'
             this.fetchData();
         },
         methods: {
-            addNewTodo: function(newTodo) {
-                console.log(this.newTodo);
-                var value = this.newTodo && this.newTodo.trmim()
+            addNewTodo: function() {
+                var value = this.newTodo && this.newTodo.trim()
                 if(!value){
-                    return
+                    return;
                 }
                 this.todos.push({
-                name: value,
-                priority: 1,
-                done:false
-                }
-                );
+                    name: value,
+                    priority: 1,
+                    done:false
+                });
             },
             setVisibility: function(visibility) {
                 console.log("Han fet click");
