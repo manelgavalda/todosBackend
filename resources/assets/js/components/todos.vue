@@ -68,12 +68,16 @@
             <div class="box-footer clearfix">
                 <span class="pull-left">Showing {{ from }} to {{ to }} {{total }} entries </span>
             </div>
+        <Pagination></Pagination>
         </div>
 </template>
 <style>
 </style>
 <script>
+import Pagination from './pagination.vue'
+
     export default {
+    components : {Pagination},
         data() {
             return {
                 //message: 'Hola que tal',
