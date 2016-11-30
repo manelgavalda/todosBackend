@@ -68,7 +68,7 @@
             <div class="box-footer clearfix">
                 <span class="pull-left">Showing {{ from }} to {{ to }} {{total }} entries </span>
             </div>
-        <pagination :current-page="1"></pagination>
+        <pagination :current-page="1"></pagination><!--TODO api value-->
         </div>
 </template>
 <style>
