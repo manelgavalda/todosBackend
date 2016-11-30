@@ -49,7 +49,7 @@
                     </thead>
                     <tbody>
                     <tr v-for="(todo, index) in filteredTodos">
-                        <td>{{index}}</td>
+                        <td>{{index + from}}</td>
                         <td>{{todo.name}}</td>
                         <td>{{todo.priority}}</td>
                         <td>{{todo.done}}</td>
@@ -66,7 +66,7 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
-                <span class="pull-left">Showing {{ form }} to {{ to }} {{total }} entries </span>
+                <span class="pull-left">Showing {{ from }} to {{ to }} {{total }} entries </span>
 
                 <ul class="pagination pagination-sm no-margin pull-right">
                     <li><a href="#">&laquo;</a></li>
