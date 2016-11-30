@@ -140,8 +140,10 @@
                 this.message = this.message.split('').reverse().join('');
             },
             fetchData: function() {
-                // GET /someUrl
-                this.$http.get('/api/v1/task').then((response) => {
+                return this.fetchPage(1);
+            },
+            fetchPage: function(page) {
+            this.$http.get('/api/v1/task?page=' + page).then((response) => {
                     console.log(response);
                     this.todos = response.data.data;
                 }, (response) => {
