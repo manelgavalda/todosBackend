@@ -23,7 +23,12 @@
       type: Number,
       default: 5,
       coerce: (val) => parseInt(val)
-    }
+    },
+    totalPages: Number,
+        // Items per page
+    itemsPerPage: Number,
+    // Total items
+    totalItems: Number,
   },
     methods: {
       lowerBound (num, limit) {
