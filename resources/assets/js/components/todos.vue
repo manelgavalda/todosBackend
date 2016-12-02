@@ -50,7 +50,9 @@
                     <tbody>
                     <tr v-for="(todo, index) in filteredTodos">
                         <td>{{index + from}}</td>
-                        <td>{{todo.name}} <input v-model="todo.name"></td>
+                        <td><span v-if="editing" @dblclick="!editing">{{todo.name}}</span>
+                            <span v-else @key.enter="!editing"><input v-model="todo.name"></span>
+                        </td>
                         <td>{{todo.priority}}</td>
                         <td>{{todo.done}}</td>
                         <td>
@@ -86,6 +88,7 @@ import Pagination from './pagination.vue'
             return {
                 //message: 'Hola que tal',
                 //seen: false,
+                editing :false,
                 todos: [
                 ],
                 visibility: 'all',// 'active' 'completed'
