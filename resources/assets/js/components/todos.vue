@@ -12,7 +12,7 @@
                     <label for="name">Name</label>
                     <input type="name" class="form-control" id="name" placeholder="Enter task Name"
                         v-model="newTodo"
-                        @keyup.enter="addNewTodo"
+                        @keyup.enter="addTodo"
                            >
                 </div>
             </div>
@@ -138,17 +138,21 @@ import Pagination from './pagination.vue'
              this.page=pageNum;
              this.fetchPage(pageNum);
          },
-            addNewTodo: function() {
-                var value = this.newTodo && this.newTodo.trim()
-                if(!value){
-                    return;
-                }
-                this.todos.push({
-                    name: value,
-                    priority: 1,
-                    done:false,
-                });
-            },
+            addTodo: function() {
+            var value = this.newTodo && this.newTodo.trim();
+            if (!value) {
+                return;
+            }
+            var todo = {
+                name: value,
+                priority: 1,
+                done: false
+            };
+            this.todos.push(todo);
+            this.newTodo = '';
+            this.addTodoToApi(todo);
+            this.fetchPage(this.page);
+        },
             setVisibility: function(visibility) {
                 console.log("Han fet click");
                 this.visibility=visibility;
