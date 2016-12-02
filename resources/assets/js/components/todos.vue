@@ -138,7 +138,7 @@ import Pagination from './pagination.vue'
                 this.todos.push({
                     name: value,
                     priority: 1,
-                    done:false
+                    done:false,
                 });
             },
             setVisibility: function(visibility) {
@@ -151,6 +151,18 @@ import Pagination from './pagination.vue'
             fetchData: function() {
                 return this.fetchPage(1);
             },
+            addTodoToApi: function(todo) {
+            this.http.post('/api/v1/task', {
+                name: todo.name,
+                priority: todo.priority,
+                done: todo.done
+            }).then(response) => {
+            console.log(response);
+            }, (response) => {
+                    sweetAlert("Oops...", "Something went wrong!", "error");
+                    console.log(response);
+             });
+
             fetchPage: function(page) {
             this.$http.get('/api/v1/task?page=' + page).then((response) => {
                     console.log(response);
