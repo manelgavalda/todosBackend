@@ -93,7 +93,8 @@ import Pagination from './pagination.vue'
                 perPage: 0,
                 from: 0,
                 to: 0,
-                total: 0
+                total: 0,
+                page: 1
             }
         },
         computed: {
@@ -126,7 +127,9 @@ import Pagination from './pagination.vue'
         },
         methods: {
          pageChanged: function(pageNum) {
-        },
+             this.page=pageNum;
+             this.fetchPage(pageNum);
+         },
             addNewTodo: function() {
                 var value = this.newTodo && this.newTodo.trim()
                 if(!value){
