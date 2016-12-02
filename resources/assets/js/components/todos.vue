@@ -68,7 +68,11 @@
             <div class="box-footer clearfix">
                 <span class="pull-left">Showing {{ from }} to {{ to }} {{ total }} entries </span>
             </div>
-        <pagination :current-page="1" :items-per-Page="perPage" :total-items="total"></pagination><!--TODO api value-->
+        <pagination
+                :current-page="1"
+                :items-per-Page="perPage"
+                :total-items="total"
+                @page-changed="fetchPage"></pagination><!--TODO api value-->
         </div>
 </template>
 <style>
@@ -86,7 +90,7 @@ import Pagination from './pagination.vue'
                 ],
                 visibility: 'all',// 'active' 'completed'
                 newTodo: '',
-                perPage: 5,
+                perPage: 0,
                 from: 0,
                 to: 0,
                 total: 0

@@ -1,12 +1,10 @@
 <template>
     <ul class="pagination pagination-sm no-margin pull-right">
-        <li><a href="#">&laquo;</a></li>
-
-        <li v-for="n in paginationRange" :class="activePage(n)">
-
-        <li><a href="#" @click.prevent="pageChanged(n)">{{n}}}</a></li>
-
-        <li><a href="#">&raquo;</a></li>
+        <li><a href="#" @click.prevent="pageChanged(1)" aria-label="First"><span aria-hidden="true">&laquo;</span></a></li>
+        <li><a href="#" @click.prevent="pageChanged(page-1)" aria-label="Previous"><span aria-hidden="true">&lt</span></a></li>
+        <li><a href="#" @click.prevent="pageChanged(n)" :class=activePage(n)>{{n}}</a></li>
+        <li><a href="#" @click.prevent="pageChanged(page+1)" aria-label="Next"><span aria-hidden="true">&gt</span></a></li>
+        <li><a href="#" @click.prevent="pageChanged(lastPage)" aria-label="Last"><span aria-hidden="true">&raquo;</span></li>
     </ul>
 </template>
 <style>
@@ -37,6 +35,9 @@
        pageChanged (pageNum){
         this.$emit('page-changed', pageNum)
        },
+       activePage (pageNum) {
+        return this.currentPage
+       }
     },
     computed: {
      lastPage () {
@@ -59,6 +60,9 @@
           }
           return range
         }
-      }
+      },
+      created() {
+            this.page = this.currentPage;
+        }
     }
 </script>
