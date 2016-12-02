@@ -165,7 +165,7 @@ import Pagination from './pagination.vue'
                     sweetAlert("Oops...", "Something went wrong!", "error");
                     console.log(response);
              });
-
+},
             fetchPage: function(page) {
             this.$http.get('/api/v1/task?page=' + page).then((response) => {
                     console.log(response);
