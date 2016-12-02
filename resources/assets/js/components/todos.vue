@@ -50,7 +50,7 @@
                     <tbody>
                     <tr v-for="(todo, index) in filteredTodos">
                         <td>{{index + from}}</td>
-                        <td>{{todo.name}}</td>
+                        <td>{{todo.name}} <input v-model="todo.name"></td>
                         <td>{{todo.priority}}</td>
                         <td>{{todo.done}}</td>
                         <td>
