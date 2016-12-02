@@ -159,7 +159,7 @@ import Pagination from './pagination.vue'
                 name: todo.name,
                 priority: todo.priority,
                 done: todo.done
-            }).then(response) => {
+            }).then((response) => {
             console.log(response);
             }, (response) => {
                     sweetAlert("Oops...", "Something went wrong!", "error");
