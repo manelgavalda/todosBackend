@@ -33,10 +33,13 @@
         return num >= limit ? num : limit
        },
        pageChanged (pageNum){
-        this.$emit('page-changed', pageNum)
+           if (pageNum<=1) pageNum=1
+           if(pageNum>=this.lastPage) pageNum=this.lastPage
+           this.page =pageNum;
+           this.$emit('page-changed', pageNum)
        },
        activePage (pageNum) {
-        return this.currentPage
+        return this.currentPage === pageNum ? 'active : ''
        }
     },
     computed: {
