@@ -7,7 +7,6 @@ use App\Task;
 use App\Transformers\TaskTransformer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Response;
 
 /**
  * Class TasksController.
@@ -63,7 +62,7 @@ class TasksController extends Controller
     /**
      * @param Request $request
      *
-     * @return Response
+     * @return Request
      */
     public function store(Request $request)
     {
@@ -107,7 +106,7 @@ class TasksController extends Controller
     /**
      * @param Request $request
      *
-     * @return Response
+     * @return Request
      */
     public function update(Request $request)
     {
