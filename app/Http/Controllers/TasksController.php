@@ -6,6 +6,7 @@ use App\Repositories\TaskRepository;
 use App\Task;
 use App\Transformers\TaskTransformer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Response;
 
 /**
@@ -66,6 +67,10 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
+        if(!$request ->has('user_id'))
+        {
+            $request->merge(['user_id' => Auth::id()]);
+        }
         Task::create([$request->all()]);
 
         return response([
