@@ -68,7 +68,7 @@
             <div class="box-footer clearfix">
                 <span class="pull-left">Showing {{ from }} to {{ to }} {{ total }} entries </span>
             </div>
-        <pagination :current-page="1"></pagination><!--TODO api value-->
+        <pagination :current-page="1" :items-per-Page="perPage" :total-items="total"></pagination><!--TODO api value-->
         </div>
 </template>
 <style>
@@ -148,7 +148,7 @@ import Pagination from './pagination.vue'
             this.$http.get('/api/v1/task?page=' + page).then((response) => {
                     console.log(response);
                     this.todos = response.data.data;
-                    this.perPage = response.data.perPage;
+                    this.perPage = response.data.per_page;
                     this.to = response.data.to;
                     this.from = response.data.from;
                     this.total = response.data.total;

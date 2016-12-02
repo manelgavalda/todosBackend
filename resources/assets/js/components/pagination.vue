@@ -4,7 +4,7 @@
 
         <li v-for="n in paginationRange" :class="activePage(n)">
 
-        <li><a href="#">{{n}}}</a></li>
+        <li><a href="#" @click.prevent="pageChanged(n)">{{n}}}</a></li>
 
         <li><a href="#">&raquo;</a></li>
     </ul>
@@ -33,7 +33,10 @@
     methods: {
       lowerBound (num, limit) {
         return num >= limit ? num : limit
-       }
+       },
+       pageChanged (pageNum){
+        this.$emit('page-changed', pageNum)
+       },
     },
     computed: {
      lastPage () {
