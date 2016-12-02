@@ -23,19 +23,24 @@
             <!--</div>-->
         </form>
     </div>
-            <div class="box-body">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default">{{visibility}}</button>
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        <span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#" v-on:click="setVisibility('all')">All</a></li>
-                        <li><a href="#" @click="setVisibility('active')">Active</a></li>
-                        <li><a href="#" @click="setVisibility('completed')">Completed</a></li>
-                    </ul>
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Tasques</h3>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default">{{visibility}}</button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" @click="setVisibility('all')">All</a></li>
+                            <li><a href="#" @click="setVisibility('active')">Active</a></li>
+                            <li><a href="#" @click="setVisibility('completed')">Completed</a></li>
+                        </ul>
+                    </div>
                 </div>
+
+                <div class="box-body">
                 <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -49,12 +54,10 @@
                     </thead>
                     <tbody>
                     <tr v-for="(todo, index) in filteredTodos">
-                        <td>{{index + from}}</td>
-                        <td><span v-if="editing" @dblclick="!editing">{{todo.name}}</span>
-                            <span v-else @key.enter="!editing"><input v-model="todo.name"></span>
-                        </td>
-                        <td>{{todo.priority}}</td>
-                        <td>{{todo.done}}</td>
+                        <td>{{ index + from }}</td>
+                        <td>{{ todo.name }}</td>
+                        <td>{{ todo.priority }}</td>
+                        <td>{{ todo.done }}</td>
                         <td>
                             <div class="progress progress-xs">
                                 <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
@@ -69,12 +72,14 @@
             <!-- /.box-body -->
             <div class="box-footer clearfix">
                 <span class="pull-left">Showing {{ from }} to {{ to }} {{ total }} entries </span>
+
+                <pagination
+                    :current-page="page"
+                    :items-per-Page="perPage"
+                    :total-items="total"
+                    @page-changed="pageChanged"></pagination><!--TODO api value-->
+                </div>
             </div>
-        <pagination
-                :current-page="1"
-                :items-per-Page="perPage"
-                :total-items="total"
-                @page-changed="fetchPage"></pagination><!--TODO api value-->
         </div>
 </template>
 <style>
@@ -93,7 +98,7 @@ import Pagination from './pagination.vue'
                 ],
                 visibility: 'all',// 'active' 'completed'
                 newTodo: '',
-                perPage: 0,
+                perPage: 5,
                 from: 0,
                 to: 0,
                 total: 0,
