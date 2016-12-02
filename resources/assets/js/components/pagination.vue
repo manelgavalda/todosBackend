@@ -25,7 +25,7 @@
       coerce: (val) => parseInt(val)
     },
     totalPages: Number,
-        // Items per page
+    // Items per page
     itemsPerPage: Number,
     // Total items
     totalItems: Number,

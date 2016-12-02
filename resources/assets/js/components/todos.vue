@@ -66,7 +66,7 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
-                <span class="pull-left">Showing {{ from }} to {{ to }} {{total }} entries </span>
+                <span class="pull-left">Showing {{ from }} to {{ to }} {{ total }} entries </span>
             </div>
         <pagination :current-page="1"></pagination><!--TODO api value-->
         </div>
@@ -149,9 +149,9 @@ import Pagination from './pagination.vue'
                     console.log(response);
                     this.todos = response.data.data;
                     this.perPage = response.data.perPage;
-                    this.to = response.data.perPage;
-                    this.from = response.data.from;
                     this.to = response.data.to;
+                    this.from = response.data.from;
+                    this.total = response.data.total;
                 }, (response) => {
                     // error callback
                     sweetAlert("Oops...", "Something went wrong!", "error");
