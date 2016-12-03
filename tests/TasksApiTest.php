@@ -93,7 +93,6 @@ class TasksApiTest extends TestCase
 
     //NOT AUTHORIZED: $this->assertEquals(301, $response->status());
 
-
     /**
      * Test Retrieve all tasks.
      *

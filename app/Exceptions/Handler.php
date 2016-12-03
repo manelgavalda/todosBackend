@@ -57,7 +57,6 @@ class Handler extends ExceptionHandler
             ], 404);
         }
 
-
         if ($exception instanceof IncorrectModelException) {
             return Response::json([
                 'error' => 'Hi ha hagut una excepció: '.$exception->getMessage(),

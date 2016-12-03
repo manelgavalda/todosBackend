@@ -33,10 +33,8 @@ class UserTasksController extends Controller
 
         //mateix que abans pero nomes ab les tasques del usuari que ens han donat, i fer el mateix al show.
 
-
         return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
     }
-
 
     public function create()
     {
