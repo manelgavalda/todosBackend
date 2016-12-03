@@ -79,8 +79,8 @@
 <script>
 import Pagination from './pagination.vue'
 
-    export default {
-    components : {Pagination},
+export default {
+        components : {Pagination},
         data() {
             return {
                 //message: 'Hola que tal',
@@ -126,25 +126,25 @@ import Pagination from './pagination.vue'
             this.fetchData();
         },
         methods: {
-         pageChanged: function(pageNum) {
+            pageChanged: function(pageNum) {
              this.page=pageNum;
              this.fetchPage(pageNum);
-         },
+            },
             addTodo: function() {
-            var value = this.newTodo && this.newTodo.trim();
-            if (!value) {
-                return;
-            }
-            var todo = {
-                name: value,
-                priority: 1,
-                done: false
-            };
-            this.todos.push(todo);
-            this.newTodo = '';
-            this.addTodoToApi(todo);
-            this.fetchPage(this.page);
-        },
+                var value = this.newTodo && this.newTodo.trim();
+                if (!value) {
+                    return;
+                }
+                var todo = {
+                    name: value,
+                    priority: 1,
+                    done: false
+                };
+                this.todos.push(todo);
+                this.newTodo = '';
+                this.addTodoToApi(todo);
+                this.fetchPage(this.page);
+            },
             setVisibility: function(visibility) {
                 this.visibility=visibility;
             },
@@ -155,19 +155,20 @@ import Pagination from './pagination.vue'
                 return this.fetchPage(1);
             },
             addTodoToApi: function(todo) {
-            this.http.post('/api/v1/task', {
-                name: todo.name,
-                priority: todo.priority,
-                done: todo.done
-            }).then((response) => {
-            console.log(response);
-            }, (response) => {
+                this.http.post('/api/v1/task', {
+                    name: todo.name,
+                    priority: todo.priority,
+                    done: todo.done
+                }).then((response) => {
+                console.log(response);
+                }, (response) => {
                     sweetAlert("Oops...", "Something went wrong!", "error");
                     console.log(response);
-             });
+                });
+                this.fetchPage(this.page);
             },
             fetchPage: function(page) {
-            this.$http.get('/api/v1/task?page=' + page).then((response) => {
+                this.$http.get('/api/v1/task?page=' + page).then((response) => {
                     console.log(response);
                     this.todos = response.data.data;
                     this.perPage = response.data.per_page;
