@@ -18,7 +18,7 @@ class TasksApiTest extends TestCase
     /**
      * Default number of tasks created in database.
      */
-    const DEFAULT_NUMBER_OF_TASKS = 8;
+    const DEFAULT_NUMBER_OF_TASKS = 10;
 
     /**
      * Seed database with tasks.
@@ -163,7 +163,7 @@ class TasksApiTest extends TestCase
 
     public function testCreateNewTask()
     {
-        $task = $this->createAndPersistTask();
+        $task = $this->createTask();
         //dd($this->convertTaskToArray($task));
         $this->json('POST', $this->uri, $atask = $this->convertTaskToArray($task))
 
