@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Repositories\TaskRepository;
 use App\Task;
 use App\Transformers\TaskTransformer;
-use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Http\Request;
 
 /**
  * Class TasksController.
@@ -54,7 +54,6 @@ class TasksController extends Controller
         return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
     }
 
-
     public function create()
     {
     }
@@ -66,8 +65,7 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        if(!$request ->has('user_id'))
-        {
+        if (!$request->has('user_id')) {
             $request->merge(['user_id' => Auth::id()]);
         }
         Task::create([$request->all()]);
