@@ -163,6 +163,8 @@ class TasksApiTest extends TestCase
     public function testCreateNewTask()
     {
         $task = $this->createTask();
+        //login necessari
+        $this->login();
         //dd($this->convertTaskToArray($task));
         $this->json('POST', $this->uri, $atask = $this->convertTaskToArray($task))
 

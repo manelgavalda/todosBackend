@@ -138,12 +138,12 @@ export default {
                 var todo = {
                     name: value,
                     priority: 1,
-                    done: false
+                    done: false,
+                    user_id: 1 //necessaria.
                 };
                 this.todos.push(todo);
-                this.newTodo = '';
                 this.addTodoToApi(todo);
-                this.fetchPage(this.page);
+                this.newTodo = '';
             },
             setVisibility: function(visibility) {
                 this.visibility=visibility;
