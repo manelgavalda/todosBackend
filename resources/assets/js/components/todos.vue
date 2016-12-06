@@ -48,7 +48,11 @@
             <tbody>
             <tr v-for="(todo, index) in filteredTodos">
                 <td>{{ index + from }}</td>
-                <td>{{ todo.name }}</td>
+                <td>
+                    <span v-if="editing==false" v-on:click="editTodo">{{todo.name}}</span>
+                    <span v-else @keyup.enter="editTodo">
+                    <input v-model="todo.name" size="62"></span>
+                </td>
                 <td>{{ todo.priority }}</td>
                 <td>{{ todo.done }}</td>
                 <td>
@@ -180,7 +184,16 @@ export default {
                     sweetAlert("Oops...", "Something went wrong!", "error");
                     console.log(response);
                 });
-            }
+            },
+            //editTodo.
+                editTodo: function() {
+                if (this.editing == true) {
+                    return this.editing = false;
+                }
+                return this.editing = true;
+            },
+
+
         }
     }
     //TODO: encomptes de ensenyar la llista: fer una taula. El laravel ja te una taula d'exemples afegir simple table(copiar i pegar taulad e dins de pages/table/simple.html(el tenim a node modules, adminlt,pages) i copiar la taula dins la primera table=class i dins el foreach(fiquem els trs de cada tasca(capçalera no). Ficarem name,done,priority.
