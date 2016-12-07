@@ -58,9 +58,9 @@ class TasksController extends Controller
     {
     }
 
-
     /**
      * @param Request $request
+     *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
     public function store(Request $request)
