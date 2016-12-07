@@ -1,12 +1,5 @@
 filter:
-    [tests/*]
-    [bootstrap/*]
-    [config/*]
-    [public/*]
-    [resources/*]
-    [routes/*]
-    [storage/*]
-    database/*]
+  paths: ["app/*"]
 
 checks:
     php:
