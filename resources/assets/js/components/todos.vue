@@ -186,8 +186,8 @@ export default {
                 });
             },
             //editTodo.
-                editTodo: function() {
-                if (this.editing == true) {
+            editTodo: function() {
+                if (this.editing === true) {
                     return this.editing = false;
                 }
                 return this.editing = true;
