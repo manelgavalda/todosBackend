@@ -6,6 +6,7 @@ filter:
     excluded_paths: [resources/*]
     excluded_paths: [routes/*]
     excluded_paths: [storage/*]
+    excluded_paths: [database/*]
 
 checks:
     php:
