@@ -184,6 +184,7 @@ class TasksApiTest extends TestCase
     {
         $task = $this->createAndPersistTask();
         //dd($task);
+        $this->login();
         $this->json('DELETE', $this->uri.'/'.$task->id, $atask = $this->convertTaskToArray($task))
             ->seeJson([
                 'deleted' => true,
