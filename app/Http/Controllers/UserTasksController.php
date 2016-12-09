@@ -83,9 +83,10 @@ class UserTasksController extends Controller
      * @param Request $request
      * @param $id
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_user,$id_task)
     {
-        //
+
+        User::findOrFail($id_user)->tasks[$id_task]->update($request->all());
     }
 
     /**

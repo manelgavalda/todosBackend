@@ -58,10 +58,10 @@ class TasksApiTest extends TestCase
         // return $task->toArray();
         return [
             'id'         => 1,//$task->id,
-            'user_id'    => 2,//$task->user_id,
-            'name'       => "Cumque temporibus quod sed magni et recusandae.",//$task->name,
-            'done'       => "false",//$task->done,
+            'name'       => "Qui repellat ut ea neque et.",//$task->name,
+            'done'       => "true",//$task->done,
             'priority'   => 8, //$task->priority,
+            'user_id'    => 1,//$task->user_id,
             'created_at' => "2016-11-20",//$task->created_at,//->toDateString(),
             'updated_at' => "2016-11-20"//$task->updated_at//->toDateString(),
         ];
