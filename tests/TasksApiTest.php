@@ -40,8 +40,8 @@ class TasksApiTest extends TestCase
         return factory(App\Task::class)->make(
             [
             'user_id' => 1,
-            'updated_at' => "2016-11-20",//$task->created_at->toDateString(),
-            'created-at' => "2016-11-20"//$task->updated_at->toDateString()
+            //'updated_at' => "2016-11-20",//$task->created_at->toDateString(),
+            //'created-at' => "2016-11-20"//$task->updated_at->toDateString()
             ]
     );
     }
@@ -57,13 +57,13 @@ class TasksApiTest extends TestCase
     {
         // return $task->toArray();
         return [
-            'id'         => 1,//$task->id,
-            'name'       => "Qui repellat ut ea neque et.",//$task->name,
-            'done'       => "true",//$task->done,
-            'priority'   => 8, //$task->priority,
-            'user_id'    => 1,//$task->user_id,
-            'created_at' => "2016-11-20",//$task->created_at,//->toDateString(),
-            'updated_at' => "2016-11-20"//$task->updated_at//->toDateString(),
+            //'id'         => 1,//$task->id,
+            'name'       => $task->name,
+            'done'       => $task->done,
+            'priority'   => $task->priority,
+            'user_id'    => $task->user_id,
+            //'created_at' => "2016-11-20",//$task->created_at,//->toDateString(),
+            //'updated_at' => "2016-11-20"//$task->updated_at//->toDateString(),
         ];
     }
 
@@ -123,12 +123,12 @@ class TasksApiTest extends TestCase
                         'name',
                         'done',
                         'priority',
-                        'created_at', // => [
+//                        'created_at', // => [
 //                            'date',
 //                            'timezone_type',
 //                            'timezone',
 //                        ],
-                        'updated_at',  //=> [
+//                        'updated_at',  //=> [
 //                            'date',
 //                           'timezone_type',
 //                            'timezone',
@@ -150,13 +150,13 @@ class TasksApiTest extends TestCase
 
         $this->json('GET', $this->uri.$task->id)
             ->seeJsonStructure(
-                ['name', 'done', 'priority', 'created_at', 'updated_at'])
+                ['name', 'done', 'priority', /*'created_at', 'updated_at'*/])
             ->seeJsonContains([
                 'name'       => $task->name,
                 'done'       => $task->done,
                 'priority'   => $task->priority,
-                'created_at' => $task->created_at->toDateString(),
-                'updated_at' => $task->updated_at->toDateString(),
+//                'created_at' => $task->created_at->toDateString(),
+//                'updated_at' => $task->updated_at->toDateString(),
             ]);
     }
 
