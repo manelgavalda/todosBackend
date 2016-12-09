@@ -28,9 +28,11 @@ class TaskTransformer extends Transformer
         }
 
         return [
+            'id'       => (int) $resource['id'],
             'name'       => $resource['name'],
             'done'       => (bool) $resource['done'],
             'priority'   => (int) $resource['priority'],
+            'user_id'  => (int) $resource['user_id'],
             'created_at' => $resource['created_at']->toDateString(),
             'updated_at' => $resource['updated_at']->toDateString(),
         ];

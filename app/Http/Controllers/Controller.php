@@ -73,14 +73,15 @@ class Controller extends BaseController
      *
      * @return array
      */
-    protected function transformCollection($resources)
-    {
-        //Collections: Laravel Collections
 
-        return array_map(function ($resource) {
-            return $this->transformer->transform($resource);
-        }, $resources);
-    }
+//    protected function transformCollection($resources)
+//    {
+//        //Collections: Laravel Collections
+//
+//        return array_map(function ($resource) {
+//            return $this->transformer->transform($resource);
+//        }, $resources);
+//    }
 
     //Crear test users a partir de tasks . abstracte per cada usuari per injeccio de dependencies $this->transform. transform es un objecte que he injectat.
 //    protected function transform($resource)
