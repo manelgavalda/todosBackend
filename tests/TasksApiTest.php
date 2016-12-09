@@ -207,6 +207,31 @@ class TasksApiTest extends TestCase
             ->notSeeInDatabase('tasks', $atask);
     }
 
+    /**
+     * Test not exists.
+     *
+     * @param $http_method
+     */
+    protected function testNotExists($http_method)
+    {
+        $this->login();
+        $this->json($http_method, $this->uri.'/99999999')
+            ->seeJson([
+                'status' => 404,
+            ])
+            ->assertEquals(404, $this->response->status());
+    }
+
+    /**
+     * Test get not existing task.
+     *
+     * @return void
+     */
+    public function testGetNotExistingTask()
+    {
+        $this->testNotExists('GET');
+    }
+
 
 }
 
