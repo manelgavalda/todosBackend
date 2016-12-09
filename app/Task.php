@@ -12,7 +12,7 @@ class Task extends Model
     //fora updated i created.
     //protected to public
     //user_id?
-    protected $fillable = ['id','user_id', 'name', 'done', 'priority'];
+    protected $fillable = ['name', 'done', 'priority','user_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
