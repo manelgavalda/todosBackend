@@ -134,5 +134,4 @@ class TasksController extends Controller
             'message' => 'Task deleted',
         ], 200);
     }
-    }
 }
