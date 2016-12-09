@@ -172,4 +172,26 @@ class TasksApiTest extends TestCase
             ])
             ->seeInDatabase('tasks', $atask);
     }
+
+    /**
+     * Test update existing task.
+     *
+     * @return void
+     */
+    public function testUpdateExistingTask()
+    {
+        $task = $this->createAndPersistTask();
+        //login
+        $this->login();
+        $task->done = !$task->done;
+        $task->name = 'New task name';
+        $task->save();
+        $this->json('PUT', $this->uri.'/'.$task->id, $atask = $this->convertTaskToArray($task))
+            ->seeJson([
+                'updated' => true,
+            ])
+            ->seeInDatabase('tasks', $atask);
+    }
 }
+
+

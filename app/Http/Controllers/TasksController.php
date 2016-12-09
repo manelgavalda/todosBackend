@@ -106,14 +106,18 @@ class TasksController extends Controller
     /**
      * @param Request $request
      *
-     * @return Request
+     * @return \Response
      */
-    public function update(Request $request)
+    public function update(Request $request,$id)
     {
-        Task::create([$request->all()]);
+        //Task::create([$request->all()]);
+
+        Task::findOrFail($id)->update($request->all());
 
         return response([
-            'created' => true,
+            'error'   => false,
+            'updated' => true,
+            'message' => 'Task updated',
         ], 200);
     }
 
@@ -123,5 +127,12 @@ class TasksController extends Controller
     public function destroy($id)
     {
         Task::destroy($id);
+
+        return response([
+            'error'   => false,
+            'destroyed' => true,
+            'message' => 'Task deleted',
+        ], 200);
+    }
     }
 }
