@@ -178,19 +178,17 @@ class TasksApiTest extends TestCase
      *
      * @return void
      */
-    public function testUpdateExistingTask()
+
+
+    public function testDeleteExistingTask()
     {
         $task = $this->createAndPersistTask();
-        //login
-        $this->login();
-        $task->done = !$task->done;
-        $task->name = 'New task name';
-        $task->save();
-        $this->json('PUT', $this->uri.'/'.$task->id, $atask = $this->convertTaskToArray($task))
+        //dd($task);
+        $this->json('DELETE', $this->uri.'/'.$task->id, $atask = $this->convertTaskToArray($task))
             ->seeJson([
-                'updated' => true,
+                'deleted' => true,
             ])
-            ->seeInDatabase('tasks', $atask);
+            ->notSeeInDatabase('tasks', $atask);
     }
 }
 
