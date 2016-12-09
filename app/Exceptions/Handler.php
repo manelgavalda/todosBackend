@@ -68,7 +68,7 @@ class Handler extends ExceptionHandler
 
         if ($exception instanceof \ErrorException) {
             return Response::json([
-                'error' => 'Hi ha hagut una excepció: '.$exception->getMessage(),
+                'error' => 'Hi ha hagut una excepció, error: '.$exception->getMessage(),
                 'code'  => 10,
             ], 404);
         }
