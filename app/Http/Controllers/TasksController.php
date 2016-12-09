@@ -73,7 +73,7 @@ class TasksController extends Controller
         return response([
             'error'   => false,
             'created' => true,
-            'message' => 'Task created successfully',
+            'message' => 'Task created',
         ], 200);
     }
 
