@@ -167,11 +167,10 @@ class TasksApiTest extends TestCase
         $this->login();
         //dd($this->convertTaskToArray($task));
         $this->json('POST', $this->uri, $atask = $this->convertTaskToArray($task))
-            ->dump();
 //            ->seeJson([
 //                'created' => true,
 //            ])
 //
-//            ->seeInDatabase('tasks', $atask);
+            ->seeInDatabase('tasks', $atask);
     }
 }
