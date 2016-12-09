@@ -21,9 +21,9 @@ interface Transformer
     public function transform($resource);
 
     /**
-     * @param $resources
+     * @param $resource
      *
      * @return mixed
      */
-    public function transformCollection($resources);
+    public function transformCollection($resource);
 }
