@@ -210,9 +210,11 @@ class TasksApiTest extends TestCase
     /**
      * Test not exists.
      *
+     * No pot començar per test, perquè és una funció
+     *
      * @param $http_method
      */
-    protected function testNotExists($http_method)
+    protected function taskNotExists($http_method)
     {
         $this->login();
         $this->json($http_method, $this->uri.'/99999999')
@@ -229,7 +231,7 @@ class TasksApiTest extends TestCase
      */
     public function testGetNotExistingTask()
     {
-        $this->testNotExists('GET');
+        $this->taskNotExists('GET');
     }
 
     /**
@@ -239,7 +241,7 @@ class TasksApiTest extends TestCase
      */
     public function testUpdateNotExistingTask()
     {
-        $this->testNotExists('PUT');
+        $this->taskNotExists('PUT');
     }
 
     /**
@@ -249,7 +251,7 @@ class TasksApiTest extends TestCase
      */
     public function testDeleteNotExistingTask()
     {
-        $this->testNotExists('DELETE');
+        $this->taskNotExists('DELETE');
     }
 
     /**
