@@ -40,8 +40,8 @@ class TasksApiTest extends TestCase
         return factory(App\Task::class)->make(
             [
             'user_id' => 1,
-     //       'updated_at' => $task->created_at,
-     //       'created-at' => $task->updated_at
+            'updated_at' => "2016-11-20",//$task->created_at->toDateString(),
+            'created-at' => "2016-11-20"//$task->updated_at->toDateString()
             ]
     );
     }
@@ -57,13 +57,13 @@ class TasksApiTest extends TestCase
     {
         // return $task->toArray();
         return [
-            'id'         => $task->id,
-            'user_id'    => $task->user_id,
-            'name'       => $task->name,
-            'done'       => $task->done,
-            'priority'   => $task->priority,
-            //'created_at' => $task->created_at,//->toDateString(),
-            //'updated_at' => $task->updated_at//->toDateString(),
+            'id'         => 1,//$task->id,
+            'user_id'    => 2,//$task->user_id,
+            'name'       => "Cumque temporibus quod sed magni et recusandae.",//$task->name,
+            'done'       => "false",//$task->done,
+            'priority'   => 8, //$task->priority,
+            'created_at' => "2016-11-20",//$task->created_at,//->toDateString(),
+            'updated_at' => "2016-11-20"//$task->updated_at//->toDateString(),
         ];
     }
 
@@ -169,8 +169,7 @@ class TasksApiTest extends TestCase
         $this->json('POST', $this->uri, $atask = $this->convertTaskToArray($task))
             ->seeJson([
                 'created' => true,
-            ]);
-//
-//            ->seeInDatabase('tasks', $atask);
+            ])
+            ->seeInDatabase('tasks', $atask);
     }
 }
