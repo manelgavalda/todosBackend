@@ -20,7 +20,7 @@ class User extends Authenticatable
      */
 
     //Solucionar desactivar timestamp.
-    public $timestamps = false;
+    //public $timestamps = false;
 
     protected $fillable = [
         'name', 'email', 'password', 'api_token',
