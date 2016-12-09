@@ -150,7 +150,7 @@ class TasksApiTest extends TestCase
 
         $this->json('GET', $this->uri.'/'.$task->id)
             ->seeJsonStructure(
-                ['name', 'done', 'priority', /*'created_at', 'updated_at'*/])
+                ['name', 'done', 'priority'/*'created_at', 'updated_at'*/])
             ->seeJsonContains([
                 'name'       => $task->name,
                 'done'       => $task->done,
@@ -178,7 +178,6 @@ class TasksApiTest extends TestCase
      *
      * @return void
      */
-
     public function testUpdateExistingTask()
     {
         $task = $this->createAndPersistTask();
@@ -294,9 +293,5 @@ class TasksApiTest extends TestCase
     public function testDoneHaveToBeBoolean()
     {
         //TODO
-
     }
-
 }
-
-

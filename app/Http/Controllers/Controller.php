@@ -68,7 +68,7 @@ class Controller extends BaseController
         return $paginationData;
     }
 
-    /**
+    /*
      * @param $resources
      *
      * @return array
