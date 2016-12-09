@@ -10,17 +10,33 @@ PSRs you support to avoid any confusion with users and contributors.
 
 ## Install
 
-Via Composer
+Clone via github:
 
 ``` bash
-$ composer require manelgavalda/todos-backend
+$ git clone git@github.com:manelgavalda/todosBackend.git
 ```
 
-## Usage
+Run composer install and npm install(or yarn):
+``` bash
+$ composer install
+$ yarn
+```
 
-``` php
-$skeleton = new manelgavalda\todos-backend();
-echo $skeleton->echoPhrase('Hello, League!');
+Copy .env.example to .env, and edit with your configuration:
+``` bash
+$ cp .env.example .env
+```
+
+Generate new artisan key:
+``` bash
+$ php artisan key:generate
+```
+
+## Database
+
+Run migrations (with --seed if you want to fill the database):
+``` bash
+$ php artisan migrate:refresh --seed
 ```
 
 ## Change log
@@ -30,7 +46,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 ## Testing
 
 ``` bash
-$ composer test
+$ phpunit
 ```
 
 ## Contributing
