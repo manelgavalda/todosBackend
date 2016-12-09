@@ -192,6 +192,20 @@ class TasksApiTest extends TestCase
             ->seeInDatabase('tasks', $atask);
     }
 
+    /**
+     * Test delete existing task.
+     *
+     * @return void
+     */
+    public function testDeleteExistingTask()
+    {
+        $task = $this->createAndPersistTask();
+        $this->json('DELETE', $this->uri.'/'.$task->id, $atask = $this->convertTaskToArray($task))
+            ->seeJson([
+                'deleted' => true,
+            ])
+            ->notSeeInDatabase('tasks', $atask);
+    }
 
 
 }
