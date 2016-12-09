@@ -13,7 +13,7 @@ class TasksApiTest extends TestCase
      *
      * @var string
      */
-    protected $uri = '/api/v1/task/';
+    protected $uri = '/api/v1/task';
 
     /**
      * Default number of tasks created in database.
@@ -148,7 +148,7 @@ class TasksApiTest extends TestCase
 
         $task = $this->createAndPersistTask();
 
-        $this->json('GET', $this->uri.$task->id)
+        $this->json('GET', $this->uri.'/'.$task->id)
             ->seeJsonStructure(
                 ['name', 'done', 'priority', /*'created_at', 'updated_at'*/])
             ->seeJsonContains([
@@ -179,18 +179,21 @@ class TasksApiTest extends TestCase
      * @return void
      */
 
-
-    public function testDeleteExistingTask()
+    public function testUpdateExistingTask()
     {
         $task = $this->createAndPersistTask();
-        //dd($task);
         $this->login();
-        $this->json('DELETE', $this->uri.'/'.$task->id, $atask = $this->convertTaskToArray($task))
+        $task->done = !$task->done;
+        $task->name = 'New task name';
+        $this->json('PUT', $this->uri.'/'.$task->id, $atask = $this->convertTaskToArray($task))
             ->seeJson([
-                'deleted' => true,
+                'updated' => true,
             ])
-            ->notSeeInDatabase('tasks', $atask);
+            ->seeInDatabase('tasks', $atask);
     }
+
+
+
 }
 
 
