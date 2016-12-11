@@ -148,6 +148,8 @@ export default {
                 this.filteredTodos.push(todo);
                 this.newTodo = '';
                 this.addTodoToApi(todo);
+                //Refrescar pàgina al afegir todo.
+                this.fetchPage(this.page);
             },
             setVisibility: function(visibility) {
                 this.visibility=visibility;
