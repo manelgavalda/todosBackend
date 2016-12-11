@@ -41,6 +41,7 @@
                 <th>Task</th>
                 <th>Priority</th>
                 <th>Done</th>
+                <th>Delete</th>
                 <th>Progress</th>
                 <th style="width: 40px">Label</th>
             </tr>
@@ -62,6 +63,9 @@
                     <span v-if="editing==false"  @click="editTodo">{{todo.done}}</span>
                     <span v-else @keyup.enter="editTodo">
                     <input v-model="todo.done" size="3"></span>
+                </td>
+                <td>
+                    <input type="button" value="Delete">
                 </td>
                 <td>
                     <div class="progress progress-xs">
