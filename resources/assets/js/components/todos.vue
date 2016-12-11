@@ -49,8 +49,8 @@
             <tr v-for="(todo, index) in filteredTodos">
                 <td>{{ index + from }}</td>
                 <td>
-                    <span v-if="editing==false" @click="editTodo">{{todo.name}}</span>
-                    <span v-else @keyup.enter="editTodo">
+                    <span v-if="editedTodo==null" @click="editTodoName">{{todo.name}}</span>
+                    <span v-else @keyup.enter="editTodoName">
                     <input v-model="todo.name" size="62"></span>
                 </td>
                 <td>{{ todo.priority }}</td>
@@ -90,7 +90,7 @@ export default {
                 //message: 'Hola que tal',
                 //seen: false,
                 uri: '/api/v1/task',
-                editing :false,
+                editedTodo : null,
                 todos: [
                 ],
                 visibility: 'all',// 'active' 'completed'
@@ -190,11 +190,9 @@ export default {
                 });
             },
             //editTodo.
-            editTodo: function() {
-                if (this.editing === true) {
-                    return this.editing = false;
-                }
-                return this.editing = true;
+            editTodoName: function(todo) {
+                this.beforeEditCache = todo.name;
+				this.editedTodo = todo;
             },
         }
     }
