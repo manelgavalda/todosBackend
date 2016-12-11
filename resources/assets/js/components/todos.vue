@@ -49,7 +49,7 @@
             <tr v-for="(todo, index) in filteredTodos">
                 <td>{{ index + from }}</td>
                 <td>
-                    <span v-if="editing==false" v-on:click="editTodo">{{todo.name}}</span>
+                    <span v-if="editing==false" @click="editTodo">{{todo.name}}</span>
                     <span v-else @keyup.enter="editTodo">
                     <input v-model="todo.name" size="62"></span>
                 </td>
