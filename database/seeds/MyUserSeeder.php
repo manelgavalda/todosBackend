@@ -16,6 +16,7 @@ class MyUserSeeder extends Seeder
     {
         try {
             factory(User::class)->create([
+
                     "name" => "Manel Gavaldà Andreu",
                     "email" => "manelgavalda@iesebre.com",
                     "password" => env('MANEL_PASS', 'secret')]
