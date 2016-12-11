@@ -65,7 +65,7 @@
                     <input v-model="todo.done" size="3"></span>
                 </td>
                 <td>
-                    <button class='fa fa-trash'@click="deleteTodo(index)">
+                    <button class='fa fa-trash'@click="deleteTodo(index,todo.id)">
                 </td>
                 <td>
                     <div class="progress progress-xs">
@@ -161,7 +161,7 @@ export default {
                 };
                 this.filteredTodos.push(todo);
                 this.newTodo = '';
-                this.addTodoToApi(todo);
+                this.addTodoApi(todo);
                 //Refrescar pàgina al afegir todo.
                 this.fetchPage(this.page);
             },
@@ -174,7 +174,7 @@ export default {
             fetchData: function() {
                 return this.fetchPage(1);
             },
-            addTodoToApi: function(todo) {
+            addTodoApi: function(todo) {
                 this.$http.post(this.uri, {
                     name: todo.name,
                     priority: todo.priority,
@@ -187,7 +187,7 @@ export default {
                 });
                 //this.fetchPage(this.page);
             },
-            editTodoOnApi: function(todo) {
+            editTodoApi: function(todo) {
                 this.$http.put(this.uri +'/'+todo.id,{
                     name: todo.name,
                     priority: todo.priority,
@@ -220,8 +220,19 @@ export default {
                 }
                 return this.editing = true;
             },
-            deleteTodo: function(id) {
+            deleteTodo: function(id,idTask) {
                 this.todos.splice(id, 1);
+                this.deleteTodoApi(idTask);
+                this.fetchPage(this.page);
+            },
+            deleteTodoApi: function(id) {
+                this.$http.delete(this.uri + '/' + id).then((response) => {
+                    console.log(response);
+                }, (response) => {
+                    // error callback
+                    sweetAlert("Oops...", "Something went wrong!", "error");
+                    console.log(response);
+                });
             },
         }
     }
