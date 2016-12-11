@@ -89,6 +89,7 @@ export default {
             return {
                 //message: 'Hola que tal',
                 //seen: false,
+                uri: '/api/v1/task',
                 editing :false,
                 todos: [
                 ],
@@ -98,7 +99,7 @@ export default {
                 from: 0,
                 to: 0,
                 total: 0,
-                page: 1
+                page: 1,
             }
         },
         computed: {
@@ -141,6 +142,7 @@ export default {
                 }
                 var todo = {
                     name: value,
+                    //Valors per defecte.
                     priority: 1,
                     done: false,
                     user_id: 1 //necessaria.
@@ -161,7 +163,7 @@ export default {
                 return this.fetchPage(1);
             },
             addTodoToApi: function(todo) {
-                this.$http.post('/api/v1/task', {
+                this.$http.post(this.uri, {
                     name: todo.name,
                     priority: todo.priority,
                     done: todo.done
@@ -174,7 +176,7 @@ export default {
                 //this.fetchPage(this.page);
             },
             fetchPage: function(page) {
-                this.$http.get('/api/v1/task?page=' + page).then((response) => {
+                this.$http.get(this.uri+'?page=' + page).then((response) => {
                     console.log(response);
                     this.todos = response.data.data;
                     this.perPage = response.data.per_page;
