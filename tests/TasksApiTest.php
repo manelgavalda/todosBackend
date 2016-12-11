@@ -148,6 +148,8 @@ class TasksApiTest extends TestCase
 
         $task = $this->createAndPersistTask();
 
+        $this->login();
+
         $this->json('GET', $this->uri.'/'.$task->id)
             ->seeJsonStructure(
                 ['name', 'done', 'priority'/*'created_at', 'updated_at'*/])
@@ -199,6 +201,9 @@ class TasksApiTest extends TestCase
     public function testDeleteExistingTask()
     {
         $task = $this->createAndPersistTask();
+
+        $this->login();
+
         $this->json('DELETE', $this->uri.'/'.$task->id, $atask = $this->convertTaskToArray($task))
             ->seeJson([
                 'deleted' => true,
