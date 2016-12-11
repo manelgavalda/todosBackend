@@ -65,7 +65,7 @@
                     <input v-model="todo.done" size="3"></span>
                 </td>
                 <td>
-                    <input type="button" value="Delete">
+                    <input type="button" value="Delete" @click="deleteTodo(index)">
                 </td>
                 <td>
                     <div class="progress progress-xs">
@@ -220,8 +220,9 @@ export default {
                 }
                 return this.editing = true;
             },
-
-
+            deleteTodo: function(id) {
+                this.todos.splice(id, 1);
+            },
         }
     }
     //TODO: encomptes de ensenyar la llista: fer una taula. El laravel ja te una taula d'exemples afegir simple table(copiar i pegar taulad e dins de pages/table/simple.html(el tenim a node modules, adminlt,pages) i copiar la taula dins la primera table=class i dins el foreach(fiquem els trs de cada tasca(capçalera no). Ficarem name,done,priority.
