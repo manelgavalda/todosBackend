@@ -145,9 +145,9 @@ export default {
                     done: false,
                     user_id: 1 //necessaria.
                 };
-                this.todos.push(todo);
-                this.addTodoToApi(todo);
+                this.filteredTodos.push(todo);
                 this.newTodo = '';
+                this.addTodoToApi(todo);
             },
             setVisibility: function(visibility) {
                 this.visibility=visibility;
@@ -159,7 +159,7 @@ export default {
                 return this.fetchPage(1);
             },
             addTodoToApi: function(todo) {
-                this.http.post('/api/v1/task', {
+                this.$http.post('/api/v1/task', {
                     name: todo.name,
                     priority: todo.priority,
                     done: todo.done
@@ -169,7 +169,7 @@ export default {
                     sweetAlert("Oops...", "Something went wrong!", "error");
                     console.log(response);
                 });
-                this.fetchPage(this.page);
+                //this.fetchPage(this.page);
             },
             fetchPage: function(page) {
                 this.$http.get('/api/v1/task?page=' + page).then((response) => {
