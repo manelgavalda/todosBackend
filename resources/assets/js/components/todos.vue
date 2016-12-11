@@ -49,12 +49,20 @@
             <tr v-for="(todo, index) in filteredTodos">
                 <td>{{ index + from }}</td>
                 <td>
-                    <span v-if="editing==false" @click="editTodo">{{todo.name}}</span>
-                    <span v-else @keyup.enter="editTodo">
-                    <input v-model="todo.name" size="62"></span>
+                    <span v-if="editing==false"  @click="editTodo">{{todo.name}}</span>
+                    <span v-else @keyup.enter="editTodo" @keyup="resize">
+                    <input v-model="todo.name" size='50'></span>
                 </td>
-                <td>{{ todo.priority }}</td>
-                <td>{{ todo.done }}</td>
+                <td>
+                    <span v-if="editing==false"  @click="editTodo">{{todo.priority}}</span>
+                    <span v-else @keyup.enter="editTodo">
+                    <input v-model="todo.priority" size="1"></span>
+                </td>
+                <td>
+                    <span v-if="editing==false"  @click="editTodo">{{todo.done}}</span>
+                    <span v-else @keyup.enter="editTodo">
+                    <input v-model="todo.done" size="3"></span>
+                </td>
                 <td>
                     <div class="progress progress-xs">
                         <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
@@ -174,6 +182,18 @@ export default {
                     console.log(response);
                 });
                 //this.fetchPage(this.page);
+            },
+            editTodoOnApi: function(todo) {
+                this.$http.put(this.uri +'/'+todo.id,{
+                    name: todo.name,
+                    priority: todo.priority,
+                    done: todo.done
+                }).then((response) => {
+                console.log(response);
+                }, (response) => {
+                    sweetAlert("Oops...", "Something went wrong!", "error");
+                    console.log(response);
+                });
             },
             fetchPage: function(page) {
                 this.$http.get(this.uri+'?page=' + page).then((response) => {
