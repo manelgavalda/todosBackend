@@ -84,6 +84,7 @@
 import Pagination from './pagination.vue'
 
 export default {
+        el: '.todoapp',
         components : {Pagination},
         data() {
             return {
@@ -204,7 +205,8 @@ export default {
 					this.removeTodo(todo);
 				}
 			},
-			directives: {
+        },
+        directives: {
 			'todo-focus': function (value) {
 				if (!value) {
 					return;
@@ -213,7 +215,7 @@ export default {
 				Vue.nextTick(function () {
 					el.focus();
 				});
-			}
+            }
         }
     }
     //TODO: encomptes de ensenyar la llista: fer una taula. El laravel ja te una taula d'exemples afegir simple table(copiar i pegar taulad e dins de pages/table/simple.html(el tenim a node modules, adminlt,pages) i copiar la taula dins la primera table=class i dins el foreach(fiquem els trs de cada tasca(capçalera no). Ficarem name,done,priority.
