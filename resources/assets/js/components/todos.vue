@@ -49,8 +49,9 @@
             <tr v-for="(todo, index) in filteredTodos">
                 <td>{{ index + from }}</td>
                 <td>
-                    <input class="toggle" type="checkbox" v-model="todo.completed">
-                    <label @dblclick="editTodo(todo)">{{todo.name}}</label>
+                    <span v-if="editing==false" @click="editTodo">{{todo.name}}</span>
+                    <span v-else @keyup.enter="editTodo">
+                    <input v-model="todo.name" size="62"></span>
                 </td>
                 <td>{{ todo.priority }}</td>
                 <td>{{ todo.done }}</td>
@@ -58,7 +59,6 @@
                     <div class="progress progress-xs">
                         <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
                     </div>
-                    <input class="edit" type="text" v-model="todo.name" v-todo-focus="todo == editedTodo" @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)">
                 </td>
                 <td><span class="badge bg-red">55%</span></td>
             </tr>
@@ -84,14 +84,13 @@
 import Pagination from './pagination.vue'
 
 export default {
-        el: '.todoapp',
         components : {Pagination},
         data() {
             return {
                 //message: 'Hola que tal',
                 //seen: false,
                 uri: '/api/v1/task',
-                editedTodo : null,
+                editing :false,
                 todos: [
                 ],
                 visibility: 'all',// 'active' 'completed'
@@ -191,31 +190,12 @@ export default {
                 });
             },
             //editTodo.
-            editTodo: function (todo) {
-                this.beforeEditCache = todo.name;
-				this.editedTodo = todo;
+            editTodo: function() {
+                if (this.editing === true) {
+                    return this.editing = false;
+                }
+                return this.editing = true;
             },
-            doneEdit: function (todo) {
-				if (!this.editedTodo) {
-					return;
-				}
-				this.editedTodo = null;
-				todo.title = todo.title.trim();
-				if (!todo.title) {
-					this.removeTodo(todo);
-				}
-			},
-        },
-        directives: {
-			'todo-focus': function (value) {
-				if (!value) {
-					return;
-				}
-				var el = this.el;
-				Vue.nextTick(function () {
-					el.focus();
-				});
-            }
         }
     }
     //TODO: encomptes de ensenyar la llista: fer una taula. El laravel ja te una taula d'exemples afegir simple table(copiar i pegar taulad e dins de pages/table/simple.html(el tenim a node modules, adminlt,pages) i copiar la taula dins la primera table=class i dins el foreach(fiquem els trs de cada tasca(capçalera no). Ficarem name,done,priority.
