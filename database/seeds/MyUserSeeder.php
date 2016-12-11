@@ -18,7 +18,7 @@ class MyUserSeeder extends Seeder
             factory(User::class)->create([
                     "name" => "Manel Gavaldà Andreu",
                     "email" => "manelgavalda@iesebre.com",
-                    "password" => bcrypt(env('MANEL_PASS', 'secret'))]
+                    "password" => env('MANEL_PASS', 'secret')]
             );
         } catch (\Illuminate\Database\QueryException $exception) {
         }
