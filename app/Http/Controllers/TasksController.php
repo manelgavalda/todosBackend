@@ -45,6 +45,12 @@ class TasksController extends Controller
 //
 //            abort(403);
 //        }
+//        $user = Auth::user();
+//        if($user->can('show', \App\Task::class)) {
+//            //
+//        }
+        $this->authorize('show',\App\Task::class);
+
         $tasks = Task::paginate('15');
 
         return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
