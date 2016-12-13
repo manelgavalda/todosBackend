@@ -41,22 +41,16 @@ class TasksController extends Controller
      */
     public function index()
     {
-        if (Gate::allows('show-task')) {
-            //provem alert
-            //        $tasks = Task::all();
-//        return Response::json([
-//            'data' => $tasks->toArray()
-//        ],200);
+//        if (Gate::denies('show-tasks')) {
+//
+//            abort(403);
+//        }
+        $tasks = Task::paginate('15');
 
-            //return Task::paginate(Request::input(per_page));
-            //dd($this->transformCollection(Task::all()));
+        return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
 
-            $tasks = Task::paginate('15');
 
-            return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
 
-        }
-        abort(403);
     }
 
     public function create()
@@ -70,6 +64,7 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
+
         if (!$request->has('user_id')) {
             $request->merge(['user_id' => Auth::id()]);
         }
