@@ -32,8 +32,10 @@ Gate::define('update-task3', function ($user, $task) {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/tasks', function () {
-        return view('tasks');
+    Route::group(['middleware' => 'can'], function () {
+        Route::get('/tasks', function () {
+            return view('tasks');
+        });
     });
 
     Route::get('/profile', function () {
