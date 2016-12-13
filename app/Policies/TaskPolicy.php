@@ -53,7 +53,9 @@ class TaskPolicy
      */
     public function update(User $user, Task $task)
     {
-        //
+        if ($user->isAdmin()) return true;
+        if ($user->hasRole('editor')) return true;
+        return $user->id == $task->user_id;
     }
 
     /**
