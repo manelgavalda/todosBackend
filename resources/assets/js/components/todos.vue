@@ -65,7 +65,7 @@
                     <input v-model="todo.done" size="3"></span>
                 </td>
                 <td>
-                    <button class='fa fa-trash'@click="deleteTodo(index,todo.id)">
+                    <button class='fa fa-trash'@click="deleteTodo(index,todo.id)"/>
                 </td>
                 <td>
                     <div class="progress progress-xs">
