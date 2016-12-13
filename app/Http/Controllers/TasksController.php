@@ -6,6 +6,7 @@ use App\Repositories\TaskRepository;
 use App\Task;
 use App\Transformers\TaskTransformer;
 use Auth;
+use Gate;
 use Illuminate\Http\Request;
 
 /**
@@ -55,6 +56,7 @@ class TasksController extends Controller
             return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
 
         }
+        abort(403);
     }
 
     public function create()
