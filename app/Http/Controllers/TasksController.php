@@ -40,7 +40,7 @@ class TasksController extends Controller
      */
     public function index()
     {
-        if (userIsUserAuthorized()) {
+        if (Gate::allows('show-task')) {
             //provem alert
             //        $tasks = Task::all();
 //        return Response::json([
@@ -55,7 +55,6 @@ class TasksController extends Controller
             return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
 
         }
-        return "Forbidden 403";
     }
 
     public function create()
