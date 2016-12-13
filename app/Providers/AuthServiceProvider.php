@@ -58,10 +58,6 @@ class AuthServiceProvider extends ServiceProvider
             return $user->id == $task->user_id;
         });
 
-        Gate::define('show-tasks', function ($user) {
-            return false;
-        });
-
         Gate::define('update-task3', function ($user, $task) {
             if ($user->isAdmin()) return true;
             if ($user->hasRole('editor')) return true;
