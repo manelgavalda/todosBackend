@@ -40,18 +40,22 @@ class TasksController extends Controller
      */
     public function index()
     {
-        //provem alert
-        //        $tasks = Task::all();
+        if (userIsUserAuthorized()) {
+            //provem alert
+            //        $tasks = Task::all();
 //        return Response::json([
 //            'data' => $tasks->toArray()
 //        ],200);
 
-        //return Task::paginate(Request::input(per_page));
-    //dd($this->transformCollection(Task::all()));
+            //return Task::paginate(Request::input(per_page));
+            //dd($this->transformCollection(Task::all()));
 
-        $tasks = Task::paginate('15');
+            $tasks = Task::paginate('15');
 
-        return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
+            return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
+
+        }
+        return "Forbidden 403";
     }
 
     public function create()
