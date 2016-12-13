@@ -222,6 +222,8 @@ export default {
             },
             deleteTodo: function(id,idTask) {
                 this.todos.splice(id, 1);
+                //Confirmation
+                sweetAlert("This will remove this task from the database", "Are you sure?");
                 this.deleteTodoApi(idTask);
                 this.fetchPage(this.page);
             },
