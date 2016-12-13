@@ -32,7 +32,7 @@ Gate::define('update-task3', function ($user, $task) {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::group(['middleware' => 'can'], function () {
+    Route::group(['middleware' => 'can:show-task'], function () {
         Route::get('/tasks', function () {
             return view('tasks');
         });
