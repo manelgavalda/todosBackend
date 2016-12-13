@@ -41,7 +41,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('easy-gate',function () {
-            return false; //No autoritzat.
+            return true; //autoritzat.
         });
 
         Gate::define('update-task', function ($user, $task) {
