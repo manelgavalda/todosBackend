@@ -221,11 +221,23 @@ export default {
                 return this.editing = true;
             },
             deleteTodo: function(id,idTask) {
-                this.todos.splice(id, 1);
-                //Confirmation
-                sweetAlert("This will remove this task from the database", "Are you sure?");
-                this.deleteTodoApi(idTask);
-                this.fetchPage(this.page);
+            //Per cridar desde fora funció
+            var out = this;
+                swal({
+                    title: "Are you sure?",
+                    text: "You will not be able to recover this task!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes, delete it!",
+                    closeOnConfirm: false
+                  },
+                  function(){
+                    swal("Deleted!", "Your task has been deleted.", "success");
+                    out.todos.splice(this.id, 1);
+                    out.deleteTodoApi(this.idTask);
+                    out.fetchPage(out.page);
+                  });
             },
             deleteTodoApi: function(id) {
                 this.$http.delete(this.uri + '/' + id).then((response) => {
