@@ -255,6 +255,7 @@ export default {
     //Afegir icones(edit,eliminar, cancelar(depenent de l'estat editing)).
     //TODO: Afegir un boto o algo agafar(ficar el seu src al js) o millor afegir al package.json per instal·lar el js(si te npm), si no te npm s'agafa el javascript i s'afegeix al general.
     //Fer el v-for només amb un todo (<todo>,</todo>
+    //TODO: fa-check color verd editar. fa-close simular escape(amb vermell),fa-edit editar(fer el mateixq eu el doble click i ensenyar quant esta editing a false) i les altres 2 ene ditigni=true i asociar esdeveniment si canviar colors(en botons?...),
 </script>
 
 
