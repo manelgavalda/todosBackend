@@ -11,22 +11,44 @@ class UsersApiTest extends TestCase
 
     use DatabaseMigrations;
 
+    /**
+     * @var string
+     */
     protected $uri = '/api/v1/user';
 
 
+    /**
+     * Default number of users created in database.
+     */
     const DEFAULT_NUMBER_OF_USERS = 10;
 
+    /**
+     * Seed database with users.
+     *
+     * @param int $numberOfUsers
+     */
     protected function seedDatabaseWithUsers($numberOfUsers = self::DEFAULT_NUMBER_OF_USERS)
     {
         factory(App\User::class, $numberOfUsers)->create();
     }
 
+    /**
+     * Create user.
+     *
+     * @return mixed
+     */
     protected function createUser()
     {
         return factory(App\User::class)->make(
         );
     }
 
+    /**
+     * Convert user to array
+     *
+     * @param Model $user
+     * @return array
+     */
     protected function convertUserToArray(Model $user)
     {
         // return $user->toArray();
@@ -41,11 +63,20 @@ class UsersApiTest extends TestCase
         ];
     }
 
+    /**
+     * Create an persist user on database.
+     *
+     * @return mixed
+     */
     protected function createAndPersistUser()
     {
         return factory(App\User::class)->create();
     }
 
+    /**
+     * Create and act as a logged user on database.
+     *
+     */
     protected function login()
     {
         $user = factory(App\User::class)->create();
@@ -53,6 +84,10 @@ class UsersApiTest extends TestCase
     }
 
     //TODO ADD TEST FOR AUTHENTICATION AND REFACTOR EXISTING TESTS (ho farem al MP9), no fer-ho. i els de test validation igual.
+    /**
+     * Get unauthenticated response on petition without valid user.
+     *
+     */
     public function userNotAuthenticated()
     {
         $response = $this->json('GET', $this->uri)->getResult();
@@ -60,6 +95,10 @@ class UsersApiTest extends TestCase
         //TODO: Test message error.
     }
 
+    /**
+     * Test Retrieve all users.
+     *
+     */
     public function testRetrieveAllUsers()
     {
 
@@ -98,6 +137,9 @@ class UsersApiTest extends TestCase
             );
     }
 
+    /**
+     * Test Retrieve one User.
+     */
     public function testRetrieveOneUser()
     {
         //Create task in database
@@ -113,6 +155,108 @@ class UsersApiTest extends TestCase
 //                'updated_at' => $task->updated_at->toDateString(),
             ]);
     }
+
+    /**
+     * Test Create new user on database.
+     */
+    public function testCreateNewUser()
+    {
+        $user = $this->createUser();
+        //login necessari
+        $this->login();
+        //dd($this->convertTaskToArray($task));
+        $this->json('POST', $this->uri, $anuser = $this->convertUserToArray($user))
+            ->seeJson([
+                'created' => true,
+            ])
+            ->seeInDatabase('users', $anuser);
+    }
+
+    /**
+     * Test update existing user on database.
+     */
+    public function testUpdateExistingUser()
+    {
+        $user = $this->createAndPersistUser();
+        $this->login();
+        $user->done = !$user->done;
+        $user->name = 'New user name';
+        $this->json('PUT', $this->uri.'/'.$user->id, $anuser = $this->convertUserToArray($user))
+            ->seeJson([
+                'updated' => true,
+            ])
+            ->seeInDatabase('users', $anuser);
+    }
+
+    /**
+     * Function check response if user not exists.
+     *
+     * @param $http_method
+     */
+    protected function userNotExists($http_method)
+    {
+        $this->login();
+        $this->json($http_method, $this->uri.'/99999999')
+            ->seeJson([
+                'status' => 404,
+            ])
+            ->assertEquals(404, $this->response->status());
+    }
+
+    /**
+     * Test get not existing user.
+     */
+    public function testGetNotExistingUser()
+    {
+        $this->userNotExists('GET');
+    }
+
+    /**
+     * Test update not existing user.
+     */
+    public function testUpdateNotExistingUser()
+    {
+        $this->userNotExists('PUT');
+    }
+
+    /**
+     * Test delete not existing user.
+     */
+    public function testDeleteNotExistingUser()
+    {
+        $this->userNotExists('DELETE');
+    }
+
+    /**
+     * Test pagination.
+     *
+     * @return void
+     */
+    public function testPagination()
+    {
+        //TODO
+    }
+    //TODO: Test validation
+    /**
+     * Test name is required and done is set to false and priority to 1.
+     *
+     * @return void
+     */
+    public function testNameIsRequiredAndDefaultValues()
+    {
+        //TODO
+    }
+    /**
+     * Test email has to be an String.
+     *
+     * @return void
+     */
+    public function testEmailHaveToBeString()
+    {
+        //TODO
+    }
+
+
 
 }
 
