@@ -1,12 +1,15 @@
 <?php
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
+/**
+ * Class UsersApiTest
+ */
 class UsersApiTest extends TestCase
 {
+
+    use DatabaseMigrations;
 
     protected $uri = '/api/v1/user';
 

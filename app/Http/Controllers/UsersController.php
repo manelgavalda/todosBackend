@@ -59,10 +59,12 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        User::create([$request->all()]);
+        User::create($request->all());
 
         return response([
+            'error'   => false,
             'created' => true,
+            'message' => 'User created',
         ], 200);
     }
 
@@ -102,8 +104,14 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        User::findOrFail($id);
-        User::create([$request->all()]);
+        //Igual que task però amb user.
+        User::findOrFail($id)->update($request->all());
+
+        return response([
+            'error' => false,
+            'updated' => true,
+            'message' => 'User updated',
+        ], 200);
     }
 
     /**
@@ -115,6 +123,12 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        User::destroy($id);
+        User::findOrFail($id)->delete();
+
+        return response([
+            'error'   => false,
+            'destroyed' => true,
+            'message' => 'User deleted',
+        ], 200);
     }
 }
