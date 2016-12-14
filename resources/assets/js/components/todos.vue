@@ -95,8 +95,10 @@
 <script>
 import Pagination from './pagination.vue'
 
+import Todo from './todo.vue'
+
 export default {
-        components : {Pagination},
+        components : {Pagination,Todo},
         data() {
             return {
                 //message: 'Hola que tal',
@@ -250,7 +252,9 @@ export default {
             },
         }
     }
+    //Afegir icones(edit,eliminar, cancelar(depenent de l'estat editing)).
     //TODO: Afegir un boto o algo agafar(ficar el seu src al js) o millor afegir al package.json per instal·lar el js(si te npm), si no te npm s'agafa el javascript i s'afegeix al general.
+    //Fer el v-for només amb un todo (<todo>,</todo>
 </script>
 
 
