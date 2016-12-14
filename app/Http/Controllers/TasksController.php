@@ -49,7 +49,7 @@ class TasksController extends Controller
 //        if($user->can('show', \App\Task::class)) {
 //            //
 //        }
-        $this->authorize('show', \App\Task::class);
+        //$this->authorize('show', \App\Task::class);
 
         $tasks = Task::paginate('15');
 

@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => 'auth'], function () {
+//Route::group(['middleware' => 'auth'], function () {
 //    Route::group(['middleware' => 'can:show,App\Task'], function () {
         Route::get('/tasks', function () {
             return view('tasks');
@@ -10,7 +10,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile', function () {
         return view('tokens');
     });
-});
+//});
 
 Route::get('/', function () {
     return view('welcome');
