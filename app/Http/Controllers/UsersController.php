@@ -108,7 +108,7 @@ class UsersController extends Controller
         User::findOrFail($id)->update($request->all());
 
         return response([
-            'error' => false,
+            'error'   => false,
             'updated' => true,
             'message' => 'User updated',
         ], 200);
@@ -126,9 +126,9 @@ class UsersController extends Controller
         User::findOrFail($id)->delete();
 
         return response([
-            'error'   => false,
+            'error'     => false,
             'destroyed' => true,
-            'message' => 'User deleted',
+            'message'   => 'User deleted',
         ], 200);
     }
 }

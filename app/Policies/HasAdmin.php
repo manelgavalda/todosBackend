@@ -3,18 +3,20 @@
 namespace App\Policies;
 
 /**
- * Class HasAdmin
- * @package App\Policies
+ * Class HasAdmin.
  */
 trait HasAdmin
 {
     /**
      * @param $user
      * @param $ability
+     *
      * @return bool
      */
     public function before($user, $ability)
     {
-        if ($user->hasRole('admin')) return true;
+        if ($user->hasRole('admin')) {
+            return true;
+        }
     }
 }

@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Gate;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Laravel\Passport\Passport;
 
 /**
@@ -38,11 +38,11 @@ class AuthServiceProvider extends ServiceProvider
 
     private function defineGates()
     {
-        Gate::define('impossible-gate',function () {
+        Gate::define('impossible-gate', function () {
             return false; //No autoritzat.
         });
 
-        Gate::define('easy-gate',function () {
+        Gate::define('easy-gate', function () {
             return true; //autoritzat.
         });
 
@@ -51,7 +51,10 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('update-task2', function ($user, $task) {
-            if ($user->isAdmin()) return true;
+            if ($user->isAdmin()) {
+                return true;
+            }
+
             return $user->id == $task->user_id;
         });
     }

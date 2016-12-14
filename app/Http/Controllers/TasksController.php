@@ -41,7 +41,7 @@ class TasksController extends Controller
      */
     public function index()
     {
-//        if (Gate::denies('show-tasks')) {
+        //        if (Gate::denies('show-tasks')) {
 //
 //            abort(403);
 //        }
@@ -49,14 +49,11 @@ class TasksController extends Controller
 //        if($user->can('show', \App\Task::class)) {
 //            //
 //        }
-        $this->authorize('show',\App\Task::class);
+        $this->authorize('show', \App\Task::class);
 
         $tasks = Task::paginate('15');
 
         return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
-
-
-
     }
 
     public function create()
@@ -70,7 +67,6 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-
         if (!$request->has('user_id')) {
             $request->merge(['user_id' => Auth::id()]);
         }

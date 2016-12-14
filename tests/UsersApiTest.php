@@ -4,18 +4,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 /**
- * Class UsersApiTest
+ * Class UsersApiTest.
  */
 class UsersApiTest extends TestCase
 {
-
     use DatabaseMigrations;
 
     /**
      * @var string
      */
     protected $uri = '/api/v1/user';
-
 
     /**
      * Default number of users created in database.
@@ -44,9 +42,10 @@ class UsersApiTest extends TestCase
     }
 
     /**
-     * Convert user to array
+     * Convert user to array.
      *
      * @param Model $user
+     *
      * @return array
      */
     protected function convertUserToArray(Model $user)
@@ -54,9 +53,9 @@ class UsersApiTest extends TestCase
         // return $user->toArray();
         return [
             //'id'         => 1,//$user->id,
-            'name'       => $user->name,
-            'email'       => $user->email,
-            'password'   => $user->password,
+            'name'         => $user->name,
+            'email'        => $user->email,
+            'password'     => $user->password,
             'api_token'    => $user->api_token,
             //'created_at' => "2016-11-20",//$user->created_at,//->toDateString(),
             //'updated_at' => "2016-11-20"//$user->updated_at//->toDateString(),
@@ -75,7 +74,6 @@ class UsersApiTest extends TestCase
 
     /**
      * Create and act as a logged user on database.
-     *
      */
     protected function login()
     {
@@ -84,9 +82,9 @@ class UsersApiTest extends TestCase
     }
 
     //TODO ADD TEST FOR AUTHENTICATION AND REFACTOR EXISTING TESTS (ho farem al MP9), no fer-ho. i els de test validation igual.
+
     /**
      * Get unauthenticated response on petition without valid user.
-     *
      */
     public function userNotAuthenticated()
     {
@@ -97,7 +95,6 @@ class UsersApiTest extends TestCase
 
     /**
      * Test Retrieve all users.
-     *
      */
     public function testRetrieveAllUsers()
     {
@@ -149,7 +146,7 @@ class UsersApiTest extends TestCase
             ->seeJsonStructure(
                 ['name', 'email' /*,'created_at', 'updated_at'*/])
             ->seeJsonContains([
-                'name'       => $user->name,
+                'name'        => $user->name,
                 'email'       => $user->email,
 //                'created_at' => $task->created_at->toDateString(),
 //                'updated_at' => $task->updated_at->toDateString(),
@@ -236,7 +233,9 @@ class UsersApiTest extends TestCase
     {
         //TODO
     }
+
     //TODO: Test validation
+
     /**
      * Test name is required and done is set to false and priority to 1.
      *
@@ -246,6 +245,7 @@ class UsersApiTest extends TestCase
     {
         //TODO
     }
+
     /**
      * Test email has to be an String.
      *
@@ -255,8 +255,4 @@ class UsersApiTest extends TestCase
     {
         //TODO
     }
-
-
-
 }
-

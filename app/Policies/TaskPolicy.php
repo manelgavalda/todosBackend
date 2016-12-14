@@ -2,13 +2,12 @@
 
 namespace App\Policies;
 
-use App\User;
 use App\Task;
+use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 /**
- * Class TaskPolicy
- * @package App\Policies
+ * Class TaskPolicy.
  */
 class TaskPolicy extends BasePolicy
 {
@@ -17,7 +16,8 @@ class TaskPolicy extends BasePolicy
     /**
      * Determine whether the user can list all tasks.
      *
-     * @param  \App\User  $user
+     * @param \App\User $user
+     *
      * @return mixed
      */
     protected function model()
