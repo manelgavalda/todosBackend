@@ -6,9 +6,13 @@ use App\User;
 use App\Task;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
+/**
+ * Class TaskPolicy
+ * @package App\Policies
+ */
 class TaskPolicy
 {
-    use HandlesAuthorization;
+    use HandlesAuthorization, HasAdmin;
 
     /**
      * Determine whether the user can list all tasks.
