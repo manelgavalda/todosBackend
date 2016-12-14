@@ -54,7 +54,9 @@ class UserTasksController extends Controller
         $user->tasks()->create([$request->all()]);
 
         return response([
+            'error'   => false,
             'created' => true,
+            'message' => 'Task created',
         ], 200);
     }
 
@@ -86,6 +88,12 @@ class UserTasksController extends Controller
     public function update(Request $request, $id_user, $id_task)
     {
         User::findOrFail($id_user)->tasks[$id_task]->update($request->all());
+
+        return response([
+            'error'   => false,
+            'updated' => true,
+            'message' => 'Task updated',
+        ], 200);
     }
 
     /**
@@ -96,5 +104,10 @@ class UserTasksController extends Controller
     {
         //dd($id_task);
         User::findOrFail($id_user)->tasks[$id_task]->delete();
+        return response([
+            'error'   => false,
+            'destroyed' => true,
+            'message' => 'Task deleted',
+        ], 200);
     }
 }
