@@ -18,8 +18,10 @@ class TaskPolicy
      */
     public function show(User $user)
     {
-        return true;
+        //return true;
 
+        if($user->hasRole('admin')) return true;
+        return false;
     }
 
     /**
