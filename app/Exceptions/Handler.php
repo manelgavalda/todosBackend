@@ -2,7 +2,9 @@
 
 namespace App\Exceptions;
 
+use ErrorException;
 use Exception;
+use HttpException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Response;
@@ -52,7 +54,7 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof ModelNotFoundException) {
             return Response::json([
-                'error'  => 'Hi ha hagut una excepció: '.$exception->getMessage(),
+                'error'  => 'Hi ha hagut una excepció de model no trobat, error: '.$exception->getMessage(),
                 'code'   => 10,
                 'status' => 404,
             ], 404);
@@ -60,16 +62,23 @@ class Handler extends ExceptionHandler
 
         if ($exception instanceof IncorrectModelException) {
             return Response::json([
-                'error'  => 'Hi ha hagut una excepció, model incorrecte: '.$exception->getMessage(),
+                'error'  => 'Hi ha hagut una excepció de model incorrecte, error: '.$exception->getMessage(),
                 'code'   => 10,
                 'status' => 404,
             ], 404);
         }
 
-        if ($exception instanceof \ErrorException) {
+        if ($exception instanceof ErrorException) {
             return Response::json([
                 'error' => 'Hi ha hagut una excepció, error: '.$exception->getMessage(),
                 'code'  => 10,
+            ], 404);
+        }
+
+        if ($exception instanceof HttpException) {
+            return Response::json([
+                'error' => 'Hi ha hagut una excepció http, error: '.$exception->getMessage(),
+                'code'  => 403,
             ], 404);
         }
 
