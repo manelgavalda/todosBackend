@@ -104,10 +104,11 @@ class UserTasksController extends Controller
     {
         //dd($id_task);
         User::findOrFail($id_user)->tasks[$id_task]->delete();
+
         return response([
-            'error'   => false,
+            'error'     => false,
             'destroyed' => true,
-            'message' => 'Task deleted',
+            'message'   => 'Task deleted',
         ], 200);
     }
 }
