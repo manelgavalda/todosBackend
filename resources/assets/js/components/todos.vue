@@ -98,7 +98,7 @@ import Pagination from './pagination.vue'
 import Todo from './todo.vue'
 
 export default {
-        components : {Pagination,Todo},
+        components : {Pagination},
         data() {
             return {
                 //message: 'Hola que tal',
