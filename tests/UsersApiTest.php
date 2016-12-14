@@ -98,5 +98,21 @@ class UsersApiTest extends TestCase
             );
     }
 
+    public function testRetrieveOneUser()
+    {
+        //Create task in database
+        $user = $this->createAndPersistUser();
+        $this->login();
+        $this->json('GET', $this->uri.'/'.$user->id)
+            ->seeJsonStructure(
+                ['name', 'email' /*,'created_at', 'updated_at'*/])
+            ->seeJsonContains([
+                'name'       => $user->name,
+                'email'       => $user->email,
+//                'created_at' => $task->created_at->toDateString(),
+//                'updated_at' => $task->updated_at->toDateString(),
+            ]);
+    }
+
 }
 
