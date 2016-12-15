@@ -7,6 +7,12 @@
 
 todosBackend Project
 
+## Prerequisites:
+
+- This project works with: 
+    - PHP 5.6 or higher.
+    - composer and npm to install dependencies.
+
 ## Install
 
 Clone via github:
@@ -29,6 +35,11 @@ $ cp .env.example .env
 Generate new artisan key:
 ``` bash
 $ php artisan key:generate
+```
+
+This project uses laravel passport, so you need to install it to create the encryption keys needed to generate secure acces tokens before running migrations (php artisan migrate):
+``` bash
+$ php artisan passport:install
 ```
 
 ## Database
