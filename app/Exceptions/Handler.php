@@ -72,13 +72,15 @@ class Handler extends ExceptionHandler
             return Response::json([
                 'error' => 'Hi ha hagut una excepció, error: '.$exception->getMessage(),
                 'code'  => 10,
+                'status' => 404,
             ], 404);
         }
 
         if ($exception instanceof HttpException) {
             return Response::json([
                 'error' => 'Hi ha hagut una excepció http, error: '.$exception->getMessage(),
-                'code'  => 403,
+                'code' => 10,
+                'status'  => 403,
             ], 404);
         }
 
