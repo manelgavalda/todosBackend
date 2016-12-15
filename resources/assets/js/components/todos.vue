@@ -65,7 +65,7 @@
                     <input v-model="todo.done" size="3"></span>
                 </td>
                 <td>
-                    <button class='fa fa-trash'@click="deleteTodo(index,todo.id)"/>
+                    <button class='fa fa-trash' @click="deleteTodo(index,todo.id)"/>
                 </td>
                 <td>
                     <div class="progress progress-xs">
@@ -83,9 +83,9 @@
 
         <pagination
                 :current-page="page"
-                :items-per-page="perPage"
                 :total-items="total"
-                @page-changed="pageChanged"></pagination><!--TODO api value-->
+                @page-changed="pageChanged">
+        </pagination>
 
 
     </div>
@@ -141,7 +141,7 @@ export default {
             }
         },
         created() {
-            console.log('Component todolist created.');
+            //console.log('Component todolist created.');
             this.fetchData();
         },
         methods: {

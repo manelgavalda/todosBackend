@@ -31,7 +31,11 @@
             },
             totalPages: Number,
             // Items per page
-            itemsPerPage: Number,
+            itemsPerPage: {
+              type: Number,
+              default: 10,
+              coerce: (val) => parseInt(val)
+            },
             // Total items
             totalItems: Number,
         },
