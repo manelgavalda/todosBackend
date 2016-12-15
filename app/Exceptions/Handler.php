@@ -42,12 +42,12 @@ class Handler extends ExceptionHandler
         parent::report($exception);
     }
 
-
     /**
      * Render an exception into an HTTP response.
      *
      * @param \Illuminate\Http\Request $request
-     * @param Exception $exception
+     * @param Exception                $exception
+     *
      * @return \Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function render($request, Exception $exception)
@@ -70,16 +70,16 @@ class Handler extends ExceptionHandler
 
         if ($exception instanceof ErrorException) {
             return Response::json([
-                'error' => 'Hi ha hagut una excepció, error: '.$exception->getMessage(),
-                'code'  => 10,
+                'error'  => 'Hi ha hagut una excepció, error: '.$exception->getMessage(),
+                'code'   => 10,
                 'status' => 404,
             ], 404);
         }
 
         if ($exception instanceof HttpException) {
             return Response::json([
-                'error' => 'Hi ha hagut una excepció http, error: '.$exception->getMessage(),
-                'code' => 10,
+                'error'   => 'Hi ha hagut una excepció http, error: '.$exception->getMessage(),
+                'code'    => 10,
                 'status'  => 403,
             ], 404);
         }
@@ -87,11 +87,11 @@ class Handler extends ExceptionHandler
         return parent::render($request, $exception);
     }
 
-
     /**
      * Convert an authentication exception into an unauthenticated response.
      *
      * @param $request
+     *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
     protected function unauthenticated($request)
