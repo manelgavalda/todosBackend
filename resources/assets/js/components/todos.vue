@@ -203,7 +203,7 @@ export default {
             },
             fetchPage: function(page) {
                 this.$http.get(this.uri+'?page=' + page).then((response) => {
-                    console.log(response);
+                    //console.log(response);
                     this.todos = response.data.data;
                     this.perPage = response.data.per_page;
                     this.to = response.data.to;

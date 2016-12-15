@@ -58,7 +58,7 @@
               ? this.totalItems / this.itemsPerPage
               : Math.floor(this.totalItems / this.itemsPerPage) + 1
           }
-        },
+         },
         paginationRange () {
           let start = this.currentPage - this.visiblePages / 2 <= 0
                         ? 1 : this.currentPage + this.visiblePages / 2 > this.lastPage
