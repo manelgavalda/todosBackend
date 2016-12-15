@@ -10,8 +10,8 @@ use App\User;
  */
 abstract class BasePolicy
 {
-
     abstract protected function model();
+
     /**
      * @param User $user
      *
@@ -20,7 +20,9 @@ abstract class BasePolicy
     public function show(User $user)
     {
         //return true;
-        if ($user->hasPermissionTo('show-' . $this->model())) return true;
+        if ($user->hasPermissionTo('show-'.$this->model())) {
+            return true;
+        }
     }
 
     /**
