@@ -42,13 +42,13 @@ class Handler extends ExceptionHandler
         parent::report($exception);
     }
 
+
     /**
      * Render an exception into an HTTP response.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \Exception               $exception
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * @param Exception $exception
+     * @return \Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function render($request, Exception $exception)
     {
@@ -87,14 +87,12 @@ class Handler extends ExceptionHandler
         return parent::render($request, $exception);
     }
 
+
     /**
      * Convert an authentication exception into an unauthenticated response.
      *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\Response
-     *
-     * @internal param AuthenticationException $exception
+     * @param $request
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
     protected function unauthenticated($request)
     {

@@ -9,7 +9,7 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 /**
  * Class TaskPolicy.
  */
-class TaskPolicy extends BasePolicy
+class TaskPolicy //extends BasePolicy
 {
     use HandlesAuthorization, HasAdmin;
 
