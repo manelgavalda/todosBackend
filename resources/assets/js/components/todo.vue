@@ -7,25 +7,25 @@
     <tr>
          <td>{{ index + from }}</td>
             <td>
-                <span v-if="editing==false"  @click="editTodo">{{todo.name}}</span>
+                <span v-if="!editing"  @dblclick="editTodo">{{todo.name}}</span>
                 <span v-else @keyup.enter="editTodo">
-                            <input v-model="todo.name" size='50' @keyup.esc="editTodo"></span>
-                <i class="fa fa-check" aria-hidden="true" v-show="editing" @click="editTodo"/>
+                            <input v-model="todo.name" size='50' @keyup.esc="editTodo" @keyup.enter="save"></span>
                 <i class="fa fa-edit" aria-hidden="true" v-show="!editing" @click="editTodo"/>
-                <i class="fa fa-close" aria-hidden="true" v-show="editing" @click="editTodo"/>
+                <i class="fa fa-check" aria-hidden="true" v-show="editing" @click="save"/>
+                <i class="fa fa-close" aria-hidden="true" v-show="editing" @click="unnedit"/>
             </td>
             <td>
-                <span v-if="editing==false"  @click="editTodo">{{todo.priority}}</span>
+                <span v-if="!editing"  @click="editTodo">{{todo.priority}}</span>
                 <span v-else @keyup.enter="editTodo">
                             <input v-model="todo.priority" size="1"></span>
             </td>
             <td>
-                <span v-if="editing==false"  @click="editTodo">{{todo.done}}</span>
+                <span v-if="!editing"  @click="editTodo">{{todo.done}}</span>
                 <span v-else @keyup.enter="editTodo">
                             <input v-model="todo.done" size="3"></span>
             </td>
             <td>
-                <button class='fa fa-trash'@click="deleteTodo(index,todo.id)"/>
+                <button class='fa fa-trash' @click="deleteTodo(index,todo.id)"/>
             </td>
             <td>
                 <div class="progress progress-xs">
@@ -54,11 +54,17 @@ export default {
             },
             //editTodo.
             editTodo: function() {
-                if (this.editing) {
-                    return this.editing = false;
-                }
                 return this.editing = true;
             },
+            unnedit: function() {
+                return this.editing = false;
+            },
+
+            save: function() {
+                return this.editing = false;
+                //ficat put per guardar a la api.
+            },
+
             deleteTodoApi: function(id) {
                 this.$http.delete(this.uri + '/' + id).then((response) => {
                     console.log(response);
@@ -69,6 +75,7 @@ export default {
                 });
             },
             deleteTodo: function(id,idTask) {
+            //notificar al pare ja que canvia el paginator.
             //Per cridar desde fora funció
             var out = this;
                 swal({
