@@ -1,5 +1,7 @@
 <style>
-
+.button {
+    color: green;
+}
 </style>
 <template>
     <tr>
@@ -7,10 +9,10 @@
             <td>
                 <span v-if="editing==false"  @click="editTodo">{{todo.name}}</span>
                 <span v-else @keyup.enter="editTodo">
-                            <input v-model="todo.name" size='50'></span>
-                <button class="fa fa-check" aria-hidden="true" v-show="editing"/>
-                <button class="fa fa-edit" aria-hidden="true" v-show="!editing"/>
-                <button class="fa fa-close" aria-hidden="true" v-show="editing"/>
+                            <input v-model="todo.name" size='50' @keyup.esc="editTodo"></span>
+                <i class="fa fa-check" aria-hidden="true" v-show="editing" @click="editTodo"/>
+                <i class="fa fa-edit" aria-hidden="true" v-show="!editing" @click="editTodo"/>
+                <i class="fa fa-close" aria-hidden="true" v-show="editing" @click="editTodo"/>
             </td>
             <td>
                 <span v-if="editing==false"  @click="editTodo">{{todo.priority}}</span>
