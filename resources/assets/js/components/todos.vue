@@ -41,45 +41,19 @@
                 <th>Task</th>
                 <th>Priority</th>
                 <th>Done</th>
-                <th>Delete</th>
                 <th>Progress</th>
                 <th style="width: 40px">Label</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
                 <todo v-for="(todo, index) in filteredTodos"
                       v-bind:todo="todo"
                       v-bind:index="index"
-                      v-bind:from="from"></todo>
-                <!--<tr>-->
-                <!--<td>{{ index + from }}</td>-->
-                <!--<td>-->
-                    <!--<span v-if="editing==false"  @click="editTodo">{{todo.name}}</span>-->
-                    <!--<span v-else @keyup.enter="editTodo" >-->
-                    <!--<input v-model="todo.name" size='50'></span>-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<span v-if="editing==false"  @click="editTodo">{{todo.priority}}</span>-->
-                    <!--<span v-else @keyup.enter="editTodo">-->
-                    <!--<input v-model="todo.priority" size="1"></span>-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<span v-if="editing==false"  @click="editTodo">{{todo.done}}</span>-->
-                    <!--<span v-else @keyup.enter="editTodo">-->
-                    <!--<input v-model="todo.done" size="3"></span>-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<button class='fa fa-trash' @click="deleteTodo(index,todo.id)"/>-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<div class="progress progress-xs">-->
-                        <!--<div class="progress-bar progress-bar-danger" style="width: 55%"></div>-->
-                    <!--</div>-->
-                <!--</td>-->
-                <!--<td><span class="badge bg-red">55%</span></td>-->
-            <!--</tr>-->
+                      v-bind:from="from"
+                      @todo-deleted="deleteTodo">
+                </todo>
             </tbody>
-
         </table>
     </div>
     <div class="box-footer clearfix">
@@ -117,7 +91,7 @@ export default {
                 from: 0,
                 to: 0,
                 total: 0,
-                page: 1,
+                page: 1
             }
         },
         computed: {
@@ -213,6 +187,39 @@ export default {
                     this.to = response.data.to;
                     this.from = response.data.from;
                     this.total = response.data.total;
+                }, (response) => {
+                    // error callback
+                    sweetAlert("Oops...", "Something went wrong!", "error");
+                    console.log(response);
+                });
+            },
+            deleteTodo: function(id,idTask) {
+            //notificar al pare ja que canvia el paginator.
+            //Per cridar desde fora funció
+            //enviar esdeveniment al pare fer el slice del todo i fer el detch de la page per actualitzar el paginator i entre altes coses.
+            //fer el delete al pare.
+            var out = this;
+            //this.todos.splice(1,1);
+            //this.todos.splice(id, 1);
+                swal({
+                    title: "Are you sure?",
+                    text: "You will not be able to recover this task!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes, delete it!",
+                    closeOnConfirm: false
+                  },
+                  function(){
+                    swal("Deleted!", "Your task has been deleted.", "success");
+                    //out.todos.splice(id, 1);
+                    //out.deleteTodoApi(this.idTask);
+                    //out.fetchPage(out.page);
+                  });
+            },
+            deleteTodoApi: function(id) {
+                this.$http.delete(this.uri + '/' + id).then((response) => {
+                    console.log(response);
                 }, (response) => {
                     // error callback
                     sweetAlert("Oops...", "Something went wrong!", "error");
