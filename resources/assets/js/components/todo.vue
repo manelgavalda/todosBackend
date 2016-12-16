@@ -6,7 +6,7 @@
          <td>{{ index + from }}</td>
             <td>
                 <span v-if="editing==false"  @click="editTodo">{{todo.name}}</span>
-                <span v-else @keyup.enter="editTodo" @keyup="resize">
+                <span v-else @keyup.enter="editTodo">
                             <input v-model="todo.name" size='50'></span>
             </td>
             <td>
@@ -46,7 +46,42 @@ export default {
         methods: {
             hola: function(pageNum) {
              console.log('Hello');
-            }
+            },
+            //editTodo.
+            editTodo: function() {
+                if (this.editing) {
+                    return this.editing = false;
+                }
+                return this.editing = true;
+            },
+            deleteTodoApi: function(id) {
+                this.$http.delete(this.uri + '/' + id).then((response) => {
+                    console.log(response);
+                }, (response) => {
+                    // error callback
+                    sweetAlert("Oops...", "Something went wrong!", "error");
+                    console.log(response);
+                });
+            },
+            deleteTodo: function(id,idTask) {
+            //Per cridar desde fora funció
+            var out = this;
+                swal({
+                    title: "Are you sure?",
+                    text: "You will not be able to recover this task!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes, delete it!",
+                    closeOnConfirm: false
+                  },
+                  function(){
+                    swal("Deleted!", "Your task has been deleted.", "success");
+                    out.todos.splice(this.id, 1);
+                    out.deleteTodoApi(this.idTask);
+                    out.fetchPage(out.page);
+                  });
+            },
         }
     }
     //Afegir icones(edit,eliminar, cancelar(depenent de l'estat editing)).
