@@ -2,37 +2,39 @@
 
 </style>
 <template>
-    <div>
-     <td>{{ index + from }}</td>
-        <td>
-            <span v-if="editing==false"  @click="editTodo">{{todo.name}}</span>
-            <span v-else @keyup.enter="editTodo" @keyup="resize">
-                        <input v-model="todo.name" size='50'></span>
-        </td>
-        <td>
-            <span v-if="editing==false"  @click="editTodo">{{todo.priority}}</span>
-            <span v-else @keyup.enter="editTodo">
-                        <input v-model="todo.priority" size="1"></span>
-        </td>
-        <td>
-            <span v-if="editing==false"  @click="editTodo">{{todo.done}}</span>
-            <span v-else @keyup.enter="editTodo">
-                        <input v-model="todo.done" size="3"></span>
-        </td>
-        <td>
-            <button class='fa fa-trash'@click="deleteTodo(index,todo.id)"/>
-        </td>
-        <td>
-            <div class="progress progress-xs">
-                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-            </div>
-        </td>
-        <td><span class="badge bg-red">55%</span></td>
-    </div>
+    <tr>
+         <td>{{ index + from }}</td>
+            <td>
+                <span v-if="editing==false"  @click="editTodo">{{todo.name}}</span>
+                <span v-else @keyup.enter="editTodo" @keyup="resize">
+                            <input v-model="todo.name" size='50'></span>
+            </td>
+            <td>
+                <span v-if="editing==false"  @click="editTodo">{{todo.priority}}</span>
+                <span v-else @keyup.enter="editTodo">
+                            <input v-model="todo.priority" size="1"></span>
+            </td>
+            <td>
+                <span v-if="editing==false"  @click="editTodo">{{todo.done}}</span>
+                <span v-else @keyup.enter="editTodo">
+                            <input v-model="todo.done" size="3"></span>
+            </td>
+            <td>
+                <button class='fa fa-trash'@click="deleteTodo(index,todo.id)"/>
+            </td>
+            <td>
+                <div class="progress progress-xs">
+                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                </div>
+            </td>
+            <td><span class="badge bg-red">55%</span></td>
+    </tr>
 </template>
 <script>
 
 export default {
+        props: ['todo','index','from'],
+
         data() {
             return {
                 editing :false,

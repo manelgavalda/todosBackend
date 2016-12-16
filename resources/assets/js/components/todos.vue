@@ -47,33 +47,37 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(todo, index) in filteredTodos">
-                <td>{{ index + from }}</td>
-                <td>
-                    <span v-if="editing==false"  @click="editTodo">{{todo.name}}</span>
-                    <span v-else @keyup.enter="editTodo" @keyup="resize">
-                    <input v-model="todo.name" size='50'></span>
-                </td>
-                <td>
-                    <span v-if="editing==false"  @click="editTodo">{{todo.priority}}</span>
-                    <span v-else @keyup.enter="editTodo">
-                    <input v-model="todo.priority" size="1"></span>
-                </td>
-                <td>
-                    <span v-if="editing==false"  @click="editTodo">{{todo.done}}</span>
-                    <span v-else @keyup.enter="editTodo">
-                    <input v-model="todo.done" size="3"></span>
-                </td>
-                <td>
-                    <button class='fa fa-trash' @click="deleteTodo(index,todo.id)"/>
-                </td>
-                <td>
-                    <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                    </div>
-                </td>
-                <td><span class="badge bg-red">55%</span></td>
-            </tr>
+                <todo v-for="(todo, index) in filteredTodos"
+                      v-bind:todo="todo"
+                      v-bind:index="index"
+                      v-bind:from="from"></todo>
+                <!--<tr>-->
+                <!--<td>{{ index + from }}</td>-->
+                <!--<td>-->
+                    <!--<span v-if="editing==false"  @click="editTodo">{{todo.name}}</span>-->
+                    <!--<span v-else @keyup.enter="editTodo" @keyup="resize">-->
+                    <!--<input v-model="todo.name" size='50'></span>-->
+                <!--</td>-->
+                <!--<td>-->
+                    <!--<span v-if="editing==false"  @click="editTodo">{{todo.priority}}</span>-->
+                    <!--<span v-else @keyup.enter="editTodo">-->
+                    <!--<input v-model="todo.priority" size="1"></span>-->
+                <!--</td>-->
+                <!--<td>-->
+                    <!--<span v-if="editing==false"  @click="editTodo">{{todo.done}}</span>-->
+                    <!--<span v-else @keyup.enter="editTodo">-->
+                    <!--<input v-model="todo.done" size="3"></span>-->
+                <!--</td>-->
+                <!--<td>-->
+                    <!--<button class='fa fa-trash' @click="deleteTodo(index,todo.id)"/>-->
+                <!--</td>-->
+                <!--<td>-->
+                    <!--<div class="progress progress-xs">-->
+                        <!--<div class="progress-bar progress-bar-danger" style="width: 55%"></div>-->
+                    <!--</div>-->
+                <!--</td>-->
+                <!--<td><span class="badge bg-red">55%</span></td>-->
+            <!--</tr>-->
             </tbody>
 
         </table>
@@ -98,7 +102,7 @@ import Pagination from './pagination.vue'
 import Todo from './todo.vue'
 
 export default {
-        components : {Pagination},
+        components : {Pagination,Todo},
         data() {
             return {
                 //message: 'Hola que tal',
