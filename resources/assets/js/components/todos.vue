@@ -167,18 +167,6 @@ export default {
                 });
                 //this.fetchPage(this.page);
             },
-            editTodoApi: function(todo) {
-                this.$http.put(this.uri +'/'+todo.id,{
-                    name: todo.name,
-                    priority: todo.priority,
-                    done: todo.done
-                }).then((response) => {
-                console.log(response);
-                }, (response) => {
-                    sweetAlert("Oops...", "Something went wrong!", "error");
-                    console.log(response);
-                });
-            },
             fetchPage: function(page) {
                 this.$http.get(this.uri+'?page=' + page).then((response) => {
                     //console.log(response);

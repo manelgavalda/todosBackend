@@ -52,7 +52,8 @@ export default {
         data() {
             return {
                 editing: false,
-                editingName: false
+                editingName: false,
+                uri: 'api/v1/task',
             }
         },
         created() {
@@ -70,9 +71,25 @@ export default {
             unneditName: function() {
                 return this.editingName = false;
             },
-            saveName: function() {
-                return this.editingName = false;
+            saveName: function(todo) {
+                console.log(this.uri);
                 //ficat put per guardar a la api.
+                this.editTodoApi();
+                return this.editingName = false;
+            },
+            //No el necessitem a todos.
+            editTodoApi: function() {
+                console.log(this.todo.name);
+                this.$http.put(this.uri +'/'+this.todo.id,{
+                    name: this.todo.name,
+                    priority: this.todo.priority,
+                    done: this.todo.done
+                }).then((response) => {
+                console.log(response);
+                }, (response) => {
+                    sweetAlert("Oops...", "Something went wrong!", "error");
+                    console.log(response);
+                });
             },
             //No puc usar nom delete peruè és un keyword de javascript.
             deleteTodo: function(index,id) {
