@@ -9,9 +9,9 @@
                             <!--<input v-model="todo.name" size='50' @keyup.esc="editTodo" @keyup.enter="saveTodo"></span>-->
             <!--</td>-->
             <td>
-                <span v-if="!editingName"  @dblclick="editName">{{todo.name}}</span>
+                <span v-if="!editingName"  @dblclick="editName" >{{todo.name}}</span>
                 <span v-else @keyup.enter="editName">
-                                <input v-model="todo.name" size="50"></span>
+                                <input v-model="todo.name" size="50" @keyup.enter="saveName" @keyup.esc="unneditName"></span>
 
                 <i class="fa fa-edit" aria-hidden="true" v-show="!editingName" @click="editName"/>
                 <i class="fa fa-check" aria-hidden="true" v-show="editingName" @click="saveName"/>
@@ -73,11 +73,10 @@ export default {
             },
             saveName: function(todo) {
                 console.log(this.uri);
-                //ficat put per guardar a la api.
                 this.editTodoApi();
                 return this.editingName = false;
             },
-            //No el necessitem a todos.
+            //Editar todo desde api.
             editTodoApi: function() {
                 console.log(this.todo.name);
                 this.$http.put(this.uri +'/'+this.todo.id,{
