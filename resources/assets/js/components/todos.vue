@@ -1,7 +1,6 @@
 <style>
 </style>
 <template>
-    <link rel="stylesheet" href="../../plugins/iCheck/all.css">
     <div>
         <div class="box box-primary">
             <div class="box-header with-border">
