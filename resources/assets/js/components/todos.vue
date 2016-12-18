@@ -79,8 +79,6 @@ export default {
         components : {Pagination,Todo},
         data() {
             return {
-                //message: 'Hola que tal',
-                //seen: false,
                 uri: '/api/v1/task',
                 editing :false,
                 todos: [
@@ -111,15 +109,11 @@ export default {
                     });
                 }
             }
-            //Filters
-            //return this.todos;
-            //Active
             return filters[this.visibility](this.todos);
 
             }
         },
         created() {
-            //console.log('Component todolist created.');
             this.fetchData();
         },
         methods: {
@@ -134,15 +128,13 @@ export default {
                 }
                 var todo = {
                     name: value,
-                    //Valors per defecte.
                     priority: 1,
                     done: false,
-                    user_id: 1 //necessaria.
+                    user_id: 1
                 };
                 this.filteredTodos.push(todo);
                 this.newTodo = '';
                 this.addTodoApi(todo);
-                //Refrescar pàgina al afegir todo.
                 this.fetchPage(this.page);
             },
             setVisibility: function(visibility) {
@@ -165,26 +157,20 @@ export default {
                     sweetAlert("Oops...", "Something went wrong!", "error");
                     console.log(response);
                 });
-                //this.fetchPage(this.page);
             },
             fetchPage: function(page) {
                 this.$http.get(this.uri+'?page=' + page).then((response) => {
-                    //console.log(response);
                     this.todos = response.data.data;
                     this.perPage = response.data.per_page;
                     this.to = response.data.to;
                     this.from = response.data.from;
                     this.total = response.data.total;
                 }, (response) => {
-                    // error callback
                     sweetAlert("Oops...", "Something went wrong!", "error");
                     console.log(response);
                 });
             },
             deleteTodo: function(index,id) {
-            //notificar al pare ja que canvia el paginator.
-            //Per cridar desde fora funció
-            //enviar esdeveniment al pare fer el slice del todo i fer el detch de la page per actualitzar el paginator i entre altes coses.
             var out = this;
                 swal({
                     title: "Are you sure?",
@@ -205,16 +191,13 @@ export default {
                 this.$http.delete(this.uri + '/' + id).then((response) => {
                     console.log(response);
                 }, (response) => {
-                    // error callback
                     sweetAlert("Oops...", "Something went wrong!", "error");
                     console.log(response);
                 });
             },
         }
     }
-    //Afegir icones(edit,eliminar, cancelar(depenent de l'estat editing)).
     //TODO: Afegir un boto o algo agafar(ficar el seu src al js) o millor afegir al package.json per instal·lar el js(si te npm), si no te npm s'agafa el javascript i s'afegeix al general.
-    //Fer el v-for només amb un todo (<todo>,</todo>
     //TODO: fa-check color verd editar. fa-close simular escape(amb vermell),fa-edit editar(fer el mateixq eu el doble click i ensenyar quant esta editing a false) i les altres 2 ene ditigni=true i asociar esdeveniment si canviar colors(en botons?...),
     //TODO: Al editar que estigue seleccionat i amb el focus.
 </script>

@@ -3,16 +3,10 @@
 <template>
     <tr>
          <td>{{ index + from }}</td>
-            <!--<td>-->
-                <!--<span v-if="!editing"  @dblclick="editTodo">{{todo.name}}</span>-->
-                <!--<span v-else @keyup.enter="editTodo">-->
-                            <!--<input v-model="todo.name" size='50' @keyup.esc="editTodo" @keyup.enter="saveTodo"></span>-->
-            <!--</td>-->
             <td>
                 <span v-if="!editingName"  @dblclick="editName" >{{todo.name}}</span>
                 <span v-else @keyup.enter="editName">
                                 <input v-model="todo.name" size="50" @keyup.enter="saveName" @keyup.esc="unneditName"></span>
-
                 <i class="fa fa-edit" aria-hidden="true" v-show="!editingName" @click="editName"/>
                 <i class="fa fa-check" aria-hidden="true" v-show="editingName" @click="saveName"/>
                 <i class="fa fa-close" aria-hidden="true" v-show="editingName" @click="unneditName"/>
@@ -115,7 +109,6 @@ export default {
             }
         }
     }
-    //TODO: Afegir un boto o algo agafar(ficar el seu src al js) o millor afegir al package.json per instal·lar el js(si te npm), si no te npm s'agafa el javascript i s'afegeix al general.
 </script>
 
 
