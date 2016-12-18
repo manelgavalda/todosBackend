@@ -88,6 +88,7 @@ export default {
             //Priority methods:
             setPriority: function(priority) {
                 this.todo.priority=priority;
+                this.editTodoApi();
             },
             //Done methods:
             changeDone: function() {
