@@ -30,16 +30,13 @@
                 </div>
             </td>
             <td>
-                <!--<span v-if="!editing"  @click="setDone">{{todo.done}}</span>-->
-                <!--<span v-else @keyup.enter="setDone">-->
-                            <!--<input v-model="todo.done" size="3"></span>-->
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox">
-                    </label>
-                </div>
+                <span v-if="todo.done">
+                    <input type="checkbox" checked="true" class="flat-red" @click="setDone(false)">
+                </span>
+                <span v-else>
+                    <input type="checkbox" class="flat-red"  @click="setDone(true)">
+                </span>
             </td>
-
             <td>
                 <div class="progress progress-xs">
                     <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
@@ -67,6 +64,7 @@ export default {
                 editingName: false,
                 uri: 'api/v1/task',
                 n: this.todo.priority,
+                done: this.todo.done,
             }
         },
         created() {
@@ -96,8 +94,9 @@ export default {
                 this.editTodoApi();
             },
             //Done methods:
-            setDone: function() {
-                console.log("Canviant estat");
+            setDone: function(done) {
+            this.todo.done=done;
+            this.editTodoApi();
             },
             //Editar todo desde api.
             editTodoApi: function() {
