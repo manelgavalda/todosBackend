@@ -64,7 +64,6 @@ export default {
                 editingName: false,
                 uri: 'api/v1/task',
                 n: this.todo.priority,
-                done: this.todo.done,
             }
         },
         created() {
@@ -73,18 +72,15 @@ export default {
         methods: {
             //Name methods:
             editName: function() {
-                //console.log(this.index);
                 return this.editingName = true;
             },
             editTodo: function() {
-                //console.log(this.index);
                 return this.editing = true;
             },
             unneditName: function() {
                 return this.editingName = false;
             },
             saveName: function() {
-                console.log(this.uri);
                 this.editTodoApi();
                 return this.editingName = false;
             },
@@ -98,9 +94,8 @@ export default {
             this.todo.done=done;
             this.editTodoApi();
             },
-            //Editar todo desde api.
+            //Fer peticions al editar.
             editTodoApi: function() {
-                console.log(this.todo.name);
                 this.$http.put(this.uri +'/'+this.todo.id,{
                     name: this.todo.name,
                     priority: this.todo.priority,
@@ -112,18 +107,15 @@ export default {
                     console.log(response);
                 });
             },
-            //No puc usar nom delete peruè és un keyword de javascript.
+            //No puc usar nom delete perquè és un keyword de javascript.
             deleteTodo: function(index,id) {
                 console.log("Deleting todo");
-                //per a que el pare ho pille.
+                //Per enviarli al pare.
                 this.$emit('todo-deleted',index,id);
             }
         }
     }
-    //Afegir icones(edit,eliminar, cancelar(depenent de l'estat editing)).
     //TODO: Afegir un boto o algo agafar(ficar el seu src al js) o millor afegir al package.json per instal·lar el js(si te npm), si no te npm s'agafa el javascript i s'afegeix al general.
-    //Fer el v-for només amb un todo (<todo>,</todo>
-    //Fer més accions com el de borrar.
 </script>
 
 
