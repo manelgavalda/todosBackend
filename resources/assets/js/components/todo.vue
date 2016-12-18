@@ -18,9 +18,16 @@
                 <i class="fa fa-close" aria-hidden="true" v-show="editingName" @click="unneditName"/>
             </td>
             <td>
-                <span v-if="!editing"  @click="editTodo">{{todo.priority}}</span>
-                <span v-else @keyup.enter="editTodo">
-                            <input v-model="todo.priority" size="1"></span>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-info">{{todo.priority}}</button>
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu btn-info" role="menu">
+                        <li v-for="n in 10"><a href="#" @click="setPriority(n)">{{n}}</a></li>
+                    </ul>
+                </div>
             </td>
             <td>
                 <span v-if="!editing"  @click="editTodo">{{todo.done}}</span>
@@ -54,12 +61,14 @@ export default {
                 editing: false,
                 editingName: false,
                 uri: 'api/v1/task',
+                n: this.todo.priority,
             }
         },
         created() {
             //console.log('Component todo created.');
         },
         methods: {
+            //Name methods:
             editName: function() {
                 //console.log(this.index);
                 return this.editingName = true;
@@ -71,10 +80,18 @@ export default {
             unneditName: function() {
                 return this.editingName = false;
             },
-            saveName: function(todo) {
+            saveName: function() {
                 console.log(this.uri);
                 this.editTodoApi();
                 return this.editingName = false;
+            },
+            //Priority methods:
+            setPriority: function(priority) {
+                this.todo.priority=priority;
+            },
+            //Done methods:
+            changeDone: function() {
+                console.log("Canviant estat");
             },
             //Editar todo desde api.
             editTodoApi: function() {
