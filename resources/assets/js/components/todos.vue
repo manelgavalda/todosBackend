@@ -197,7 +197,6 @@ export default {
                   },
                   function(){
                     swal("Deleted!", "Your task has been deleted.", "success");
-                    out.todos.splice(index, 1);
                     out.deleteTodoApi(id);
                     out.fetchPage(out.page);
                   });
