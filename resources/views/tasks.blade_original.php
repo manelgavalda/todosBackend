@@ -17,6 +17,7 @@
         <li v-for="todo in todos">@{{todo.name}} | @{{todo.done}} | @{{todo.priority}}</li>
     </ol>
 </div>
+<script src="../../plugins/iCheck/icheck.min.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
