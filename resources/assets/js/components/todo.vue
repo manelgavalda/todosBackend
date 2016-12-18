@@ -3,13 +3,19 @@
 <template>
     <tr>
          <td>{{ index + from }}</td>
+            <!--<td>-->
+                <!--<span v-if="!editing"  @dblclick="editTodo">{{todo.name}}</span>-->
+                <!--<span v-else @keyup.enter="editTodo">-->
+                            <!--<input v-model="todo.name" size='50' @keyup.esc="editTodo" @keyup.enter="saveTodo"></span>-->
+            <!--</td>-->
             <td>
-                <span v-if="!editing"  @dblclick="editTodo">{{todo.name+todo.id}}</span>
-                <span v-else @keyup.enter="editTodo">
-                            <input v-model="todo.name" size='50' @keyup.esc="editTodo" @keyup.enter="saveTodo"></span>
-                <i class="fa fa-edit" aria-hidden="true" v-show="!editing" @click="editTodo"/>
-                <i class="fa fa-check" aria-hidden="true" v-show="editing" @click="saveTodo"/>
-                <i class="fa fa-close" aria-hidden="true" v-show="editing" @click="unneditTodo"/>
+                <span v-if="!editingName"  @dblclick="editName">{{todo.name}}</span>
+                <span v-else @keyup.enter="editName">
+                                <input v-model="todo.name" size="50"></span>
+
+                <i class="fa fa-edit" aria-hidden="true" v-show="!editingName" @click="editName"/>
+                <i class="fa fa-check" aria-hidden="true" v-show="editingName" @click="saveName"/>
+                <i class="fa fa-close" aria-hidden="true" v-show="editingName" @click="unneditName"/>
             </td>
             <td>
                 <span v-if="!editing"  @click="editTodo">{{todo.priority}}</span>
@@ -29,11 +35,11 @@
             </td>
             <td><span class="badge bg-red">55%</span></td>
         <td>
-            <span class="btn btn-md btn-danger">
-                <i class='fa fa-fw fa-trash' @click="deleteTodo(index,todo.id)"/>
+            <span class="btn btn-md btn-danger"  @click="deleteTodo(index,todo.id)">
+                <i class='fa fa-fw fa-trash'/>
             </span>
-            <span class="btn btn-md btn-info">
-                <i class='fa fa-fw fa-edit' @click="editTodo"/>
+            <span class="btn btn-md btn-info" @click="editTodo(index,todo.id)">
+                <i class='fa fa-fw fa-edit'/>
             </span>
         </td>
     </tr>
@@ -46,20 +52,26 @@ export default {
         data() {
             return {
                 editing: false,
+                editingName: false
             }
         },
         created() {
             //console.log('Component todo created.');
         },
         methods: {
+            editName: function() {
+                //console.log(this.index);
+                return this.editingName = true;
+            },
             editTodo: function() {
+                //console.log(this.index);
                 return this.editing = true;
             },
-            unneditTodo: function() {
-                return this.editing = false;
+            unneditName: function() {
+                return this.editingName = false;
             },
-            saveTodo: function() {
-                return this.editing = false;
+            saveName: function() {
+                return this.editingName = false;
                 //ficat put per guardar a la api.
             },
             //No puc usar nom delete peruè és un keyword de javascript.
