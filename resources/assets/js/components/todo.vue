@@ -4,12 +4,12 @@
     <tr>
          <td>{{ index + from }}</td>
             <td>
-                <span v-if="!editing"  @dblclick="editTodo">{{todo.name}}</span>
+                <span v-if="!editing"  @dblclick="editTodo">{{todo.name+todo.id}}</span>
                 <span v-else @keyup.enter="editTodo">
-                            <input v-model="todo.name" size='50' @keyup.esc="editTodo" @keyup.enter="save"></span>
+                            <input v-model="todo.name" size='50' @keyup.esc="editTodo" @keyup.enter="saveTodo"></span>
                 <i class="fa fa-edit" aria-hidden="true" v-show="!editing" @click="editTodo"/>
-                <i class="fa fa-check" aria-hidden="true" v-show="editing" @click="save"/>
-                <i class="fa fa-close" aria-hidden="true" v-show="editing" @click="unnedit"/>
+                <i class="fa fa-check" aria-hidden="true" v-show="editing" @click="saveTodo"/>
+                <i class="fa fa-close" aria-hidden="true" v-show="editing" @click="unneditTodo"/>
             </td>
             <td>
                 <span v-if="!editing"  @click="editTodo">{{todo.priority}}</span>
@@ -29,10 +29,10 @@
             </td>
             <td><span class="badge bg-red">55%</span></td>
         <td>
-            <span class="btn btn-md btn-info">
-                <i class='fa fa-fw fa-trash' @click="delete(index)"/>
-            </span>
             <span class="btn btn-md btn-danger">
+                <i class='fa fa-fw fa-trash' @click="deleteTodo(index,todo.id)"/>
+            </span>
+            <span class="btn btn-md btn-info">
                 <i class='fa fa-fw fa-edit' @click="editTodo"/>
             </span>
         </td>
@@ -49,28 +49,24 @@ export default {
             }
         },
         created() {
-            console.log('Component todo created.');
+            //console.log('Component todo created.');
         },
         methods: {
-            hola: function(pageNum) {
-             console.log('Hello');
-            },
-            //editTodo.
             editTodo: function() {
                 return this.editing = true;
             },
-            unnedit: function() {
+            unneditTodo: function() {
                 return this.editing = false;
             },
-
-            save: function() {
+            saveTodo: function() {
                 return this.editing = false;
                 //ficat put per guardar a la api.
             },
-            delete: function (index){
+            //No puc usar nom delete peruè és un keyword de javascript.
+            deleteTodo: function(index,id) {
                 console.log("Deleting todo");
                 //per a que el pare ho pille.
-                this.$emit('todo-deleted',index);
+                this.$emit('todo-deleted',index,id);
             }
         }
     }

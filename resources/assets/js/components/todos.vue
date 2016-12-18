@@ -193,14 +193,11 @@ export default {
                     console.log(response);
                 });
             },
-            deleteTodo: function(id,idTask) {
+            deleteTodo: function(index,id) {
             //notificar al pare ja que canvia el paginator.
             //Per cridar desde fora funció
             //enviar esdeveniment al pare fer el slice del todo i fer el detch de la page per actualitzar el paginator i entre altes coses.
-            //fer el delete al pare.
             var out = this;
-            //this.todos.splice(1,1);
-            //this.todos.splice(id, 1);
                 swal({
                     title: "Are you sure?",
                     text: "You will not be able to recover this task!",
@@ -212,9 +209,9 @@ export default {
                   },
                   function(){
                     swal("Deleted!", "Your task has been deleted.", "success");
-                    //out.todos.splice(id, 1);
-                    //out.deleteTodoApi(this.idTask);
-                    //out.fetchPage(out.page);
+                    out.todos.splice(index, 1);
+                    out.deleteTodoApi(id);
+                    out.fetchPage(out.page);
                   });
             },
             deleteTodoApi: function(id) {
