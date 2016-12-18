@@ -33,17 +33,9 @@
                 <!--<span v-if="!editing"  @click="setDone">{{todo.done}}</span>-->
                 <!--<span v-else @keyup.enter="setDone">-->
                             <!--<input v-model="todo.done" size="3"></span>-->
-
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" class="flat-red" checked>
-                    </label>
-                    <label>
-                        <input type="checkbox" class="flat-red">
-                    </label>
-                    <label>
-                        <input type="checkbox" class="flat-red" disabled>
-                        Flat green skin checkbox
+                        <input type="checkbox">
                     </label>
                 </div>
             </td>

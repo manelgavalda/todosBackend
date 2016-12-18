@@ -27,7 +27,6 @@ elixir(function(mix) {
             './node_modules/icheck/skins/square/blue.css',
             './node_modules/sweetalert/dist/sweetalert.css',
             './public/css/toastr.css',
-            './node_modules/icheck/skins/square/blue.css',
             './node_modules/icheck/skins/square/green.css',
         ])
         .copy('node_modules/font-awesome/fonts/*.*','public/fonts/')
