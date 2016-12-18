@@ -29,7 +29,7 @@ elixir(function(mix) {
             './public/css/toastr.css',
         ])
         .copy('node_modules/font-awesome/fonts/*.*','public/fonts/')
-        .copy("node_modules/icheck/skins/*.*", 'public/css')
+        .copy('node_modules/icheck/skins/minimal', 'public/css')
         .copy('node_modules/ionicons/dist/fonts/*.*','public/fonts/')
         .copy('node_modules/admin-lte/bootstrap/fonts/*.*','public/fonts/bootstrap')
         .copy('node_modules/admin-lte/dist/css/skins/*.*','public/css/skins')

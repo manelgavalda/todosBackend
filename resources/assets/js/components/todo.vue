@@ -18,16 +18,16 @@
                 <i class="fa fa-close" aria-hidden="true" v-show="editingName" @click="unneditName"/>
             </td>
             <td>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-info">{{todo.priority}}</button>
-                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                        <span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <ul class="dropdown-menu btn-info" role="menu">
-                        <li v-for="n in 10"><a href="#" @click="setPriority(n)">{{n}}</a></li>
-                    </ul>
-                </div>
+                <label>
+                    <input type="checkbox" name="quux[1]" disabled>
+                    Foo
+                </label>
+
+                <label for="baz[1]">Bar</label>
+                <input type="radio" name="quux[2]" id="baz[1]" checked>
+
+                <label for="baz[2]">Bar</label>
+                <input type="radio" name="quux[2]" id="baz[2]">
             </td>
             <td>
                 <!--<span v-if="!editing"  @click="setDone">{{todo.done}}</span>-->
