@@ -7,9 +7,9 @@
                 <span v-if="!editingName"  @dblclick="editName" >{{todo.name}}</span>
                 <span v-else @keyup.enter="editName">
                                 <input v-model="todo.name" size="50" @keyup.enter="saveName" @keyup.esc="unneditName"></span>
-                <i class="fa fa-edit" aria-hidden="true" v-show="!editingName" @click="editName"/>
-                <i class="fa fa-check" aria-hidden="true" v-show="editingName" @click="saveName"/>
-                <i class="fa fa-close" aria-hidden="true" v-show="editingName" @click="unneditName"/>
+                <i class="fa fa-edit" style="font-size:20px;color:blue;" aria-hidden="true" v-show="!editingName" @click="editName"/>
+                <i class="fa fa-check" style="font-size:20px;color:green;" aria-hidden="true" v-show="editingName" @click="saveName"/>
+                <i class="fa fa-close" style="font-size:20px;color:red;" aria-hidden="true" v-show="editingName" @click="unneditName"/>
             </td>
             <td>
                 <div class="btn-group">
