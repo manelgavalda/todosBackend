@@ -19,7 +19,7 @@ class TasksControllerTest extends TestCase
     public function testAuthorizedIndex()
     {
         $user = $this->login();
-        Role::create(["name" => "admin"]);
+        Role::create(['name' => 'admin']);
         $user->assignRole('admin');
 
         $this->get('tasks');
