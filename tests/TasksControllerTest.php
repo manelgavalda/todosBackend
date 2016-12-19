@@ -16,16 +16,16 @@ class TasksControllerTest extends TestCase
     }
 
     //Role not working
-//    public function testAuthorizedIndex()
-//    {
-//        $user = $this->login();
-//        Role::create(["name" => "admin"]);
-//        $user->assignRole('admin');
-//
-//        $this->get('tasks');
-//
-//        $this->assertResponseOk();
-//    }
+    public function testAuthorizedIndex()
+    {
+        $user = $this->login();
+        Role::create(["name" => "admin"]);
+        $user->assignRole('admin');
+
+        $this->get('tasks');
+
+        $this->assertResponseOk();
+    }
 
     public function testNotAuthorized()
     {
