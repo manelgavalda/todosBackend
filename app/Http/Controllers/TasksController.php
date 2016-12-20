@@ -31,7 +31,7 @@ class TasksController extends Controller
     public function __construct(TaskTransformer $transformer, TaskRepository $repository) //pasar paginator (TaskTransformer $transformer,Paginator $paginator).
     {
         //$this-> paginator= new Paginator($transformer)
-        //pasar el transformer al apginator
+        //pasar el transformer al paginator
         parent::__construct($transformer);
         $this->repository = $repository;
     }
@@ -139,3 +139,5 @@ class TasksController extends Controller
         ], 200);
     }
 }
+//ficar el repository pattern. ficar testos validacio todos backend ara que tenim un exemple. Ficar les rules de cada. El delete no te request.
+//enrollment: CRUD web, todos: CRUD Ajax.
