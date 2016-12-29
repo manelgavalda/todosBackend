@@ -12,9 +12,6 @@ use Illuminate\Http\Request;
  */
 class TasksController extends Controller
 {
-    //mirar enrollmenttest controller
-    //Més avant ja veurem si el pujem al pare.
-
     /**
      * @var TaskRepository
      */
@@ -28,8 +25,6 @@ class TasksController extends Controller
      */
     public function __construct(TaskTransformer $transformer, TaskRepository $repository) //pasar paginator (TaskTransformer $transformer,Paginator $paginator).
     {
-        //$this-> paginator= new Paginator($transformer)
-        //pasar el transformer al paginator
         parent::__construct($transformer);
         $this->repository = $repository;
     }
@@ -39,17 +34,8 @@ class TasksController extends Controller
      */
     public function index()
     {
-        //        if (Gate::denies('show-tasks')) {
-//
-//            abort(403);
-//        }
-//        $user = Auth::user();
-//        if($user->can('show', \App\Task::class)) {
-//            //
-//        }
-        //$this->authorize('show', \App\Task::class);
-
         $tasks = $this->repository->paginate(15);
+
         return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
     }
 
@@ -86,12 +72,6 @@ class TasksController extends Controller
         $task = $this->repository->findOrFail($id);
 
         return $this->transformer->transform($task);
-/*
-        if ($resource != null) {
-            return $resource;
-        }
-        return $this->generatePaginatedResponse($resource);
-        */
     }
 
     /**
@@ -135,5 +115,5 @@ class TasksController extends Controller
         ], 200);
     }
 }
-//ficar el repository pattern. ficar testos validacio todos backend ara que tenim un exemple. Ficar les rules de cada. El delete no te request.
-//enrollment: CRUD web, todos: CRUD Ajax.
+//TODO: ficar el repository pattern. ficar testos validacio todos backend ara que tenim un exemple. Ficar les rules de cada. El delete no te request.
+//TODO: enrollment: CRUD web, todos: CRUD Ajax.
