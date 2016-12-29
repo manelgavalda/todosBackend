@@ -5,8 +5,6 @@ namespace App\Transformers;
 use App\Exceptions\IncorrectModelException;
 use App\Task;
 
-//Usem el polimorfisme per evitar crear mètodes iguals.
-
 /**
  * Class TaskTransformer.
  */
