@@ -36,8 +36,9 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::paginate('15');
+        //$users = User::paginate('15');
 
+        $users = $this->repository->paginate(15);
         return $this->generatePaginatedResponse($users, ['propietari' => 'Manel Gavaldà']);
     }
 
@@ -59,7 +60,8 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        User::create($request->all());
+        //User::create($request->all());
+        $this->repository->create($request->all());
 
         return response([
             'error'   => false,
@@ -77,7 +79,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user = $this->repository->find($id);
+        //$user = $this->repository->find($id);
 
         return $this->transformer->transform($user);
     }
@@ -105,8 +107,9 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         //Igual que task però amb user.
-        User::findOrFail($id)->update($request->all());
+        //User::findOrFail($id)->update($request->all());
 
+        $this->repository->update($request->all());
         return response([
             'error'   => false,
             'updated' => true,
