@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
  */
 class UserTasksController extends Controller
 {
+
+    protected $repository;
     /**
      * UserTasksController constructor.
      *
@@ -30,8 +32,7 @@ class UserTasksController extends Controller
      */
     public function index($id)
     {
-        $user = User::findOrFail($id);
-        $tasks = $user->tasks()->paginate(5);
+        $tasks = $this->repository->paginate($id,5);
 
         //mateix que abans pero nomes ab les tasques del usuari que ens han donat, i fer el mateix al show.
 
@@ -58,7 +59,7 @@ class UserTasksController extends Controller
         return response([
             'error'   => false,
             'created' => true,
-            'message' => 'Task created',
+            'message' => 'Task from user created',
         ], 200);
     }
 
@@ -94,7 +95,7 @@ class UserTasksController extends Controller
         return response([
             'error'   => false,
             'updated' => true,
-            'message' => 'Task updated',
+            'message' => 'Task from user updated',
         ], 200);
     }
 
@@ -110,7 +111,7 @@ class UserTasksController extends Controller
         return response([
             'error'     => false,
             'destroyed' => true,
-            'message'   => 'Task deleted',
+            'message'   => 'Task from user deleted',
         ], 200);
     }
 }
