@@ -4,20 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Repositories\UserTasksRepository;
 use App\Transformers\TaskTransformer;
-use App\User;
 use Illuminate\Http\Request;
 
 /**
- * Class UserTasksController.
+ * Class UserTasksController
+ * @package App\Http\Controllers
  */
 class UserTasksController extends Controller
 {
 
+    /**
+     * @var UserTasksRepository
+     */
     protected $repository;
+
     /**
      * UserTasksController constructor.
-     *
      * @param TaskTransformer $transformer
+     * @param UserTasksRepository $repository
      */
     public function __construct(TaskTransformer $transformer, UserTasksRepository $repository)
     {
@@ -27,18 +31,18 @@ class UserTasksController extends Controller
 
     /**
      * @param $id
-     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function index($id)
     {
         $tasks = $this->repository->paginate($id,5);
 
-        //mateix que abans pero nomes ab les tasques del usuari que ens han donat, i fer el mateix al show.
-
         return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
     }
 
+    /**
+     *
+     */
     public function create()
     {
         //
@@ -47,7 +51,6 @@ class UserTasksController extends Controller
     /**
      * @param Request $request
      * @param $id
-     *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
     public function store(Request $request, $id)
@@ -64,7 +67,6 @@ class UserTasksController extends Controller
     /**
      * @param $id_user
      * @param $id_task
-     *
      * @return mixed
      */
     public function show($id_user, $id_task)
@@ -84,7 +86,9 @@ class UserTasksController extends Controller
 
     /**
      * @param Request $request
-     * @param $id
+     * @param $id_user
+     * @param $id_task
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
     public function update(Request $request, $id_user, $id_task)
     {
@@ -100,6 +104,7 @@ class UserTasksController extends Controller
     /**
      * @param $id_user
      * @param $id_task
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
     public function destroy($id_user, $id_task)
     {
