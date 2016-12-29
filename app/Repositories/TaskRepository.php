@@ -21,9 +21,9 @@ class TaskRepository implements Repository
         return Task::findOrFail($id);
     }
 
-    public function paginate($numberOfTasks = 15, $columns = array('*'))
+    public function paginate($perPage = 15, $columns = array('*'))
     {
-        return Task::paginate($numberOfTasks);
+        return Task::paginate($perPage);
     }
 
     public function create(array $request)

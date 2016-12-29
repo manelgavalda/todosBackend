@@ -20,7 +20,7 @@ interface Repository
      */
     public function findOrFail($id, $columns = ['*']); //all
 
-    public function paginate($numberOfTasks = 15, $columns= array('*'));
+    public function paginate($perPage = 15, $columns= array('*'));
 
     public function create(array $request);
 
