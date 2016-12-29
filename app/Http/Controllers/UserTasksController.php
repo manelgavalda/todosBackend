@@ -17,9 +17,10 @@ class UserTasksController extends Controller
      *
      * @param TaskTransformer $transformer
      */
-    public function __construct(TaskTransformer $transformer)
+    public function __construct(TaskTransformer $transformer, UserTasksRepository $repository)
     {
         parent::__construct($transformer);
+        $this->repository = $repository;
     }
 
     /**
