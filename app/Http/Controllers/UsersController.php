@@ -104,7 +104,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->repository->update($request->all(),$id);
+        $this->repository->update($request->all(), $id);
 
         return response([
             'error'   => false,

@@ -6,14 +6,14 @@ use App\Repositories\Contracts\Repository;
 use App\Task;
 
 /**
- * Class TaskRepository
- * @package App\Repositories
+ * Class TaskRepository.
  */
 class TaskRepository implements Repository
 {
     /**
      * @param $id
      * @param array $columns
+     *
      * @return mixed
      */
     public function findOrFail($id, $columns = ['*']) //all
@@ -22,11 +22,12 @@ class TaskRepository implements Repository
     }
 
     /**
-     * @param int $perPage
+     * @param int   $perPage
      * @param array $columns
+     *
      * @return mixed
      */
-    public function paginate($perPage = 15, $columns = array('*'))
+    public function paginate($perPage = 15, $columns = ['*'])
     {
         return Task::paginate($perPage);
     }
