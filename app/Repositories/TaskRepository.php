@@ -31,7 +31,7 @@ class TaskRepository implements Repository
         Task::create($request->all());
     }
 
-    public function update($id, array $request)
+    public function update(array $request,$id)
     {
         $task = $this->findOrFail($id);
         $task->update($request);
