@@ -3,28 +3,41 @@
 namespace App\Repositories\Contracts;
 
 /**
- * Created by PhpStorm.
- * User: manel
- * Date: 11/11/16
- * Time: 16:16.
+ * Interface Repository
+ * @package App\Repositories\Contracts
  */
 interface Repository
 {
-    //TODO: implementar l5-repository (si volem).
-
     /**
      * @param $id
      * @param array $columns
-     *
      * @return mixed
      */
     public function findOrFail($id, $columns = ['*']); //all
 
+    /**
+     * @param int $perPage
+     * @param array $columns
+     * @return mixed
+     */
     public function paginate($perPage = 15, $columns= array('*'));
 
+    /**
+     * @param array $request
+     * @return mixed
+     */
     public function create(array $request);
 
+    /**
+     * @param array $request
+     * @param $id
+     * @return mixed
+     */
     public function update(array $request, $id);
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function delete($id);
 }
