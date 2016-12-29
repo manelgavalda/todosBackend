@@ -6,14 +6,14 @@ use App\Repositories\Contracts\Repository;
 use App\User;
 
 /**
- * Class UserRepository
- * @package App\Repositories
+ * Class UserRepository.
  */
 class UserRepository implements Repository
 {
     /**
      * @param $id
      * @param array $columns
+     *
      * @return mixed
      */
     public function findOrFail($id, $columns = ['*'])
@@ -22,11 +22,12 @@ class UserRepository implements Repository
     }
 
     /**
-     * @param int $perPage
+     * @param int   $perPage
      * @param array $columns
+     *
      * @return mixed
      */
-    public function paginate($perPage = 15, $columns = array('*'))
+    public function paginate($perPage = 15, $columns = ['*'])
     {
         return User::paginate($perPage);
     }

@@ -7,12 +7,10 @@ use App\Transformers\TaskTransformer;
 use Illuminate\Http\Request;
 
 /**
- * Class UserTasksController
- * @package App\Http\Controllers
+ * Class UserTasksController.
  */
 class UserTasksController extends Controller
 {
-
     /**
      * @var UserTasksRepository
      */
@@ -20,7 +18,8 @@ class UserTasksController extends Controller
 
     /**
      * UserTasksController constructor.
-     * @param TaskTransformer $transformer
+     *
+     * @param TaskTransformer     $transformer
      * @param UserTasksRepository $repository
      */
     public function __construct(TaskTransformer $transformer, UserTasksRepository $repository)
@@ -31,18 +30,16 @@ class UserTasksController extends Controller
 
     /**
      * @param $id
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function index($id)
     {
-        $tasks = $this->repository->paginate($id,5);
+        $tasks = $this->repository->paginate($id, 5);
 
         return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
     }
 
-    /**
-     *
-     */
     public function create()
     {
         //
@@ -51,11 +48,12 @@ class UserTasksController extends Controller
     /**
      * @param Request $request
      * @param $id
+     *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
     public function store(Request $request, $id)
     {
-        $this->repository->create($request->all(),$id);
+        $this->repository->create($request->all(), $id);
 
         return response([
             'error'   => false,
@@ -67,6 +65,7 @@ class UserTasksController extends Controller
     /**
      * @param $id_user
      * @param $id_task
+     *
      * @return mixed
      */
     public function show($id_user, $id_task)
@@ -88,11 +87,12 @@ class UserTasksController extends Controller
      * @param Request $request
      * @param $id_user
      * @param $id_task
+     *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
     public function update(Request $request, $id_user, $id_task)
     {
-        $this->repository->update($request->all(),$id_user,$id_task);
+        $this->repository->update($request->all(), $id_user, $id_task);
 
         return response([
             'error'   => false,
@@ -104,6 +104,7 @@ class UserTasksController extends Controller
     /**
      * @param $id_user
      * @param $id_task
+     *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
     public function destroy($id_user, $id_task)

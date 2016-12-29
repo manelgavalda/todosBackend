@@ -7,14 +7,14 @@ use App\User;
 
 class UserTasksRepository
 {
-    public function findOrFail($id_user,$id_task, $columns = ['*'])
+    public function findOrFail($id_user, $id_task, $columns = ['*'])
     {
         $user = User::findOrFail($id_user);
 
         return $user->tasks()->findOrFail($id_task);
     }
 
-    public function paginate($id, $perPage = 15, $columns = array('*'))
+    public function paginate($id, $perPage = 15, $columns = ['*'])
     {
         $user = User::findOrFail($id);
 
@@ -34,7 +34,7 @@ class UserTasksRepository
         $task->update($request);
     }
 
-    public function delete($id_user,$id_task)
+    public function delete($id_user, $id_task)
     {
         $user = User::findOrFail($id_user);
         $task = $user->tasks()->findOrFail($id_task);
