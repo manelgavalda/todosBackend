@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Task extends Model
 {
-    //fora updated i created.
-    //protected to public
-    //user_id?
+    /**
+     * @var array
+     */
     protected $fillable = ['id', 'name', 'done', 'priority', 'user_id'];
 
     /**
