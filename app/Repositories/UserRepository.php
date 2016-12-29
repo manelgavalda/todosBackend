@@ -28,7 +28,7 @@ class UserRepository implements Repository
 
     public function create(array $request)
     {
-        User::create($request->all());
+        User::create($request);
     }
 
     public function update(array $request,$id)
