@@ -80,6 +80,7 @@ class UsersController extends Controller
     public function show($id)
     {
         //$user = $this->repository->find($id);
+        $user = $this->repository->findOrFail($id);
 
         return $this->transformer->transform($user);
     }
@@ -126,7 +127,8 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        User::findOrFail($id)->delete();
+        //User::findOrFail($id)->delete();
+        $this->repository->delete($id);
 
         return response([
             'error'     => false,
