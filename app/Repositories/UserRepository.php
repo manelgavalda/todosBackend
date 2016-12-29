@@ -11,7 +11,6 @@ use App\User;
  */
 class UserRepository implements Repository
 {
-
     /**
      * @param $id
      * @param array $columns
