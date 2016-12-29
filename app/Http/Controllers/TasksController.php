@@ -6,9 +6,7 @@ use App\Repositories\TaskRepository;
 use App\Task;
 use App\Transformers\TaskTransformer;
 use Auth;
-use Gate;
 use Illuminate\Http\Request;
-use phpDocumentor\Reflection\Types\This;
 
 /**
  * Class TasksController.
@@ -52,8 +50,6 @@ class TasksController extends Controller
 //        }
         //$this->authorize('show', \App\Task::class);
 
-        //$tasks = Task::paginate('15');
-
         $tasks = $this->repository->paginate(15);
         return $this->generatePaginatedResponse($tasks, ['propietari' => 'Manel Gavaldà']);
     }
@@ -72,7 +68,6 @@ class TasksController extends Controller
         if (!$request->has('user_id')) {
             $request->merge(['user_id' => Auth::id()]);
         }
-        //Task::create($request->all());
 
         $this->repository->create($request->all());
 
@@ -117,9 +112,7 @@ class TasksController extends Controller
     public function update(Request $request, $id)
     {
         //Task::create([$request->all()]);
-
-        //Task::findOrFail($id)->update($request->all());
-        $this->repository->update($request->all());
+        $this->repository->update($request->all(),$id);
 
         return response([
             'error'   => false,

@@ -20,4 +20,24 @@ class TaskRepository implements Repository
     {
         return Task::findOrFail($id);
     }
+
+    public function paginate($numberOfTasks)
+    {
+        return Task::paginate($numberOfTasks);
+    }
+
+    public function create($request)
+    {
+        Task::create($request->all());
+    }
+
+    public function update($id,$request)
+    {
+        Task::findOrFail($id)->update($request);
+    }
+
+    public function delete($id)
+    {
+        Task::findOrFail($id)->delete();
+    }
 }
