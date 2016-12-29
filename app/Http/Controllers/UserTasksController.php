@@ -52,9 +52,7 @@ class UserTasksController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $user = User::findOrFail($id);
-
-        $user->tasks()->create([$request->all()]);
+        $this->repository->create($request->all(),$id);
 
         return response([
             'error'   => false,
@@ -71,7 +69,7 @@ class UserTasksController extends Controller
      */
     public function show($id_user, $id_task)
     {
-        $task = User::findOrFail($id_user)->tasks[$id_task];
+        $task = $this->repository->findOrFail($id_user, $id_task);
 
         return $this->transformer->transform($task);
     }
@@ -90,7 +88,7 @@ class UserTasksController extends Controller
      */
     public function update(Request $request, $id_user, $id_task)
     {
-        User::findOrFail($id_user)->tasks[$id_task]->update($request->all());
+        $this->repository->update($request->all(),$id_user,$id_task);
 
         return response([
             'error'   => false,
@@ -105,8 +103,7 @@ class UserTasksController extends Controller
      */
     public function destroy($id_user, $id_task)
     {
-        //dd($id_task);
-        User::findOrFail($id_user)->tasks[$id_task]->delete();
+        $this->repository->delete($id_user, $id_task);
 
         return response([
             'error'     => false,
