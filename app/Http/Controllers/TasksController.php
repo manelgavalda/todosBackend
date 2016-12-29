@@ -111,7 +111,6 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //Task::create([$request->all()]);
         $this->repository->update($request->all(),$id);
 
         return response([

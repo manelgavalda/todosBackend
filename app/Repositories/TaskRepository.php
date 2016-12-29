@@ -16,7 +16,7 @@ class TaskRepository implements Repository
      *
      * @return mixed
      */
-    public function find($id, $columns = ['*'])
+    public function find($id, $columns = ['*']) //all
     {
         return Task::findOrFail($id);
     }
@@ -26,14 +26,15 @@ class TaskRepository implements Repository
         return Task::paginate($numberOfTasks);
     }
 
-    public function create($request)
+    public function create(array $request)
     {
         Task::create($request->all());
     }
 
-    public function update($id,$request)
+    public function update($id, array $request)
     {
-        Task::findOrFail($id)->update($request);
+        $task = $this->findOrFail($id);
+        $task->update($request);
     }
 
     public function delete($id)
