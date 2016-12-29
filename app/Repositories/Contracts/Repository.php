@@ -18,7 +18,7 @@ interface Repository
      *
      * @return mixed
      */
-    public function find($id, $columns = ['*']); //all
+    public function findOrFail($id, $columns = ['*']); //all
 
     public function paginate($numberOfTasks = 15, $columns= array('*'));
 

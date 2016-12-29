@@ -16,7 +16,7 @@ class TaskRepository implements Repository
      *
      * @return mixed
      */
-    public function find($id, $columns = ['*']) //all
+    public function findOrFail($id, $columns = ['*']) //all
     {
         return Task::findOrFail($id);
     }
