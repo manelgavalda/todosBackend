@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Repositories\UserRepository;
 use App\Transformers\UserTransformer;
-use App\User;
 use Illuminate\Http\Request;
 
 /**
@@ -36,9 +35,8 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-        //$users = User::paginate('15');
-
         $users = $this->repository->paginate(15);
+
         return $this->generatePaginatedResponse($users, ['propietari' => 'Manel Gavaldà']);
     }
 
@@ -49,6 +47,7 @@ class UsersController extends Controller
      */
     public function create()
     {
+        //
     }
 
     /**
@@ -60,7 +59,6 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //User::create($request->all());
         $this->repository->create($request->all());
 
         return response([
@@ -79,7 +77,6 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //$user = $this->repository->find($id);
         $user = $this->repository->findOrFail($id);
 
         return $this->transformer->transform($user);
@@ -107,10 +104,8 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //Igual que task però amb user.
-        //User::findOrFail($id)->update($request->all());
-
         $this->repository->update($request->all(),$id);
+
         return response([
             'error'   => false,
             'updated' => true,
@@ -127,7 +122,6 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //User::findOrFail($id)->delete();
         $this->repository->delete($id);
 
         return response([
