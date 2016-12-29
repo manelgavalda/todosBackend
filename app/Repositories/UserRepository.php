@@ -16,8 +16,29 @@ class UserRepository implements Repository
      *
      * @return mixed
      */
-    public function find($id, $columns = ['*'])
+    public function findOrFail($id, $columns = ['*'])
     {
         return User::findOrFail($id);
+    }
+
+    public function paginate($perPage = 15, $columns = array('*'))
+    {
+        return User::paginate($perPage);
+    }
+
+    public function create(array $request)
+    {
+        User::create($request->all());
+    }
+
+    public function update(array $request,$id)
+    {
+        $task = $this->findOrFail($id);
+        $task->update($request);
+    }
+
+    public function delete($id)
+    {
+        User::findOrFail($id)->delete();
     }
 }
