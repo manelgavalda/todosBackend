@@ -110,7 +110,7 @@ class UsersController extends Controller
         //Igual que task però amb user.
         //User::findOrFail($id)->update($request->all());
 
-        $this->repository->update($request->all());
+        $this->repository->update($request->all(),$id);
         return response([
             'error'   => false,
             'updated' => true,
