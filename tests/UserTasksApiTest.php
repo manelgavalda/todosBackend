@@ -207,4 +207,16 @@ class UserTasksApiTest extends TestCase
             ])
             ->notSeeInDatabase('tasks', $atask);
     }
+
+    protected function taskNotExistsFromUser($http_method)
+    {
+        $user = $this->createAndPersistUser();
+
+        $this->login();
+        $this->json($http_method, $this->uri.'/'.$user->id.'/task/99999999')
+            ->seeJson([
+                'status' => 404,
+            ])
+            ->assertEquals(404, $this->response->status());
+    }
 }
