@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class UserTasksApiTest extends TestCase
@@ -29,13 +30,18 @@ class UserTasksApiTest extends TestCase
      *
      * @return mixed
      */
-    protected function createTask($id)
+    protected function createTask($id = self::DEFAULT_USER_ID)
     {
         return factory(App\Task::class)->make(
             [
                 'user_id' => $id
             ]
         );
+    }
+
+    protected function createUser()
+    {
+        return factory(App\Task::class)->make();
     }
 
     /**
@@ -159,6 +165,19 @@ class UserTasksApiTest extends TestCase
 //                'created_at' => $task->created_at->toDateString(),
 //                'updated_at' => $task->updated_at->toDateString(),
             ]);
+    }
+
+    public function testCreateNewTaskFromUser()
+    {
+        $user = $this->createAndPersistUser();
+        $task = $this->createTask($user->id);
+
+        $this->login();
+        $this->json('POST', $this->uri.'/'.$user->id.'/task', $atask = $this->convertTaskToArray($task))
+            ->seeJson([
+                'created' => true,
+            ])
+            ->seeInDatabase('tasks', $atask);
     }
 
 
