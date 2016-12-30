@@ -64,7 +64,7 @@ class UserTasksApiTest extends TestCase
      *
      * @return mixed
      */
-    protected function createAndPersistTask($id)
+    protected function createAndPersistTask($id = self::DEFAULT_USER_ID)
     {
         return factory(App\Task::class)->create(['user_id' => $id]);
     }
@@ -138,6 +138,27 @@ class UserTasksApiTest extends TestCase
                 self::DEFAULT_NUMBER_OF_TASKS,
                 count($this->decodeResponseJson())
             );
+    }
+
+    public function testRetrieveOneTaskFromUser()
+    {
+        //Create task in database
+
+        $user = $this->createAndPersistUser();
+        $task = $this->createAndPersistTask();
+
+        $this->login();
+
+        $this->json('GET', $this->uri.'/'.$user->id.'/task/'.$task->id)
+            ->seeJsonStructure(
+                ['name', 'done', 'priority'/*'created_at', 'updated_at'*/])
+            ->seeJsonContains([
+                'name'       => $task->name,
+                'done'       => $task->done,
+                'priority'   => $task->priority,
+//                'created_at' => $task->created_at->toDateString(),
+//                'updated_at' => $task->updated_at->toDateString(),
+            ]);
     }
 
 
