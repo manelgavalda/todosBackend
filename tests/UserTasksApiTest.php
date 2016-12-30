@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 /**
- * Class UserTasksApiTest
+ * Class UserTasksApiTest.
  */
 class UserTasksApiTest extends TestCase
 {
@@ -24,7 +24,6 @@ class UserTasksApiTest extends TestCase
      */
     const DEFAULT_USER_ID = 1;
 
-
     /**
      * Seed the database with tasks with user id.
      *
@@ -36,24 +35,25 @@ class UserTasksApiTest extends TestCase
         factory(App\Task::class, $numberOfTasks)->create(['user_id' => $id]);
     }
 
-
     /**
      * Create Task with user id.
      *
      * @param int $id
+     *
      * @return mixed
      */
     protected function createTask($id = self::DEFAULT_USER_ID)
     {
         return factory(App\Task::class)->make(
             [
-                'user_id' => $id
+                'user_id' => $id,
             ]
         );
     }
 
     /**
-     * Create User
+     * Create User.
+     *
      * @return mixed
      */
     protected function createUser()
@@ -100,9 +100,6 @@ class UserTasksApiTest extends TestCase
         return factory(App\User::class)->create();
     }
 
-    /**
-     *
-     */
     protected function login()
     {
         $user = factory(App\User::class)->create();
@@ -110,9 +107,7 @@ class UserTasksApiTest extends TestCase
     }
 
     //TODO ADD TEST FOR AUTHENTICATION AND REFACTOR EXISTING TESTS (ho farem al MP9), no fer-ho. i els de test validation igual.
-    /**
-     *
-     */
+
     public function userNotAuthenticated()
     {
         $response = $this->json('GET', $this->uri)->getResult();
@@ -132,12 +127,8 @@ class UserTasksApiTest extends TestCase
 
     //Ok
 
-    /**
-     *
-     */
     public function testRetrieveAllTasksFromUser()
     {
-
         $user = $this->createAndPersistUser();
         //Seed database
         $this->seedDatabaseWithTasks();
@@ -175,9 +166,6 @@ class UserTasksApiTest extends TestCase
             );
     }
 
-    /**
-     *
-     */
     public function testRetrieveOneTaskFromUser()
     {
         //Create task in database
@@ -199,9 +187,6 @@ class UserTasksApiTest extends TestCase
             ]);
     }
 
-    /**
-     *
-     */
     public function testCreateNewTaskFromUser()
     {
         $user = $this->createAndPersistUser();
@@ -215,9 +200,6 @@ class UserTasksApiTest extends TestCase
             ->seeInDatabase('tasks', $atask);
     }
 
-    /**
-     *
-     */
     public function testUpdateExistingTaskFromUser()
     {
         $user = $this->createAndPersistUser();
@@ -232,9 +214,6 @@ class UserTasksApiTest extends TestCase
             ->seeInDatabase('tasks', $atask);
     }
 
-    /**
-     *
-     */
     public function testDeleteExistingTaskFromUser()
     {
         $user = $this->createAndPersistUser();
@@ -264,9 +243,6 @@ class UserTasksApiTest extends TestCase
             ->assertEquals(404, $this->response->status());
     }
 
-    /**
-     *
-     */
     public function testGetNotExistingTaskFromUser()
     {
         $this->taskNotExistsFromUser('GET');
