@@ -113,7 +113,7 @@ class UserTasksController extends Controller
 
         return response([
             'error'     => false,
-            'destroyed' => true,
+            'deleted' => true,
             'message'   => 'Task from user deleted',
         ], 200);
     }
