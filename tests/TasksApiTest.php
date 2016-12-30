@@ -1,6 +1,5 @@
 <?php
 
-use App\Task;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
