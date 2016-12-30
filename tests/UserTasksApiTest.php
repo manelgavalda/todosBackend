@@ -219,4 +219,71 @@ class UserTasksApiTest extends TestCase
             ])
             ->assertEquals(404, $this->response->status());
     }
+
+    public function testGetNotExistingTaskFromUser()
+    {
+        $this->taskNotExistsFromUser('GET');
+    }
+
+    /**
+     * Test delete not existing task.
+     *
+     * @return void
+     */
+    public function testUpdateNotExistingTaskFromUser()
+    {
+        $this->taskNotExistsFromUser('PUT');
+    }
+
+    /**
+     * Test delete not existing task.
+     *
+     * @return void
+     */
+    public function testDeleteNotExistingTaskFromUser()
+    {
+        $this->taskNotExistsFromUser('DELETE');
+    }
+
+    /**
+     * Test pagination.
+     *
+     * @return void
+     */
+    public function testPagination()
+    {
+        //TODO
+    }
+
+    //TODO: Test validation
+
+    /**
+     * Test name is required and done is set to false and priority to 1.
+     *
+     * @return void
+     */
+    public function testNameIsRequiredAndDefaultValues()
+    {
+        //TODO
+    }
+
+    /**
+     * Test priority has to be an integer.
+     *
+     * @return void
+     */
+    public function testPriorityHaveToBeAnInteger()
+    {
+        //TODO
+    }
+
+    /**
+     * Test done has to be a boolean.
+     *
+     * @return void
+     */
+    public function testDoneHaveToBeBoolean()
+    {
+        //TODO
+    }
 }
