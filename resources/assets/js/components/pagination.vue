@@ -81,4 +81,3 @@
     }
 </script>
 <!--Compaginar paginator amb els filtres(completat,etc...).-->
-<!--TODO afegir tasques amb el guzzle http-->
