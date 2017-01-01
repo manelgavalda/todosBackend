@@ -80,4 +80,4 @@
         },
     }
 </script>
-<!--Compaginar paginator amb els filtres(completat,etc...).-->
+<!--TODO:Compaginar paginator amb els filtres(completat,etc...).-->
