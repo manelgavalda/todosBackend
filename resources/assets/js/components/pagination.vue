@@ -24,11 +24,13 @@
               type: Number,
               required: true
             },
+            // Visible Pages
             visiblePages: {
               type: Number,
               default: 5,
               coerce: (val) => parseInt(val)
             },
+            // Total Pages
             totalPages: Number,
             // Items per page
             itemsPerPage: {
