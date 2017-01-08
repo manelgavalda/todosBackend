@@ -195,15 +195,6 @@ export default {
                     console.log(response);
                 });
             },
-        },
-        directives: {
-          focus: {
-            // directive definition
-              inserted: function (el) {
-                // Focus the element
-                el.focus()
-              }
-          }
         }
 
     }

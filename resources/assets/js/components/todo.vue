@@ -107,6 +107,15 @@ export default {
                 //Per enviarli al pare.
                 this.$emit('todo-deleted',index,id);
             }
+        },
+        directives: {
+          focus: {
+            // directive definition
+              inserted: function (el) {
+                // Focus the element
+                el.focus()
+              }
+          }
         }
     }
 </script>
