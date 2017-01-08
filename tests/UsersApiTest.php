@@ -239,20 +239,30 @@ class UsersApiTest extends TestCase
     /**
      * Test name is required and done is set to false and priority to 1.
      *
+     * @group failing
+     *
      * @return void
      */
     public function testNameIsRequiredAndDefaultValues()
     {
         //TODO
+        $user = $this->createUser();
+
+        $this->assertArrayHasKey('name',$user);
     }
 
     /**
      * Test email has to be an String.
+     *
+     * @group failing
      *
      * @return void
      */
     public function testEmailHaveToBeString()
     {
         //TODO
+        $user = $this->createUser();
+
+        $this->assertInternalType('string',$user['email']);
     }
 }
