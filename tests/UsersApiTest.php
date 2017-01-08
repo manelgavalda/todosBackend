@@ -232,6 +232,7 @@ class UsersApiTest extends TestCase
     public function testPagination()
     {
         //TODO
+        //Ja el tinc al de retornar tots els users.
     }
 
     //TODO: Test validation
