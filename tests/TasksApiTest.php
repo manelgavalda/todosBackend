@@ -95,8 +95,6 @@ class TasksApiTest extends TestCase
     /**
      * Test Retrieve all tasks.
      *
-     * @group failing
-     *
      * @return void
      */
 
@@ -265,6 +263,7 @@ class TasksApiTest extends TestCase
     public function testPagination()
     {
         //TODO
+
     }
 
     //TODO: Test validation
@@ -272,31 +271,48 @@ class TasksApiTest extends TestCase
     /**
      * Test name is required and done is set to false and priority to 1.
      *
+     * @group failing
+     *
      * @return void
      */
     public function testNameIsRequiredAndDefaultValues()
     {
-        //TODO
+        $task = $this->createTask();
+        //login necessari
+        //$this->login();
+        $this->assertArrayHasKey('name',$task);
     }
 
     /**
      * Test priority has to be an integer.
+     *
+     * @group failing
      *
      * @return void
      */
     public function testPriorityHaveToBeAnInteger()
     {
         //TODO
+        $task = $this->createTask();
+        //login necessari
+        //$this->login();
+        $this->assertInternalType('integer',$task['priority']);
     }
 
     /**
      * Test done has to be a boolean.
+     *
+     * @group failing
      *
      * @return void
      */
     public function testDoneHaveToBeBoolean()
     {
         //TODO
+        $task = $this->createTask();
+        //login necessari
+        //$this->login();
+        $this->assertInternalType('boolean',$task['done']);
     }
 
     //TODO: Fer les validacions. Ficant el task controlleer amb

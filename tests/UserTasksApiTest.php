@@ -120,8 +120,6 @@ class UserTasksApiTest extends TestCase
     /**
      * Test Retrieve all tasks.
      *
-     * @group failing
-     *
      * @return void
      */
 
