@@ -264,7 +264,6 @@ class TasksApiTest extends TestCase
     {
         //TODO
         //Ja el tinc al de retornar totes les tasques.
-
     }
 
     //TODO: Test validation
@@ -281,7 +280,7 @@ class TasksApiTest extends TestCase
         $task = $this->createTask();
         //login necessari
         //$this->login();
-        $this->assertArrayHasKey('name',$task);
+        $this->assertArrayHasKey('name', $task);
     }
 
     /**
@@ -297,7 +296,7 @@ class TasksApiTest extends TestCase
         $task = $this->createTask();
         //login necessari
         //$this->login();
-        $this->assertInternalType('integer',$task['priority']);
+        $this->assertInternalType('integer', $task['priority']);
     }
 
     /**
@@ -313,7 +312,7 @@ class TasksApiTest extends TestCase
         $task = $this->createTask();
         //login necessari
         //$this->login();
-        $this->assertInternalType('boolean',$task['done']);
+        $this->assertInternalType('boolean', $task['done']);
     }
 
     //TODO: Fer les validacions. Ficant el task controlleer amb

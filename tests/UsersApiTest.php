@@ -249,7 +249,7 @@ class UsersApiTest extends TestCase
         //TODO
         $user = $this->createUser();
 
-        $this->assertArrayHasKey('name',$user);
+        $this->assertArrayHasKey('name', $user);
     }
 
     /**
@@ -264,6 +264,6 @@ class UsersApiTest extends TestCase
         //TODO
         $user = $this->createUser();
 
-        $this->assertInternalType('string',$user['email']);
+        $this->assertInternalType('string', $user['email']);
     }
 }

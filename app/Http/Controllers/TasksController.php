@@ -51,7 +51,7 @@ class TasksController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|min:4|max:255'
+            'name' => 'required|min:4|max:255',
         ]);
 
         if (!$request->has('user_id')) {
