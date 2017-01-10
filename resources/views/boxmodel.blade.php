@@ -10,35 +10,120 @@
 <body>
 
 <style>
-#nav {
-    display: block;
-    left:0px;
-    width: 200px;
-    border: solid black 1px;
-}
+
+    body {
+        margin-bottom: 50px;
+
+    }
+    #nav {
+        position: absolute;
+        left:0px;
+        width: 200px;
+        border: solid black 1px;
+    }
+
+    #section {
+        border: solid black 1px;
+        margin-left: 200px;
+        padding: 10px;
+    }
+
+    #footer {
+        border: solid black 1px;
+        position: fixed;
+        bottom:0px;
+        height: 50px;
+        width: 100%;
+
+    }
+    #container {
+        position: relative;
+    }
 </style>
 </body>
 
-<div id="nav">
-    <ul>
-        <li>Link1</li>
-        <li>Link2</li>
-        <li>Link3</li>
-        <li>Contact</li>
-        <li>About</li>
-    </ul>
-</div>
+<div id="container">
+    
+    <div id="nav">
+        <ul>
+            <li>Link1</li>
+            <li>Link2</li>
+            <li>Link3</li>
+            <li>Contact</li>
+            <li>About</li>
+        </ul>
+    </div>
 
-<div id="section">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
-</div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
 
-<div id="section">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
-</div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
+    <div id="section">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
+    </div>
 
-<div id="footer">
-    @copyright Manel Gavaldà Andreu
+
+    <div id="footer">
+        @copyright Manel Gavaldà Andreu
+    </div>
+
 </div>
 
 </html>
