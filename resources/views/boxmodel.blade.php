@@ -29,7 +29,9 @@
     #bloc2
     {
         position: relative;
-        top: -50px;
+        top: -100px;
+        bottom: 50px;
+        right: 100px;
         max-width: 600px;
         margin: 20px auto;
         padding: 50px;
