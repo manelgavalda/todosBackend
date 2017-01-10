@@ -10,7 +10,12 @@
 <body>
 
 <style>
-
+#nav {
+    display: block;
+    left:0px;
+    width: 200px;
+    border: solid black 1px;
+}
 </style>
 </body>
 
@@ -24,12 +29,12 @@
     </ul>
 </div>
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
 <div id="section">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
 </div>
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
 <div id="section">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
 </div>
 
 <div id="footer">
