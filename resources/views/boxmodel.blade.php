@@ -11,11 +11,16 @@
 
 <style>
 
+    *
+    {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
     #bloc1
     {
         max-width: 600px;
         margin: 20px auto;
-
         border: solid darkred 10px;
         box-sizing: border-box;
     }
