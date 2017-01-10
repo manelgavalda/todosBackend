@@ -13,8 +13,8 @@
 
     #bloc1
     {
-        width: 600px;
-        margin: auto;
+        max-width: 600px;
+        margin: 0 auto;
     }
 
 </style>
