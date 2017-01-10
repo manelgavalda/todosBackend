@@ -34,6 +34,7 @@
         bottom:0px;
         height: 50px;
         width: 100%;
+        background-color: #00a7d0;
 
     }
     #container {
