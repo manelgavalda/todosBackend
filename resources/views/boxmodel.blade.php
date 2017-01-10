@@ -41,7 +41,7 @@
 
     #bloc3
     {
-        position: fixed;
+        position: absolute;
         top: 0px;
         left: 0px;
         max-width: 600px;
