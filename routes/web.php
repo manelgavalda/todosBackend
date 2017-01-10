@@ -10,6 +10,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile', function () {
         return view('tokens');
     });
+
+    #adminlte_routes
+    Route::get('boxmodel', 'BoxmodelController@index')->name('boxmodel');
+
 });
 
 Route::get('/', function () {
