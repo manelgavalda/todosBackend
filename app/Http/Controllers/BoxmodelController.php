@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\Debugbar\Controllers\BaseController;
 use Illuminate\Http\Request;
 
-class BoxmodelController extends Controller
+class BoxmodelController extends BaseController
 {
-    //
     /**
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
