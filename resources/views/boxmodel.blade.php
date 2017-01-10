@@ -14,18 +14,19 @@
     #bloc1
     {
         max-width: 600px;
-        margin: 0 auto;
+        margin: 20px auto;
 
-        border: solid;
+        border: solid darkred 10px;
+        box-sizing: border-box;
     }
 
     #bloc2
     {
         max-width: 600px;
-        margin: 0 auto;
+        margin: 20px auto;
         padding: 50px;
-        border: solid;
-        border-width: 10px;
+        border: solid blue 10px;
+        box-sizing: border-box;
     }
 
 </style>
