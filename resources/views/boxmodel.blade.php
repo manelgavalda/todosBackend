@@ -12,7 +12,9 @@
 <style>
 
     body {
+        margin: 0px;
         margin-bottom: 50px;
+
 
     }
     #nav {
@@ -20,12 +22,13 @@
         left:0px;
         width: 200px;
         border: solid black 1px;
+        background-color: #00e765;
     }
 
     #section {
-        border: solid black 1px;
         margin-left: 200px;
         padding: 10px;
+        background-color: #0a568c;
     }
 
     #footer {
