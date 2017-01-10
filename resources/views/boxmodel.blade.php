@@ -1,21 +1,35 @@
-@extends('adminlte::page')
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
 
-@section('htmlheader_title')
-	Change Title here!
-@endsection
+<style>
+
+    #bloc1
+    {
+        width: 600px;
+        margin: auto;
+    }
+
+</style>
+
+<div id="bloc1">
+	<span>Això és una prova inline</span>
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore facere libero possimus qui sed soluta vel? Amet animi consectetur eos id laborum natus nulla quae quidem sed vitae. Accusantium amet architecto at corporis, doloribus eligendi illo laboriosam maiores nam nesciunt nihil nostrum omnis perspiciatis quia quo sapiente sed sequi, unde vel, veritatis? Eius fugiat minima obcaecati possimus quam unde voluptate. Consectetur hic impedit iusto quidem, recusandae unde! Asperiores delectus eum omnis perferendis quam quia totam velit? Et fugiat nihil praesentium quaerat quisquam! Dignissimos iure magni natus necessitatibus quod reprehenderit sapiente voluptas. Adipisci asperiores consequatur eius et eveniet, exercitationem, ipsam iusto laboriosam maiores neque placeat porro quaerat quam veritatis voluptatum. Atque deserunt earum facilis totam vero? Ab adipisci aspernatur cupiditate deleniti distinctio ducimus ea eligendi et excepturi fugiat harum illo itaque laborum minima necessitatibus nemo, neque nihil nobis odio placeat provident quaerat quas quasi qui quisquam repellat rerum sapiente sed sint soluta totam velit vero voluptatem. Alias amet asperiores, aut autem delectus dicta dignissimos doloremque doloribus eligendi est facere ipsa ipsam iure iusto magnam magni molestiae nam omnis quae quam qui quia recusandae, reiciendis sapiente temporibus tenetur velit voluptas! Ducimus, eius et illum mollitia perspiciatis quaerat quasi quidem quis quisquam rem repellendus suscipit voluptatum. Aliquam atque dolorem dolorum fugiat maiores omnis rem rerum voluptatibus. Accusamus alias at autem cumque debitis deleniti deserunt dignissimos earum est ex facilis illo incidunt iste, itaque libero maxime molestiae mollitia necessitatibus nesciunt nobis non odio omnis, perferendis quas quibusdam quis quos reprehenderit soluta suscipit unde vel velit vitae voluptatum! Accusantium labore nihil officiis? Ab, aliquid amet at beatae blanditiis consectetur dolores, doloribus enim eos est et ex exercitationem fuga id in itaque laborum minus molestias natus nisi nostrum perspiciatis quisquam rem sequi similique sit suscipit voluptatem. Fugiat odio quo veritatis. Accusantium alias amet animi aspernatur blanditiis cupiditate deserunt dolore, ducimus eaque error esse eum illo illum laboriosam laudantium magnam modi necessitatibus nihil nostrum omnis optio praesentium quam quos repudiandae sunt. A adipisci assumenda atque consequuntur culpa cupiditate debitis eaque earum eius est excepturi explicabo fuga fugit impedit in ipsam, magnam, minus molestias nam nemo nihil nisi nobis obcaecati officia optio pariatur placeat porro praesentium quas quo repellat repellendus sit, sunt ut veniam voluptate voluptatem! Ab accusantium, at corporis dignissimos ea, eveniet, facere magnam perspiciatis possimus praesentium quasi rem repudiandae tempore. Et laborum natus, pariatur provident qui repudiandae sapiente tempora vitae! Accusamus ad architecto aspernatur assumenda consequatur cum cupiditate, deleniti ducimus eaque eveniet facere iste laboriosam, laborum magni modi natus neque nisi obcaecati quas quisquam quod reiciendis rerum sint suscipit, ut vel voluptatibus? Aliquid consectetur dolorum expedita facere, magnam minima possimus quos recusandae tempore. Ab adipisci aperiam blanditiis consequuntur culpa deleniti dolorum ducimus ea eaque eos error esse et eum ex id illo, incidunt magnam natus nesciunt nihil nobis odio omnis perspiciatis quae quaerat quas quasi quibusdam quis, quisquam ratione repellendus reprehenderit sequi similique soluta tempore voluptatem voluptatum. Cum dicta earum exercitationem minima molestiae obcaecati odio perferendis, quae ratione sed sequi similique tempore veritatis voluptas voluptatem? Ducimus.
+	<a href="http://www.google.com" style="display: block;">Google</a>
+</div>
+<div id="bloc2">
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab at, autem beatae est et expedita, ipsa itaque magnam molestiae natus necessitatibus praesentium quae qui repellat vel velit voluptate! A animi beatae eius eos eum facere maiores maxime, quae quas qui? A accusantium ad aliquam aliquid aperiam architecto at atque aut, corporis dignissimos distinctio incidunt itaque laborum minima nisi, obcaecati odio odit omnis optio perspiciatis possimus quam quas quibusdam quis reiciendis reprehenderit soluta sunt tempore temporibus veniam. Enim facere facilis maxime, reprehenderit sed tenetur! Aliquid assumenda, deserunt dolores ex fugit labore laudantium nulla quae rem similique soluta, totam vel vitae? Error libero quidem voluptate. Amet asperiores eligendi facilis ut veniam. Architecto error eveniet illo impedit iure magni minima molestias neque, non odit quaerat saepe tenetur? Aut beatae deleniti error et eum ipsa libero minus, obcaecati sint voluptatem. Alias doloremque eligendi impedit itaque labore obcaecati pariatur quae, quidem quisquam repellat ut vitae voluptate! Enim, molestiae, quibusdam. Accusantium adipisci amet culpa cum eos illum impedit ipsa iste libero, modi nemo nisi perferendis placeat veritatis vitae voluptate voluptatibus voluptatum. Accusamus assumenda autem maiores nam nihil nobis quia soluta totam, voluptatum! Amet asperiores delectus, ducimus eligendi hic id ipsum laborum molestiae mollitia nam omnis praesentium quibusdam, ratione temporibus voluptas. Aliquam dignissimos ipsam maiores pariatur quas? Ab corporis error illum inventore officia quaerat repudiandae. Asperiores beatae blanditiis commodi delectus eligendi eos et facere fugiat harum id iste laboriosam magni maiores officiis pariatur perspiciatis, ratione reiciendis repellat sequi similique suscipit unde velit. Aperiam cupiditate deleniti dolore ea error ex explicabo fuga harum id obcaecati, officia, quasi repellendus suscipit tempora, tenetur. Ab accusantium ad aliquam architecto aut commodi corporis deleniti error et eum ex, excepturi facere hic illum in incidunt iste labore libero neque nihil odit placeat possimus quaerat quis, quo sint sunt temporibus vitae voluptas voluptates? Ab adipisci amet consequuntur culpa cum dolorem eos illum, inventore iure nobis numquam obcaecati optio pariatur porro quam quasi quibusdam quos reprehenderit saepe similique tempora tempore unde. Cum deserunt doloribus ea earum fuga id in incidunt magni sequi sint! Animi aut autem, blanditiis corporis error eveniet libero obcaecati rem voluptatem voluptatibus! Expedita, minus modi. Ab, cum, est excepturi facere minima possimus quod rerum soluta tenetur unde ut vel veritatis voluptas! Ad animi corporis quidem quisquam repellat. A alias, aperiam asperiores blanditiis consequatur, dolorum enim fugiat harum illo, impedit iure nisi non possimus praesentium quibusdam quis similique voluptatibus. Corporis cupiditate deserunt, doloremque eaque earum error esse et eum hic iure laboriosam maiores mollitia natus nesciunt quidem rerum sunt temporibus tenetur ullam voluptatibus. Alias aperiam, consequatur cum deleniti dicta dolore dolorum esse, facilis fugit labore laudantium libero molestiae nihil nisi omnis perspiciatis rerum sapiente sed, sit tempora velit voluptate voluptatum. Alias deleniti dignissimos dolores error eum ex fugit, incidunt inventore itaque iure laudantium maxime molestias mollitia nostrum porro quaerat quam quas quod repellendus ullam! Amet eaque enim error itaque labore magnam magni minima molestiae natus nulla quia quo, saepe tempore vero vitae? Architecto debitis delectus dicta excepturi expedita in quis, repellendus? Ad, voluptatum.
+</div>
+
+</body>
 
 
-@section('main-content')
-	<div class="container-fluid spark-screen">
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-				<div class="panel panel-default">
-					<div class="panel-heading">Change Header</div>
-					<div class="panel-body">
-						Change content here!
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-@endsection
+</body>
+</html>
