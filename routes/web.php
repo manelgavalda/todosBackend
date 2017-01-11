@@ -7,7 +7,7 @@ Route::group(['middleware' => 'auth'], function () {
         });
     });
 
-    Route::get('/profile', function () {
+    Route::get('/profile/tokens', function () {
         return view('tokens');
     });
 
