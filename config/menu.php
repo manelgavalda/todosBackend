@@ -31,7 +31,7 @@ Menu::macro('sidebar', function () {
         #adminlte_menu
         ->add(Link::toUrl('bootstraplayout', 'Bootstraplayout'))
         ->add(Link::toUrl('flexboxlayout2', 'Flexboxlayout2'))
-        ->add(Link::toUrl('Flexboxlayout', 'Flexboxlayout'))
+        ->add(Link::toUrl('flexboxlayout', 'Flexboxlayout'))
         ->add(Link::toUrl('csstables', 'Csstables'))
         ->add(Link::toUrl('layoutfloat', 'Layoutfloat'))
         ->add(Link::toUrl('tasks', 'Tasks'))
