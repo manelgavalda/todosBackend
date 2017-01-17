@@ -15,7 +15,7 @@
     }
     p {
         line-height: 1.5;
-        word-spacing:2;
+        word-spacing:0.8rem;
     }
 </style>
 <body>
