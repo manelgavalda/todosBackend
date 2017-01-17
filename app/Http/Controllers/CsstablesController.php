@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\Debugbar\Controllers\BaseController;
 use Illuminate\Http\Request;
 
-class CsstablesController extends Controller
+class CsstablesController extends BaseController
 {
     //
     /**
