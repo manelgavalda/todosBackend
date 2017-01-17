@@ -32,6 +32,8 @@ class AuthServiceProvider extends ServiceProvider
 
         Passport::routes();
 
+        Passport::enableImplicitGrant();
+
         //S'executarà al arrancar el laravel.
         $this->defineGates();
     }
