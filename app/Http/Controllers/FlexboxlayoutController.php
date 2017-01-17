@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\Debugbar\Controllers\BaseController;
 use Illuminate\Http\Request;
 
 class FlexboxlayoutController extends BaseController
@@ -14,7 +15,7 @@ class FlexboxlayoutController extends BaseController
     public function index()
     {
         $data = [];
-        return view('Flexboxlayout',$data);
+        return view('flexboxlayout',$data);
     }
 
 }
