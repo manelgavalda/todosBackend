@@ -12,6 +12,8 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     #adminlte_routes
+    Route::get('bootstraplayout', 'BootstraplayoutController@index')->name('bootstraplayout');
+
     Route::get('flexboxlayout2', 'Flexboxlayout2Controller@index')->name('flexboxlayout2');
 
     Route::get('flexboxlayout', 'FlexboxlayoutController@index')->name('flexboxlayout');

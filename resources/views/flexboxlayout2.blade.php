@@ -18,11 +18,15 @@
 	}
 
 
-	.article {
+	article {
 		background-color: lightblue;
 		padding:10px;
 		margin:10px;
 		flex:200px;
+	}
+
+	section {
+		display: flex;
 	}
 
 	.container {
@@ -48,6 +52,8 @@
 		display: none;
 	}
 
+
+
 </style>
 <body>
 
@@ -65,22 +71,18 @@
 
 <section class="flex-column">
 
-	<div class="container">
+	<section class="flex-row">
 
-		<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
-		<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
-		<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
-		<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
-		<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
-		<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
-		<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
-		<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
-		<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
-		<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
-		<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
-		<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
+		<article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</article>
+		<article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</article>
+		<article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</article>
+		<article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</article>
+		<article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</article>
+		<article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</article>
+		<article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</article>
+		<article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</article>
 
-	</div>
+	</section>
 
 	<footer>
 		@copyright Manel Gavaldà Andreu
