@@ -15,6 +15,7 @@
         margin:10px;
     }
 
+
     .article {
         display: flex;
         background-color: lightblue;
@@ -22,16 +23,22 @@
         margin:10px;
     }
 
+    .container {
+        display: flex;
+    }
+
 </style>
 <body>
 
 <div class="header">Sample flexbox example</div>
 
-<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
+<div class="container">
+    <div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
 
-<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
+    <div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
 
-<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
+    <div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
+</div>
 
 </body>
 </html>
