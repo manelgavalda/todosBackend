@@ -14,6 +14,7 @@
 	nav{
 		float: left;
 		width:200px;
+		height: 100vh;
 		
 	}
 
@@ -26,12 +27,16 @@
 		overflow: auto;
 	}
 
+	.debug {
+		border: solid blue 1px;
+	}
+
 </style>
 </body>
 
 <div class="clearfix">
 
-	<nav>
+	<nav class="debug">
 		<ul>
 			<li>Link1</li>
 			<li>Link2</li>
@@ -97,15 +102,10 @@
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque ea est facere harum illo, ipsa, iste iusto magni natus numquam pariatur quas quisquam quod veniam voluptates. Dicta, laborum?
 	</section>
 
+</div>
 
-
-
-
-
-	<div id="footer">
-		@copyright Manel Gavaldà Andreu
-	</div>
-
+<div id="footer" class="debug">
+	@copyright Manel Gavaldà Andreu
 </div>
 
 </html>
