@@ -13,9 +13,15 @@
         max-width: 900px;
         margin: 0 auto;
     }
+
     p {
         line-height: 1.5;
         word-spacing:0.8rem;
+    }
+
+    img {
+        float: left;
+        margin-right: 30px;
     }
 </style>
 <body>
