@@ -13,14 +13,15 @@
         background-color: indianred;
         padding:10px;
         margin:10px;
+        flex:5;
     }
 
 
     .article {
-        display: flex;
         background-color: lightblue;
         padding:10px;
         margin:10px;
+        flex:1;
     }
 
     .container {
@@ -30,9 +31,9 @@
 </style>
 <body>
 
-<div class="header">Sample flexbox example</div>
-
 <div class="container">
+    <div class="header">Sample flexbox example</div>
+
     <div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
 
     <div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, cum debitis dolorem est facilis fugit impedit magnam nulla officia quia quis sequi ullam vel. At id necessitatibus quam vel voluptate.</div>
