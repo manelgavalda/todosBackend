@@ -23,6 +23,7 @@
         width: 200px;
         border: solid black 1px;
         background-color: #00e765;
+        display: none;
     }
 
     #section {
