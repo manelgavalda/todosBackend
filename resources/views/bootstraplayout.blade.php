@@ -17,12 +17,32 @@
 </head>
 <body>
 
-<div class="container">
-	<div class="jumbotron">
-		<h1>Hola</h1>
+<style>
+	.debug {
+		border: solid black 1px;
+	}
+</style>
+<div class="container-fluid">
+	<div class="row debug">
+		<div class="col-md-4 debug">Column 1</div>
+		<div class="col-md-4 debug">Column 2</div>
+		<div class="col-md-4 debug">Column 3</div>
 	</div>
 
+	<div class="row debug">
+		<div class="col-md-3 debug">Column 1</div>
+		<div class="col-md-3 debug">Column 2</div>
+		<div class="col-md-3 debug">Column 3</div>
+	</div>
+
+	<div class="row debug">
+		<div class="col-md-5 debug">Column 1</div>
+		<div class="col-md-5 debug">Column 2</div>
+		<div class="col-md-5 debug">Column 3</div>
+	</div>
 </div>
+
+
 
 </body>
 </html>
