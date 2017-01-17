@@ -17,5 +17,12 @@
 </head>
 <body>
 
+<div class="container">
+	<div class="jumbotron">
+		<h1>Hola</h1>
+	</div>
+
+</div>
+
 </body>
 </html>
