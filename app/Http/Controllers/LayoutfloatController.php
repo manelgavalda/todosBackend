@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\Debugbar\Controllers\BaseController;
 use Illuminate\Http\Request;
 
-class LayoutfloatController extends Controller
+class LayoutfloatController extends BaseController
 {
     //
     /**
