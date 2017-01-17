@@ -25,6 +25,10 @@
 	form label , form input {
 		display: table-cell;
 	}
+
+	form label {
+		text-align: right;
+	}
 </style>
 <body>
 

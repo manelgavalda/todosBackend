@@ -12,6 +12,8 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     #adminlte_routes
+    Route::get('Flexboxlayout', 'FlexboxlayoutController@index')->name('Flexboxlayout');
+
     Route::get('csstables', 'CsstablesController@index')->name('csstables');
 
     Route::get('layoutfloat', 'LayoutfloatController@index')->name('layoutfloat');
