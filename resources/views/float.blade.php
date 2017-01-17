@@ -9,7 +9,9 @@
 </head>
 <body>
 
-TODO
+<h1>Simple float example</h1>
+
+<img src="http://lorempixel.com/200/200" alt="imatge lorem">
 
 </body>
 </html>
