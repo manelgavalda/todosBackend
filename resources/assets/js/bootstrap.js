@@ -20,12 +20,6 @@ require('icheck');
  * and simple, leaving you to focus on building your next great project.
  */
 
-window.Vue = require('vue');
-// require('vue-resource');
-
-//2 objectes diferents que usen la mateixa interfície
-window.axios = require('axios');
-Vue.prototype.$http = axios;
 
 require('sweetalert');
 
