@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
@@ -39,4 +40,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class);
     }
+
+    protected $events = [
+      'created' => Registered::class
+    ];
 }

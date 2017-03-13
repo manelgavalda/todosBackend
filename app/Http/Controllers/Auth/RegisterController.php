@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\NewRegisteredUserEvent;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Spatie\Permission\Models\Role;
 use Validator;
 
 /**
@@ -74,15 +76,16 @@ class RegisterController extends Controller
      *
      * @param array $data
      *
-     * @return User
      */
     protected function create(array $data)
     {
+//      event(new NewRegisteredUserEvent());
         return User::create([
             'name'      => $data['name'],
             'email'     => $data['email'],
             'password'  => bcrypt($data['password']),
             'api_token' => str_random(60),
-        ]);
+        ])->assignRole('admin');
+      //Admin role for my user.
     }
 }
