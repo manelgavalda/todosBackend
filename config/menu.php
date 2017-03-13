@@ -11,7 +11,7 @@ use Spatie\Menu\Laravel\Menu;
 //});
 
 Menu::macro('adminlteSubmenu', function ($submenuName) {
-    return Menu::new()->prepend('<a href="#"><span> ' . $submenuName . '</span> <i class="fa fa-angle-left pull-right"></i></a>')
+    return Menu::new()->prepend('<a href="#"><span> '.$submenuName.'</span> <i class="fa fa-angle-left pull-right"></i></a>')
         ->addParentClass('treeview')->addClass('treeview-menu');
 });
 Menu::macro('adminlteMenu', function () {
@@ -28,7 +28,7 @@ Menu::macro('sidebar', function () {
         ->link('http://www.acacha.org', 'Another link')
 //        ->url('http://www.google.com', 'Google')
         ->add(Menu::adminlteSeparator('Acacha Adminlte'))
-        #adminlte_menu
+        //adminlte_menu
         ->add(Link::toUrl('bootstraplayout', 'Bootstraplayout'))
         ->add(Link::toUrl('flexboxlayout2', 'Flexboxlayout2'))
         ->add(Link::toUrl('flexboxlayout', 'Flexboxlayout'))

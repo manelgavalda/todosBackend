@@ -11,7 +11,7 @@ Route::group(['middleware' => 'auth'], function () {
         return view('tokens');
     });
 
-    #adminlte_routes
+    //adminlte_routes
     Route::get('bootstraplayout', 'BootstraplayoutController@index')->name('bootstraplayout');
 
     Route::get('flexboxlayout2', 'Flexboxlayout2Controller@index')->name('flexboxlayout2');
@@ -27,10 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/float', function () {
         return view('float');
     });
-
 });
-
-
 
 Route::get('/', function () {
     return view('welcome');

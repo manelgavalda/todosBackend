@@ -20,8 +20,8 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\EventListener',
         ],
       'App\Events\NewRegisteredUserEvent' => [
-        'App\Listeners\GrantPermissionListener'
-        ]
+        'App\Listeners\GrantPermissionListener',
+        ],
     ];
 
     /**
@@ -32,7 +32,5 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
-
-
     }
 }

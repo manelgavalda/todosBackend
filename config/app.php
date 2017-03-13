@@ -169,7 +169,7 @@ return [
          * See: https://github.com/acacha/llum
          */
         Spatie\Menu\Laravel\MenuServiceProvider::class,
-        #llum_providers
+        //llum_providers
 
         /*
          * Package Service Providers...
@@ -277,7 +277,7 @@ return [
         'Menu' => Spatie\Menu\Laravel\MenuFacade::class,
         'Link' => Spatie\Menu\Laravel\Link::class,
         'Html' => Spatie\Menu\Laravel\Html::class,
-        #llum_aliases
+        //llum_aliases
 
     ],
 

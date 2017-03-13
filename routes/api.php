@@ -20,12 +20,12 @@ use Illuminate\Http\Request;
 //Mapejar funcions.
 //Route::resource('task','TasksController');
 
-Route::group(['prefix' => 'v1', 'middleware' => ['cors','auth:api']], function () {
+Route::group(['prefix' => 'v1', 'middleware' => ['cors', 'auth:api']], function () {
     Route::resource('task', 'TasksController');
     Route::resource('user', 'UsersController');
     Route::resource('user.task', 'UserTasksController');
     //Route::resource('task.user', 'UsersController');
-    Route::get('/user' , function (Request $request) {
+    Route::get('/user', function (Request $request) {
         return $request->user();
     });
 });

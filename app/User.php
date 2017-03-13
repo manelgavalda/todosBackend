@@ -42,6 +42,6 @@ class User extends Authenticatable
     }
 
     protected $events = [
-      'created' => Registered::class
+      'created' => Registered::class,
     ];
 }
