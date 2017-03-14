@@ -140,9 +140,6 @@ export default {
             setVisibility: function(visibility) {
                 this.visibility=visibility;
             },
-            reverseMessage: function() {
-                this.message = this.message.split('').reverse().join('');
-            },
             fetchData: function() {
                 return this.fetchPage(1);
             },
@@ -198,8 +195,6 @@ export default {
         }
 
     }
-    //TODO: Afegir un boto o algo agafar(ficar el seu src al js) o millor afegir al package.json per instal·lar el js(si te npm), si no te npm s'agafa el javascript i s'afegeix al general.
-    //TODO: Al editar que estigue seleccionat i amb el focus.
 </script>
 
 
