@@ -1,6 +1,6 @@
 <template>
 
-    <form action="" method="post">
+    <form @submit.prevent="submit">
         <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="Your Name Here" name="name" value=""/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -40,10 +40,13 @@
 </template>
 <script>
     export default {
-        data() {
-            return {
-                page: 1
-            }
-        },
+      mounted() {
+        console.log('Registered Component')
+      },
+      methods: {
+        submit(){
+          console.log('submit')
+        }
+      }
     }
 </script>
