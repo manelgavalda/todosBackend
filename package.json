@@ -9,6 +9,7 @@
     "axios": "^0.15.2",
     "bootstrap-less": "^3.3.8",
     "bootstrap-sass": "^3.3.7",
+    "eslint": "^3.17.1",
     "font-awesome": "^4.6.3",
     "gulp": "^3.9.1",
     "icheck": "^1.0.2",
