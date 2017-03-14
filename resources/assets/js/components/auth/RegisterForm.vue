@@ -1,9 +1,10 @@
 <template>
   <form @submit.prevent="submit">
     <div class="form-group has-feedback">
-      <input type="text" class="form-control" placeholder="Your Name Here" name="name" value="" v-model="name"/>
+      <input type="text" class="form-control" placeholder="Your Name Here" name="name" value="" v-model="name"
+      @keydown="errors.clear('name')"/>
       <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      <span class="help-block" v-text="errors.name">Help block with user</span>
+      <span class="help-block" v-if="errors.has('name')" v-text="errors.get('name')">Help block with user</span>
     </div>
     <div class="form-group has-feedback">
       <input type="email" class="form-control" placeholder="Your Email Here" name="email" v-model="email" value=""/>
@@ -39,6 +40,8 @@
   </form>
 </template>
 <script>
+
+  Errors = import './Errors.vue'
   class Errors {
     /*
     * Constructor.
@@ -46,9 +49,40 @@
     constructor(){
       this.errors = {}
     }
-
     //API
+    has(field){
+      // Underscore | Lodash
+      return this.errors.hasOwnProperty(field)
+    }
 
+    /**
+     *
+     * @param field
+     * @returns {*}
+     */
+    get(field){
+      if (this.errors[field]){
+        return this.errors[field][0]
+      }
+    }
+
+    /**
+     *
+     * @param errors
+     */
+    record(errors) {
+      this.errors = errors
+    }
+
+    clear(field) {
+      if (field) {
+        delete this.errors[field]
+        return;
+      }
+      this.errors= {}
+    }
+
+    //TODO clear
   }
   export default {
     mounted() {
@@ -74,9 +108,9 @@
           }
         )
           .catch((error) => {
-            this.errors=error.response.data
-            console.log(this.errors)
-            errors.name=this.errors.name[0]
+            this.errors.record=error.response.data
+//            console.log(this.errors)
+//            errors.name=this.errors.name[0]
           }
         )
       }
