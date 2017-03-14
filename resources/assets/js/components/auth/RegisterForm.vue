@@ -1,19 +1,20 @@
 <template>
   <form @submit.prevent="submit">
     <div class="form-group has-feedback">
-      <input type="text" class="form-control" placeholder="Your Name Here" name="name" value=""/>
+      <input type="text" class="form-control" placeholder="Your Name Here" name="name" value="" v-model="name"/>
       <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      <span class="help-block" v-text="errors.name">Help block with user</span>
     </div>
     <div class="form-group has-feedback">
-      <input type="email" class="form-control" placeholder="Your Email Here" name="email" value=""/>
+      <input type="email" class="form-control" placeholder="Your Email Here" name="email" v-model="email" value=""/>
       <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
     </div>
     <div class="form-group has-feedback">
-      <input type="password" class="form-control" placeholder="Password Here" name="password"/>
+      <input type="password" class="form-control" placeholder="Password Here" name="password" v-model="password"/>
       <span class="glyphicon glyphicon-lock form-control-feedback"></span>
     </div>
     <div class="form-group has-feedback">
-      <input type="password" class="form-control" placeholder="Password Here" name="password_confirmation"/>
+      <input type="password" class="form-control" placeholder="Password Here" name="password_confirmation" v-model="password_confirmation"/>
       <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
     </div>
       <div class="row">
@@ -38,27 +39,44 @@
   </form>
 </template>
 <script>
+  class Errors {
+    /*
+    * Constructor.
+     */
+    constructor(){
+      this.errors = {}
+    }
+
+    //API
+
+  }
   export default {
     mounted() {
       console.log('Registered Component')
+    },
+    data: function() {
+      return {
+        name: '',
+        email: '',
+        password: '',
+        password_confirmation: '',
+        terms: true,
+        errors: new Errors()
+      }
     },
     methods: {
       submit(){
         console.log('submit')
         //Promise
-        this.$http.post('/register',{
-          name: 'Ramonet',
-          email: 'kragmon@gmail.com',
-          password: '123456',
-          password_confirmation: '123456',
-          terms: true
-        })
-          .then( function (response) {
+        this.$http.post('/register', this.$data)
+          .then((response) => {
             console.log(response)
           }
         )
-          .catch( function (error) {
-            console.log(error)
+          .catch((error) => {
+            this.errors=error.response.data
+            console.log(this.errors)
+            errors.name=this.errors.name[0]
           }
         )
       }
