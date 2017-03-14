@@ -16,6 +16,9 @@ require('./bootstrap');
 //afegim todos.
 Vue.component('todos', require('./components/todos.vue'));
 
+//afegim todos.
+Vue.component('register-form', require('./components/auth/RegisterForm.vue'));
+
 //components passport
 Vue.component(
     'passport-clients',
