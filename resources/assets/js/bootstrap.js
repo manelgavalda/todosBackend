@@ -23,6 +23,11 @@ require('icheck');
 
 require('sweetalert');
 
+window.Vue = require('vue');
+
+window.axios = require('axios');
+Vue.prototype.$http = axios;
+
 /**
  * We'll register a HTTP interceptor to attach the "CSRF" header to each of
  * the outgoing requests issued by this application. The CSRF middleware
@@ -36,7 +41,7 @@ require('sweetalert');
 //    next();
 //});
 
-axios.defaults.headers.common['X-CSRF-TOKEN'] = Laravel.csrfToken;
+axios.defaults.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

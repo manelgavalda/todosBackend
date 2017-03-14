@@ -69,7 +69,7 @@ export default {
                 return this.editingName = true;
             },
             editTodo: function() {
-                return this.editing = true;
+                return this.editingName = true;
             },
             unneditName: function() {
                 return this.editingName = false;

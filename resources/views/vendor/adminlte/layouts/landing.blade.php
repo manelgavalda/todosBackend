@@ -33,7 +33,9 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
 
 </head>
-
+<script>
+    window.Laravel = {"csrfToken":"nUXGi8tqDufvUEiBz0gpWKLH6xZh9szE5q699x1W"};
+</script>
 <body data-spy="scroll" data-offset="0" data-target="#navigation">
 
 <div id="app">
