@@ -38,7 +38,7 @@
         </div>
       </div><!-- /.col -->
       <div class="col-xs-4 col-xs-push-1">
-        <button type="submit" class="btn btn-primary btn-block btn-flat" :disabled="errors.any()">Register</button>
+        <button type="submit" class="btn btn-primary btn-block btn-flat" :disabled="errors.any()" v-if="conntected" v-show="fa-spinner fa-spin">Register</button>
       </div><!-- /.col -->
     </div>
   </form>
@@ -53,7 +53,7 @@
      */
     constructor(originalFields) {
 
-      errors: new Errors()
+      new Errors()
 
       this.fields = originalFields;
 
@@ -64,9 +64,6 @@
 
     /*
      */
-    reset() {
-
-    }
   }
   class Errors {
     /*
@@ -74,6 +71,7 @@
      */
     constructor() {
       this.errors = {}
+      let connecting=false
     }
 
     //API
@@ -113,16 +111,26 @@
       this.errors.clear()
     }
 
-    submit(requestType, url) {
+    data() {
+      let data = {}
 
+      for(let field in this.fields){
+        data[field] = this[field]
+      }
+    }
+
+    submit(requestType, url) {
+      this.connecting=true
       return new Promise((resolve, reject) => {
         this.$http[requestType](url, this.fields)
           .then((response) => {
+            this.connecting=false
               this.onSuccess(response)
               resolve(response)
             }
           )
           .catch((error) => {
+              this.connecting=false
               this.onFail(error);
               reject(error)
 //              this.errors.record=error.response.data
