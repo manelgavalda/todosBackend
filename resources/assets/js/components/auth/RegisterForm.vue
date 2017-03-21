@@ -47,7 +47,7 @@
 </template>
 <script>
 
-  import Form from '../forms/Form'
+  import Form from '../../forms/Form'
 
   export default {
     mounted() {
