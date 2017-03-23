@@ -1,8 +1,7 @@
 <template>
-  <form @submit.prevent="submit" @keydown="form.errors.clear($event.target.name)">
-    <div class="form-group has-feedback has-error" :class="{'has-error' : form.errors.has('name')}">
-      <input type="text" class="form-control" placeholder="Your Name Here" name="name" value="" v-model="form.name"
-             @keydown="form.errors.clear('name')"/>
+  <form method="post" @submit.prevent="submit" @keydown="form.errors.clear($event.target.name)">
+    <div class="form-group has-feedback has-error">
+      <input type="text" class="form-control" placeholder="" name="name" value="" v-model="form.name">
       <span class="glyphicon glyphicon-user form-control-feedback"></span>
       <span class="help-block" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></span>
     </div>
@@ -39,8 +38,8 @@
       </div><!-- /.col -->
       <div class="col-xs-4 col-xs-push-1">
         <!--<button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>-->
-        <button type="submit" class="btn btn-primary btn-block btn-flat" :disabled="form.errors.any()" >Register</button>
-        <!--v-if="conntected" v-show="fa-spinner fa-spin"-->
+
+        <button type="submit" class="btn btn-primary btn-block btn-flat" :disabled="form.errors.any()"><i class="fa fa-refresh fa-spin" v-if="form.submitting"></i>Register</button>        <!--v-if="conntected" v-show="fa-spinner fa-spin"-->
       </div><!-- /.col -->
     </div>
   </form>
@@ -59,17 +58,18 @@
       }
     },
     methods: {
-      submit() {
-        this.form.submit('post', '/register')
-          .then(response => {
-            console.log(response)
-//            location.reload();
-            alert('Ok!')
+      submit(requestType,url){
+//        this.submitting = true
+        return new Promise((resolve,reject) =>{
+          axios[requestType](url,this.data())
+            .then( response =>{
+              this.onSuccess(response)
+              resolve(response)
+            }).catch(error => {
+            this.onFail(error)
+            reject(error)
           })
-          .catch(error => {
-            console.log(error)
-//            location.reload();
-          })
+        })
       }
     }
   }

@@ -40,8 +40,10 @@ Vue.prototype.$http = axios;
 
 //    next();
 //});
+window.axios = require('axios');
 
-axios.defaults.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
+axios.defaults.headers.common['X-CSRF-TOKEN'] = Laravel.csrfToken;
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

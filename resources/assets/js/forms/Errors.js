@@ -23,6 +23,14 @@ export default class Errors {
     return Object.keys(this.errors).length > 0
   }
 
+  hasErrors () {
+    return this.any()
+  }
+
+  all () {
+    return this.errors
+  }
+
   /**
    *
    * @param field
@@ -57,7 +65,7 @@ export default class Errors {
    * @param errors
    */
   record (errors) {
-    this.errors = errors
+    this.set(errors)
   }
 
   clear (field) {
@@ -66,5 +74,13 @@ export default class Errors {
       return
     }
     this.errors = {}
+  }
+
+  set (errors) {
+    this.errors = errors
+  }
+
+  forget (field) {
+    this.clear(field)
   }
 }
