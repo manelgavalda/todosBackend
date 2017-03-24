@@ -19,6 +19,9 @@ Vue.component('todos', require('./components/todos.vue'));
 //afegim todos.
 Vue.component('register-form', require('./components/auth/RegisterForm.vue'));
 
+Vue.component('chat-messages', require('./components/ChatMessages.vue'));
+Vue.component('chat-form', require('./components/ChatForm.vue'));
+
 //components passport
 Vue.component(
     'passport-clients',
@@ -34,6 +37,11 @@ Vue.component(
     'passport-personal-access-tokens',
     require('./components/passport/PersonalAccessTokens.vue')
 );
+
+Vue.component('login-input-field',
+    require('./components/LoginInputField.vue'))
+
+
 
 const app = new Vue({
     el: '#app',

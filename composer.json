@@ -6,15 +6,18 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.3.*",
+        "laravel/framework": "5.4.*",
         "barryvdh/laravel-ide-helper": "^2.2",
         "barryvdh/laravel-debugbar": "^2.3",
         "doctrine/dbal": "~2.3",
-        "acacha/admin-lte-template-laravel": "dev-master",
-        "laravel/passport": "^1.0",
-        "spatie/laravel-permission": "^1.5",
+        "acacha/admin-lte-template-laravel": "^4.1",
+        "laravel/passport": "^2.0",
+        "spatie/laravel-permission": "^1.6",
         "spatie/laravel-menu": "^2.0",
-        "barryvdh/laravel-cors": "^0.8.2"
+        "barryvdh/laravel-cors": "^0.8.2",
+        "laravel-notification-channels/gcm": "^0.0.1",
+        "laravel/tinker": "^1.0",
+        "laravel/browser-kit-testing": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -28,12 +31,14 @@
             "database"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Tests\\": "tests/"
         }
     },
     "autoload-dev": {
         "classmap": [
-            "tests/TestCase.php"
+            "tests/TestCase.php",
+            "tests/BrowserKitTestCase.php"
         ]
     },
     "scripts": {

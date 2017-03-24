@@ -178,7 +178,7 @@ return [
         Laravel\Passport\PassportServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
-
+        Laravel\Tinker\TinkerServiceProvider::class,
         /*
          * Application Service Providers...
          */

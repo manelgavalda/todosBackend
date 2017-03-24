@@ -28,6 +28,13 @@ window.Vue = require('vue');
 window.axios = require('axios');
 Vue.prototype.$http = axios;
 
+// Use trans function in Vue (equivalent to trans() Laravel Translations helper). See htmlheader.balde.php partial.
+Vue.prototype.trans = (key) => {
+    return _.get(window.trans, key, key);
+};
+
+Vue.component('login-input-field', require('./components/LoginInputField.vue'));
+
 /**
  * We'll register a HTTP interceptor to attach the "CSRF" header to each of
  * the outgoing requests issued by this application. The CSRF middleware
@@ -41,9 +48,10 @@ Vue.prototype.$http = axios;
 //    next();
 //});
 window.axios = require('axios');
-
-axios.defaults.headers.common['X-CSRF-TOKEN'] = Laravel.csrfToken;
-axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common = {
+    'X-CSRF-TOKEN': window.Laravel.csrfToken,
+    'X-Requested-With': 'XMLHttpRequest'
+};
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
@@ -56,3 +64,20 @@ axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+import Echo from "laravel-echo"
+
+import io from "socket.io-client"
+window.io = io
+
+// window.Echo = new Echo({
+//     broadcaster: 'pusher',
+//     key: '0beb4667296e55481ee9',
+//     cluster: 'mt1',
+//     encrypted: true
+// });
+
+window.Echo = new Echo({
+    broadcaster: 'socket.io',
+    host: 'localhost:6001',
+    namespace: 'ManelGavalda.Chat'
+});
