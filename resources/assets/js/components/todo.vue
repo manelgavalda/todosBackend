@@ -90,7 +90,7 @@ export default {
             },
             //Fer peticions al editar.
             editTodoApi: function() {
-                this.$http.put(this.uri +'/'+this.todo.id,{
+                axios.put(this.uri +'/'+this.todo.id,{
                     name: this.todo.name,
                     priority: this.todo.priority,
                     done: this.todo.done

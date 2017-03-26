@@ -144,7 +144,7 @@ export default {
                 return this.fetchPage(1);
             },
             addTodoApi: function(todo) {
-                this.$http.post(this.uri, {
+                axios.post(this.uri, {
                     name: todo.name,
                     priority: todo.priority,
                     done: todo.done
@@ -156,7 +156,7 @@ export default {
                 });
             },
             fetchPage: function(page) {
-                this.$http.get(this.uri+'?page=' + page).then((response) => {
+                axios.get(this.uri+'?page=' + page).then((response) => {
                     this.todos = response.data.data;
                     this.perPage = response.data.per_page;
                     this.to = response.data.to;
@@ -185,7 +185,7 @@ export default {
                   });
             },
             deleteTodoApi: function(id) {
-                this.$http.delete(this.uri + '/' + id).then((response) => {
+                axios.delete(this.uri + '/' + id).then((response) => {
                     console.log(response);
                 }, (response) => {
                     sweetAlert("Oops...", "Something went wrong!", "error");
