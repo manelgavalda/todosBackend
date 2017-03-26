@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Transformers\Contracts;
+namespace ManelGavalda\TodosBackend\Transformers\Contracts;
 
 /**
  * Created by PhpStorm.

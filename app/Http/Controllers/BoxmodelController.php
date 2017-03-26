@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace ManelGavalda\TodosBackend\Http\Controllers;
 
 use Barryvdh\Debugbar\Controllers\BaseController;
 

@@ -53,6 +53,9 @@ return [
             'driver' => 'null',
         ],
 
-    ],
+        'gcm' => [
+            'key' => env('GCM_KEY'),
+        ],
 
+    ],
 ];

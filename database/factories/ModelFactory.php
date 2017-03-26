@@ -12,7 +12,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(ManelGavalda\TodosBackend\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -26,7 +26,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 /* @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Task::class, function (Faker\Generator $faker) {
+$factory->define(ManelGavalda\TodosBackend\Task::class, function (Faker\Generator $faker) {
     return [
         'name'     => $faker->sentence,
         'done'     => $faker->boolean(),

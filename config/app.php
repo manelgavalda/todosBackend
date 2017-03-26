@@ -179,14 +179,15 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
+        NotificationChannels\Gcm\GcmServiceProvider::class,
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        ManelGavalda\TodosBackend\Providers\AppServiceProvider::class,
+        ManelGavalda\TodosBackend\Providers\AuthServiceProvider::class,
+        // ManelGavalda\TodosBackend\Providers\BroadcastServiceProvider::class,
+        ManelGavalda\TodosBackend\Providers\EventServiceProvider::class,
+        ManelGavalda\TodosBackend\Providers\RouteServiceProvider::class,
 
         /*
          * Acacha Llum Service Providers...
@@ -195,6 +196,7 @@ return [
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
         //llum_providers
 
         /*

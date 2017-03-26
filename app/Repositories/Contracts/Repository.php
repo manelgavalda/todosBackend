@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Contracts;
+namespace ManelGavalda\TodosBackend\Repositories\Contracts;
 
 /**
  * Interface Repository.

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace ManelGavalda\TodosBackend;
 
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -34,6 +34,15 @@ class User extends Authenticatable
     ];
 
     /**
+     * Messages to User relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+        /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function tasks()

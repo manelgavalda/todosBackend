@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Transformers;
+namespace ManelGavalda\TodosBackend\Transformers;
 
-use App\Transformers\Contracts\Transformer as TransformerContract;
+use ManelGavalda\TodosBackend\Transformers\Contracts\Transformer as TransformerContract;
 
 /**
  * Class Transformer.

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Policies;
+namespace ManelGavalda\TodosBackend\Policies;
 
-use App\Task;
-use App\User;
+use ManelGavalda\TodosBackend\Task;
+use ManelGavalda\TodosBackend\User;
 
 /**
  * Class BasePolicy.
@@ -28,8 +28,8 @@ abstract class BasePolicy
     /**
      * Determine whether the user can view the task.
      *
-     * @param \App\User $user
-     * @param \App\Task $task
+     * @param \ManelGavalda\TodosBackend\User $user
+     * @param \ManelGavalda\TodosBackend\Task $task
      *
      * @return mixed
      */
@@ -45,7 +45,7 @@ abstract class BasePolicy
     /**
      * Determine whether the user can create tasks.
      *
-     * @param \App\User $user
+     * @param \ManelGavalda\TodosBackend\User $user
      *
      * @return mixed
      */
@@ -61,8 +61,8 @@ abstract class BasePolicy
     /**
      * Determine whether the user can update the task.
      *
-     * @param \App\User $user
-     * @param \App\Task $task
+     * @param \ManelGavalda\TodosBackend\User $user
+     * @param \ManelGavalda\TodosBackend\Task $task
      *
      * @return mixed
      */
@@ -81,8 +81,8 @@ abstract class BasePolicy
     /**
      * Determine whether the user can delete the task.
      *
-     * @param \App\User $user
-     * @param \App\Task $task
+     * @param \ManelGavalda\TodosBackend\User $user
+     * @param \ManelGavalda\TodosBackend\Task $task
      *
      * @return mixed
      */

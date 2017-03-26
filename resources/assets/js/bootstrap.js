@@ -67,7 +67,7 @@ window.axios.defaults.headers.common = {
 import Echo from "laravel-echo"
 
 import io from "socket.io-client"
-window.io = io
+window.io = io;
 
 // window.Echo = new Echo({
 //     broadcaster: 'pusher',
@@ -78,6 +78,6 @@ window.io = io
 
 window.Echo = new Echo({
     broadcaster: 'socket.io',
-    host: 'localhost:6001',
-    namespace: 'ManelGavalda.Chat'
+    host: window.location.hostname + ':6001',
+    namespace: 'ManelGavalda.TodosBackend.Chat'
 });

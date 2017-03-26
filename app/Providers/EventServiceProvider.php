@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace ManelGavalda\TodosBackend\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
@@ -16,11 +16,11 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\SomeEvent' => [
-            'App\Listeners\EventListener',
+        'ManelGavalda\TodosBackend\Events\SomeEvent' => [
+            'ManelGavalda\TodosBackend\Listeners\EventListener',
         ],
-      'App\Events\NewRegisteredUserEvent' => [
-        'App\Listeners\GrantPermissionListener',
+      'ManelGavalda\TodosBackend\Events\NewRegisteredUserEvent' => [
+        'ManelGavalda\TodosBackend\Listeners\GrantPermissionListener',
         ],
     ];
 

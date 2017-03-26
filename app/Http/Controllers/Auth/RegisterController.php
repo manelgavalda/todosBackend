@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace ManelGavalda\TodosBackend\Http\Controllers\Auth;
 
-use App\Events\NewRegisteredUserEvent;
-use App\Http\Controllers\Controller;
-use App\User;
+use ManelGavalda\TodosBackend\Events\NewRegisteredUserEvent;
+use ManelGavalda\TodosBackend\Http\Controllers\Controller;
+use ManelGavalda\TodosBackend\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Spatie\Permission\Models\Role;
 use Validator;

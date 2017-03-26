@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Validators;
+namespace ManelGavalda\TodosBackend\Validators;
 
 use Validator;
 

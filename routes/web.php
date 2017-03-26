@@ -1,7 +1,7 @@
 <?php
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::group(['middleware' => 'can:show,App\Task'], function () {
+    Route::group(['middleware' => 'can:show,ManelGavalda\TodosBackend\Task'], function () {
         Route::get('/tasks', function () {
             return view('tasks');
         });
@@ -27,6 +27,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/float', function () {
         return view('float');
     });
+
+    Route::get('messages', 'MessagesController@index')->name('messages');
+    Route::post('messages', 'MessagesController@sendMessage');
+    Route::get('user/messages', 'MessagesController@fetchMessages');
 });
 
 Route::get('/', function () {

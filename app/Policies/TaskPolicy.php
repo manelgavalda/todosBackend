@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Policies;
+namespace ManelGavalda\TodosBackend\Policies;
 
-use App\Task;
-use App\User;
+use ManelGavalda\TodosBackend\Task;
+use ManelGavalda\TodosBackend\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 /**
@@ -16,7 +16,7 @@ class TaskPolicy // extends BasePolicy
     /**
      * Determine whether the user can list all tasks.
      *
-     * @param \App\User $user
+     * @param \ManelGavalda\TodosBackend\User $user
      *
      * @return mixed
      */

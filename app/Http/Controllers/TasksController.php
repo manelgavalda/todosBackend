@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace ManelGavalda\TodosBackend\Http\Controllers;
 
-use App\Repositories\TaskRepository;
-use App\Transformers\TaskTransformer;
+use ManelGavalda\TodosBackend\Repositories\TaskRepository;
+use ManelGavalda\TodosBackend\Transformers\TaskTransformer;
 use Auth;
 use Illuminate\Http\Request;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Policies;
+namespace ManelGavalda\TodosBackend\Policies;
 
 /**
  * Class HasAdmin.

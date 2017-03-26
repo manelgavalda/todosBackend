@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Listeners;
+namespace ManelGavalda\TodosBackend\Listeners;
 
-use App\Events\SomeEvent;
+use ManelGavalda\TodosBackend\Events\SomeEvent;
 
 class EventListener
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace ManelGavalda\TodosBackend\Http\Controllers;
 
-use App\Transformers\Contracts\Transformer;
+use ManelGavalda\TodosBackend\Transformers\Contracts\Transformer;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;

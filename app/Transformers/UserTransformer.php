@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Transformers;
+namespace ManelGavalda\TodosBackend\Transformers;
 
-use App\Exceptions\IncorrectModelException;
-use App\User;
+use ManelGavalda\TodosBackend\Exceptions\IncorrectModelException;
+use ManelGavalda\TodosBackend\User;
 
 /**
  * Class UserTransformer.

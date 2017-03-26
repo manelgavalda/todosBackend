@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Listeners;
+namespace ManelGavalda\TodosBackend\Listeners;
 
 use Illuminate\Auth\Events\Registered;
 

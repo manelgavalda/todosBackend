@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions;
+namespace ManelGavalda\TodosBackend\Exceptions;
 
 use ErrorException;
 use Exception;

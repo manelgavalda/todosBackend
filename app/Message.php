@@ -5,16 +5,23 @@ namespace ManelGavalda\TodosBackend;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Task.
+ * Class Message
+ * @package ManelGavalda\TodosBackend
  */
-class Task extends Model
+class Message extends Model
 {
     /**
+     * The attributes that are mass assignable.
+     *
      * @var array
      */
-    protected $fillable = ['id', 'name', 'done', 'priority', 'user_id'];
+    protected $fillable = [
+        'message'
+    ];
 
     /**
+     * Message to User relationship
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()

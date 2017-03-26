@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace ManelGavalda\TodosBackend\Http\Controllers;
 
-use App\Repositories\UserRepository;
-use App\Transformers\UserTransformer;
+use ManelGavalda\TodosBackend\Repositories\UserRepository;
+use ManelGavalda\TodosBackend\Transformers\UserTransformer;
 use Illuminate\Http\Request;
 
 /**

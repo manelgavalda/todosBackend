@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace ManelGavalda\TodosBackend\Providers;
 
 use Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -18,8 +18,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Task' => 'App\Policies\TaskPolicy',
-        //TODO: 'App\User' => 'App\Policies\UserPolicy',
+        'ManelGavalda\TodosBackend\Task' => 'ManelGavalda\TodosBackend\Policies\TaskPolicy',
+        //TODO: 'ManelGavalda\TodosBackend\User' => 'ManelGavalda\TodosBackend\Policies\UserPolicy',
     ];
 
     /**

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace ManelGavalda\TodosBackend\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use ManelGavalda\TodosBackend\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 

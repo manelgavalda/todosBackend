@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Transformers;
+namespace ManelGavalda\TodosBackend\Transformers;
 
-use App\Exceptions\IncorrectModelException;
-use App\Task;
+use ManelGavalda\TodosBackend\Exceptions\IncorrectModelException;
+use ManelGavalda\TodosBackend\Task;
 
 /**
  * Class TaskTransformer.
