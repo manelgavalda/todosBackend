@@ -26,7 +26,7 @@ class TasksApiTest extends TestCase
      */
     protected function seedDatabaseWithTasks($numberOfTasks = self::DEFAULT_NUMBER_OF_TASKS)
     {
-        factory(App\Task::class, $numberOfTasks)->create(['user_id' => 1]);
+        factory(ManelGavalda\TodosBackend\Task::class, $numberOfTasks)->create(['user_id' => 1]);
     }
 
     /**
@@ -36,7 +36,7 @@ class TasksApiTest extends TestCase
      */
     protected function createTask()
     {
-        return factory(App\Task::class)->make(
+        return factory(ManelGavalda\TodosBackend\Task::class)->make(
             [
             'user_id' => 1,
             //'updated_at' => "2016-11-20",//$task->created_at->toDateString(),
@@ -73,12 +73,12 @@ class TasksApiTest extends TestCase
      */
     protected function createAndPersistTask()
     {
-        return factory(App\Task::class)->create(['user_id' => 1]);
+        return factory(ManelGavalda\TodosBackend\Task::class)->create(['user_id' => 1]);
     }
 
     protected function login()
     {
-        $user = factory(App\User::class)->create();
+        $user = factory(ManelGavalda\TodosBackend\User::class)->create();
         $this->actingAs($user, 'api');
     }
 

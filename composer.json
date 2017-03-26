@@ -17,7 +17,8 @@
         "barryvdh/laravel-cors": "^0.8.2",
         "laravel-notification-channels/gcm": "^0.0.1",
         "laravel/tinker": "^1.0",
-        "laravel/browser-kit-testing": "^1.0"
+        "laravel/browser-kit-testing": "^1.0",
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -31,14 +32,12 @@
             "database"
         ],
         "psr-4": {
-            "ManelGavalda\\TodosBackend\\": "app/",
-            "Tests\\": "tests/"
+            "ManelGavalda\\TodosBackend\\": "app/"
         }
     },
     "autoload-dev": {
         "classmap": [
-            "tests/TestCase.php",
-            "tests/BrowserKitTestCase.php"
+            "tests/TestCase.php"
         ]
     },
     "scripts": {

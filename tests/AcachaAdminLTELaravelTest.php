@@ -1,30 +1,21 @@
 <?php
 
+namespace Tests;
+
+use App;
+use Artisan;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Contracts\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\Hash;
 
 /**
  * Class AcachaAdminLTELaravelTest.
  */
-class AcachaAdminLTELaravelTest extends TestCase
+class AcachaAdminLTELaravelTest extends BrowserKitTest
 {
     use DatabaseMigrations;
 
-    /*
-     * Overwrite createApplication to add Http Kernel
-     * see: https://github.com/laravel/laravel/pull/3943
-     *      https://github.com/laravel/framework/issues/15426
-     */
-    public function createApplication()
-    {
-        $app = require __DIR__.'/../bootstrap/app.php';
-
-        $app->make(Illuminate\Contracts\Http\Kernel::class);
-
-        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
-
-        return $app;
-    }
 
     /**
      * Set up tests.
@@ -33,6 +24,15 @@ class AcachaAdminLTELaravelTest extends TestCase
     {
         parent::setUp();
         App::setLocale('en');
+    }
+
+
+    /**
+     * Set up before class.
+     */
+    public static function setUpBeforeClass()
+    {
+        passthru('composer dumpautoload');
     }
 
     /**
@@ -55,7 +55,7 @@ class AcachaAdminLTELaravelTest extends TestCase
      */
     public function testLandingPageWithUserLogged()
     {
-        $user = factory(App\User::class)->create();
+        $user = factory(ManelGavalda\TodosBackend\User::class)->create();
 
         $this->actingAs($user)
             ->visit('/')
@@ -83,7 +83,7 @@ class AcachaAdminLTELaravelTest extends TestCase
      */
     public function testLogin()
     {
-        $user = factory(App\User::class)->create(['password' => Hash::make('passw0RD')]);
+        $user = factory(ManelGavalda\TodosBackend\User::class)->create(['password' => Hash::make('passw0RD')]);
 
         $this->visit('/login')
             ->type($user->email, 'email')
@@ -148,7 +148,7 @@ class AcachaAdminLTELaravelTest extends TestCase
      */
     public function testHomePageForAuthenticatedUsers()
     {
-        $user = factory(App\User::class)->create();
+        $user = factory(ManelGavalda\TodosBackend\User::class)->create();
 
         $this->actingAs($user)
             ->visit('/home')
@@ -162,7 +162,7 @@ class AcachaAdminLTELaravelTest extends TestCase
      */
     public function testLogout()
     {
-        $user = factory(App\User::class)->create();
+        $user = factory(ManelGavalda\TodosBackend\User::class)->create();
 
         $form = $this->actingAs($user)->visit('/home')->getForm('logout');
 
@@ -224,7 +224,7 @@ class AcachaAdminLTELaravelTest extends TestCase
      */
     public function testSendPasswordReset()
     {
-        $user = factory(App\User::class)->create();
+        $user = factory(ManelGavalda\TodosBackend\User::class)->create();
 
         $this->visit('password/reset')
             ->type($user->email, 'email')

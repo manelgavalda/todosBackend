@@ -9,7 +9,7 @@ class TasksControllerTest extends TestCase
 
     protected function login()
     {
-        $user = factory(App\User::class)->create();
+        $user = factory(ManelGavalda\TodosBackend\User::class)->create();
         $this->actingAs($user);
 
         return $user;

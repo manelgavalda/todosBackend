@@ -27,7 +27,7 @@ class UsersApiTest extends TestCase
      */
     protected function seedDatabaseWithUsers($numberOfUsers = self::DEFAULT_NUMBER_OF_USERS)
     {
-        factory(App\User::class, $numberOfUsers)->create();
+        factory(ManelGavalda\TodosBackend\User::class, $numberOfUsers)->create();
     }
 
     /**
@@ -37,7 +37,7 @@ class UsersApiTest extends TestCase
      */
     protected function createUser()
     {
-        return factory(App\User::class)->make(
+        return factory(ManelGavalda\TodosBackend\User::class)->make(
         );
     }
 
@@ -69,7 +69,7 @@ class UsersApiTest extends TestCase
      */
     protected function createAndPersistUser()
     {
-        return factory(App\User::class)->create();
+        return factory(ManelGavalda\TodosBackend\User::class)->create();
     }
 
     /**
@@ -77,7 +77,7 @@ class UsersApiTest extends TestCase
      */
     protected function login()
     {
-        $user = factory(App\User::class)->create();
+        $user = factory(ManelGavalda\TodosBackend\User::class)->create();
         $this->actingAs($user, 'api');
     }
 
