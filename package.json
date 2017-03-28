@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "acacha-forms": "github:acacha/forms",
+    "animate.css": "^3.5.2",
     "axios": "^0.15.2",
     "sweetalert": "^1.1.3"
   }

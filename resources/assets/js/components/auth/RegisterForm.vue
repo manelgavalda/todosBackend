@@ -3,21 +3,30 @@
     <div class="form-group has-feedback has-error">
       <input type="text" class="form-control" placeholder="" name="name" value="" v-model="form.name" autofocus>
       <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      <span class="help-block" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></span>
+      <transition name="fade">
+        <span class="help-block" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></span>
+      </transition>
     </div>
     <div class="form-group has-feedback">
       <input type="email" class="form-control" placeholder="Your Email Here" name="email" v-model="form.email"
              value=""/>
+      <transition name="fade">
       <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </transition>
+
     </div>
     <div class="form-group has-feedback">
       <input type="password" class="form-control" placeholder="Password Here" name="password" v-model="form.password"/>
+      <transition name="fade">
       <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </transition>
     </div>
     <div class="form-group has-feedback">
       <input type="password" class="form-control" placeholder="Password Here" name="password_confirmation"
              v-model="form.password_confirmation"/>
+      <transition name="fade">
       <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+      </transition>
     </div>
         <div class="col-xs-7">
           <label>
@@ -34,9 +43,21 @@
 
         <button type="submit" class="btn btn-primary btn-block btn-flat" :disabled="form.errors.any()"><i class="fa fa-refresh fa-spin" v-if="form.submitting"></i>Register</button>        <!--v-if="conntected" v-show="fa-spinner fa-spin"-->
       </div><!-- /.col -->
+    <div id="demo">
     </div>
   </form>
 </template>
+
+<style>
+  .fade-enter-active, .fade-leave-active{
+    transition: opacity .5s ease;
+  }
+
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+</style>
+
 <script>
 
   import Form from 'manelgavalda-forms'

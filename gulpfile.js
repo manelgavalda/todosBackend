@@ -28,6 +28,8 @@ elixir(function(mix) {
             './node_modules/sweetalert/dist/sweetalert.css',
             './public/css/toastr.css',
             './node_modules/icheck/skins/square/green.css',
+            './node_modules/animate.css/animate.css'
+
         ])
         .copy('node_modules/font-awesome/fonts/*.*','public/fonts/')
         .copy('node_modules/icheck/skins/minimal', 'public/css')
