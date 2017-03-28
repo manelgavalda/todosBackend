@@ -75,7 +75,7 @@
           })
         })
       },
-      initialitzeICheck() {
+      initializeICheck() {
       console.log('Initialize')
       var vm = this
         $('input').iCheck({
