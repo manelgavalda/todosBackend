@@ -14,7 +14,7 @@ use Log;
  *
  * @package App\Http\Controllers
  */
-class MessagesController extends Controller
+class MessagesController extends TodosBaseController
 {
     //
     /**

@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
  *
  * @package App\Http\Controllers
  */
-class GcmTokensController extends Controller
+class GcmTokensController extends TodosBaseController
 {
     /**
      * Add gcm token to user.
