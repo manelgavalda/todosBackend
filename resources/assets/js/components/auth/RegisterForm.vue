@@ -1,7 +1,7 @@
 <template>
   <form method="post" @submit.prevent="submit" @keydown="form.errors.clear($event.target.name)">
     <div class="form-group has-feedback has-error">
-      <input type="text" class="form-control" placeholder="" name="name" value="" v-model="form.name">
+      <input type="text" class="form-control" placeholder="" name="name" value="" v-model="form.name" autofocus>
       <span class="glyphicon glyphicon-user form-control-feedback"></span>
       <span class="help-block" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></span>
     </div>
@@ -19,23 +19,16 @@
              v-model="form.password_confirmation"/>
       <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
     </div>
-    <div class="row">
-      <div class="col-xs-1">
-        <label>
-          <div class="checkbox_register icheck">
-            <label>
-              <input type="checkbox" checked name="terms">
-            </label>
-          </div>
-        </label>
-      </div><!-- /.col -->
-      <div class="col-xs-6">
-        <div class="form-group">
-          <button type="button" class="btn btn-block btn-flat" data-toggle="modal" data-target="#termsModal">Acceptar
-            condicions
-          </button>
+        <div class="col-xs-7">
+          <label>
+            <div class="checkbox_register icheck">
+              <label data-toggle="modal" data-target="#termsModal">
+                <input type="checkbox" name="terms" v-model="form.terms" class="has-error">
+                <a href="#" :class="{ 'text-danger': form.errors.has('terms') }">Terms and conditions</a>
+              </label>
+            </div>
+          </label>
         </div>
-      </div><!-- /.col -->
       <div class="col-xs-4 col-xs-push-1">
         <!--<button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>-->
 
@@ -46,17 +39,28 @@
 </template>
 <script>
 
-  import Form from '../../forms/Form'
+  import Form from 'manelgavalda-forms'
+
 
   export default {
     mounted() {
       console.log('Registered Component')
+      this.initializeICheck()
     },
     data: function () {
       return {
         form: new Form({name: '', email: '', password: '', password_confirmation: '', terms: true})
       }
     },
+      watch: {
+         'form.terms': function (value) {
+           if(value) {
+             $('input').iCheck('check')
+           } else {
+             $('input').iCheck('uncheck')
+           }
+         }
+      },
     methods: {
       submit(requestType,url){
 //        this.submitting = true
@@ -70,7 +74,22 @@
             reject(error)
           })
         })
-      }
+      },
+      initialitzeICheck() {
+      console.log('Initialize')
+      var vm = this
+        $('input').iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%',
+        inheritClass: true
+      }).on('ifChecked', function(event){
+       vm.form.set('terms',true)
+       vm.form.errors.clear('terms')
+       }).on('ifUnchecked', function(event){
+       vm.form.set('terms','')
+      });
+    }
     }
   }
 </script>
