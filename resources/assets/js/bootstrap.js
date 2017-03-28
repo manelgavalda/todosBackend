@@ -49,6 +49,13 @@ axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
+// Use trans function in Vue (equivalent to trans() Laravel Translations helper). See htmlheader.balde.php partial.
+Vue.prototype.trans = (key) => {
+    return _.get(window.trans, key, key);
+};
+
+//Laravel AdminLTE login input field component
+Vue.component('login-input-field', require('./components/LoginInputField.vue'));
 
 // import Echo from "laravel-echo"
 
@@ -56,3 +63,21 @@ axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+
+import Echo from "laravel-echo"
+
+import io from "socket.io-client"
+window.io = io
+
+// window.Echo = new Echo({
+//     broadcaster: 'pusher',
+//     key: '0beb4667296e55481ee9',
+//     cluster: 'mt1',
+//     encrypted: true
+// });
+
+window.Echo = new Echo({
+    broadcaster: 'socket.io',
+    host: window.location.hostname + ':6001',
+    namespace: 'Manelgavalda.TodosBackend.Events'
+});

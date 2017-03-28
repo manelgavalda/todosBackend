@@ -44,4 +44,9 @@ class User extends Authenticatable
     protected $events = [
       'created' => Registered::class,
     ];
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

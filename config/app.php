@@ -178,6 +178,7 @@ return [
         Laravel\Passport\PassportServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
+        NotificationChannels\Gcm\GcmServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -3,7 +3,11 @@
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'can:show,App\Task'], function () {
         Route::get('/tasks', function () {
-            return view('tasks');
+            $token = "TODO";
+            $data = [
+                "access_token" => $token
+            ];
+            return view('tasks',$data);
         });
     });
 
@@ -12,6 +16,10 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     //adminlte_routes
+    Route::get('messages', 'MessagesController@index')->name('messages');
+    Route::post('messages', 'MessagesController@sendMessage');
+    Route::get('user/messages', 'MessagesController@fetchMessages');
+
     Route::get('bootstraplayout', 'BootstraplayoutController@index')->name('bootstraplayout');
 
     Route::get('flexboxlayout2', 'Flexboxlayout2Controller@index')->name('flexboxlayout2');

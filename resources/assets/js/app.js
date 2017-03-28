@@ -35,6 +35,8 @@ Vue.component(
     require('./components/passport/PersonalAccessTokens.vue')
 );
 
+Vue.component('login-input-field', require('./components/LoginInputField.vue'));
+
 // No va bé :C
 // Vue.transition('bounce',{
 //     enterClass: 'bounceIn',
@@ -43,4 +45,36 @@ Vue.component(
 
 const app = new Vue({
     el: '#app',
-    });
+
+    data: {
+        messages: []
+    },
+
+    created() {
+        this.fetchMessages();
+
+        Echo.channel('chat')
+            .listen('MessageSent', (e) => {
+                this.messages.push({
+                    message: e.message.message,
+                    user: e.user
+                });
+            });
+    },
+
+    methods: {
+        fetchMessages() {
+            axios.get('/user/messages').then(response => {
+                this.messages = response.data
+            });
+        },
+
+        addMessage(message) {
+            this.messages.push(message)
+
+            axios.post('/messages', message).then(response => {
+                console.log(response.data)
+            })
+        }
+    }
+});
