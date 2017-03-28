@@ -10,7 +10,9 @@
     <div class="form-group has-feedback">
       <input type="email" class="form-control" placeholder="Your Email Here" name="email" v-model="form.email"
              value=""/>
-      <transition name="fade">
+      <transition name="bounce"
+                  enter-active-class="animated bounceIn"
+                  leave-active-class="animated bounceOut">
       <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </transition>
 
