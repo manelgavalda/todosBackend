@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "984dfc6d02e540a216b5d2598b27c75a",
-    "content-hash": "63b25c1ab2d48c0f38b8e8d883fe0bd4",
+    "hash": "af91991a65dbbd76855f811531a36417",
+    "content-hash": "c44b06fa724c21dc972415c281ddd4d1",
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -1449,6 +1449,60 @@
             "time": "2016-08-27 08:45:27"
         },
         {
+            "name": "laravel-notification-channels/telegram",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-notification-channels/telegram.git",
+                "reference": "66de79828f518860a8eafdf55bb8d9769e649422"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-notification-channels/telegram/zipball/66de79828f518860a8eafdf55bb8d9769e649422",
+                "reference": "66de79828f518860a8eafdf55bb8d9769e649422",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2",
+                "illuminate/notifications": "5.3.* || 5.4.*",
+                "illuminate/support": "5.1.* || 5.2.* || 5.3.* || 5.4.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.5",
+                "orchestra/testbench": "3.4.x-dev",
+                "phpunit/phpunit": "5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\Telegram\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Syed Irfaq R.",
+                    "email": "syed@lukonet.com",
+                    "homepage": "https://lukonet.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Telegram Notifications Driver",
+            "homepage": "https://github.com/laravel-notification-channels/telegram",
+            "keywords": [
+                "laravel",
+                "notification",
+                "telegram",
+                "telegram notification",
+                "telegram notifications channel"
+            ],
+            "time": "2017-03-24 18:16:42"
+        },
+        {
             "name": "laravel/framework",
             "version": "v5.3.31",
             "source": {
@@ -2333,6 +2387,56 @@
                 "x509"
             ],
             "time": "2016-10-04 00:57:04"
+        },
+        {
+            "name": "predis/predis",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nrk/predis.git",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "suggest": {
+                "ext-curl": "Allows access to Webdis when paired with phpiredis",
+                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Predis\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net"
+                }
+            ],
+            "description": "Flexible and feature-complete Redis client for PHP and HHVM",
+            "homepage": "http://github.com/nrk/predis",
+            "keywords": [
+                "nosql",
+                "predis",
+                "redis"
+            ],
+            "time": "2016-06-16 16:22:20"
         },
         {
             "name": "psr/container",

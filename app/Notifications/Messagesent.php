@@ -10,6 +10,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use NotificationChannels\Gcm\GcmChannel;
 use NotificationChannels\Gcm\GcmMessage;
+use NotificationChannels\Telegram\TelegramChannel;
+use NotificationChannels\Telegram\TelegramMessage;
 
 class MessageSent extends Notification
 {
@@ -39,7 +41,7 @@ class MessageSent extends Notification
     public function via($notifiable)
     {
 //        return ['mail'];
-        return [GcmChannel::class];
+        return [GcmChannel::class, TelegramChannel::class];
     }
 
     /**
@@ -89,4 +91,12 @@ class MessageSent extends Notification
 //            ->subject($this->user)
 //            ->body($this->message);
 //    }
+    public function toTelegram($notifiable)
+    {
+        $url = url('http://todosbackend.manelgavalda.2dam.acacha.org/');
+        return TelegramMessage::create()
+            ->to('@dam21617')
+            ->content($this->message->message) // Markdown supported.
+            ->button('View message', $url); // Inline Button
+    }
 }
