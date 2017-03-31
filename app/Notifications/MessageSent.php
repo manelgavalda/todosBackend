@@ -91,4 +91,5 @@ class MessageSent extends Notification
             ->subject($this->user)
             ->body($this->message);
     }
+
 }

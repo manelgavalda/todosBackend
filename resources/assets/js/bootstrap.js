@@ -29,9 +29,9 @@ window.axios = require('axios');
 Vue.prototype.$http = axios;
 
 // Use trans function in Vue (equivalent to trans() Laravel Translations helper). See htmlheader.balde.php partial.
-Vue.prototype.trans = (key) => {
-    return _.get(window.trans, key, key);
-};
+// Vue.prototype.trans = (key) => {
+//     return _.get(window.trans, key, key);
+// };
 
 Vue.component('login-input-field', require('./components/LoginInputField.vue'));
 
