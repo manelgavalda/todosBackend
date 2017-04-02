@@ -181,6 +181,7 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         NotificationChannels\Gcm\GcmServiceProvider::class,
         NotificationChannels\Telegram\TelegramServiceProvider::class,
+        NotificationChannels\OneSignal\OneSignalServiceProvider::class,
         /*
          * Application Service Providers...
          */
