@@ -82,7 +82,21 @@ class MessageSent extends Notification
         return GcmMessage::create()
             ->badge(1)
             ->title($this->user)
-            ->message($this->message);
+            //Added
+            ->message($this->message->message)
+            ->data('message',$this->message )
+            ->data('user',$this->user);
+    }
+
+    /**
+     * @param $notifiable
+     * @return mixed
+     */
+    public function toOneSignal($notifiable)
+    {
+        return OneSignalMessage::create()
+            ->subject($this->user)
+            ->body($this->message);
     }
 
     /**
@@ -102,7 +116,7 @@ class MessageSent extends Notification
         return TelegramMessage::create()
             ->to('@dam21617alum')
             ->content($this->message->message) // Markdown supported.
-            ->button('View message', $url); // Inline Button
+            ->button('TodosBackend Manel', $url); // Inline Button
     }
 
 }

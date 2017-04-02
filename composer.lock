@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b3af0599bd785db23c0cb4f64d6bcbb8",
-    "content-hash": "5fabd25b444f712bbea6eb964320a488",
+    "hash": "53470cba6d06e7039a171115d7c5c325",
+    "content-hash": "d1877da02073f5adbb01937312f4d88c",
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -455,6 +455,60 @@
                 }
             ],
             "time": "2016-06-13 19:28:20"
+        },
+        {
+            "name": "berkayk/onesignal-laravel",
+            "version": "v0.9.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/berkayk/laravel-onesignal.git",
+                "reference": "dcfa4a8c92ae852113f0927c44ab7f70615adda5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/berkayk/laravel-onesignal/zipball/dcfa4a8c92ae852113f0927c44ab7f70615adda5",
+                "reference": "dcfa4a8c92ae852113f0927c44ab7f70615adda5",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2",
+                "illuminate/support": "4.*|5.*",
+                "php": ">=5.4.0",
+                "symfony/psr-http-message-bridge": "1.*"
+            },
+            "require-dev": {
+                "vlucas/phpdotenv": "^2.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Berkayk\\OneSignal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maykonn Welington Candido",
+                    "email": "maykonn@outlook.com"
+                },
+                {
+                    "name": "Berkay Kaya",
+                    "email": "berkayk@gmail.com",
+                    "homepage": "http://berkaykaya.com"
+                }
+            ],
+            "description": "OneSignal Push Wrapper Laravel",
+            "keywords": [
+                "WebPush",
+                "laravel",
+                "laravel 5",
+                "onesignal",
+                "push"
+            ],
+            "time": "2017-02-12 20:31:13"
         },
         {
             "name": "container-interop/container-interop",
@@ -1430,6 +1484,57 @@
             "description": "Android GCM Push Notification Channel",
             "homepage": "https://github.com/laravel-notification-channels/gcm",
             "time": "2016-08-27 08:45:27"
+        },
+        {
+            "name": "laravel-notification-channels/onesignal",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-notification-channels/onesignal.git",
+                "reference": "2f516dac948c5f508655e3d8c409618e7ed67b62"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-notification-channels/onesignal/zipball/2f516dac948c5f508655e3d8c409618e7ed67b62",
+                "reference": "2f516dac948c5f508655e3d8c409618e7ed67b62",
+                "shasum": ""
+            },
+            "require": {
+                "berkayk/onesignal-laravel": "^0.9.3",
+                "illuminate/notifications": "5.3.*|5.4.*",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.5",
+                "orchestra/database": "3.3.x-dev",
+                "orchestra/testbench": "3.3.x-dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\OneSignal\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be"
+                },
+                {
+                    "name": "Marcel Pociot",
+                    "email": "hello@marcelpociot.com",
+                    "homepage": "http://marcelpociot.com"
+                }
+            ],
+            "description": "OneSignal Notifications driver",
+            "homepage": "https://github.com/laravel-notification-channels/onesignal",
+            "time": "2017-02-02 06:23:18"
         },
         {
             "name": "laravel-notification-channels/telegram",
