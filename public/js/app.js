@@ -16395,8 +16395,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__forms_Form__ = __webpack_require__(75);
+/* WEBPACK VAR INJECTION */(function($) {Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -16445,35 +16468,61 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 
-
+//    import Form from 'acacha-forms'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Registered Component');
-  },
+    mounted: function mounted() {
+        var form = new FormData(document.querySelector("form"));
+        this.initialitzeICheck();
+        this.focus();
+    },
 
-  data: function data() {
-    return {
-      form: new __WEBPACK_IMPORTED_MODULE_0__forms_Form__["a" /* default */]({ name: '', email: '', password: '', password_confirmation: '', terms: true })
-    };
-  },
-  methods: {
-    submit: function submit(requestType, url) {
-      var _this = this;
+    data: function data() {
+        return {
+            form: new Form({ name: '', email: '', password: '', password_confirmation: '', terms: '' })
+        };
+    },
+    watch: {
+        'form.terms': function formTerms(value) {
+            if (value) {
+                $('input').iCheck('check');
+            } else {
+                $('input').iCheck('uncheck');
+            }
+        }
+    },
+    methods: {
+        initialitzeICheck: function initialitzeICheck() {
+            var component = this;
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%'
+            }).on('ifChecked', function (event) {
+                component.form.set('terms', true);
+                component.form.errors.clear('terms');
+            }).on('ifUnchecked', function (event) {
+                component.form.set('terms', '');
+            });
+        },
+        submit: function submit() {
+            var _this = this;
 
-      //        this.submitting = true
-      return new Promise(function (resolve, reject) {
-        axios[requestType](url, _this.data()).then(function (response) {
-          _this.onSuccess(response);
-          resolve(response);
-        }).catch(function (error) {
-          _this.onFail(error);
-          reject(error);
-        });
-      });
+            this.form.post('/register').then(function (response) {
+                console.log('REGISTER OK!!!!!!!!!!!!!!');
+                console.log(response.redirect);
+                console.log(response.status);
+                console.log(response.data);
+
+                _this.redirect(response);
+            }).catch(function (error) {});
+        },
+        redirect: function redirect(response) {
+            window.location.reload();
+        }
     }
-  }
 });
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(4)))
 
 /***/ }),
 /* 67 */
@@ -17794,360 +17843,8 @@ window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
 });
 
 /***/ }),
-/* 74 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Errors = function () {
-  /*
-   * Constructor.
-   */
-  function Errors() {
-    _classCallCheck(this, Errors);
-
-    this.errors = {};
-    var connecting = false;
-  }
-
-  // API
-
-
-  _createClass(Errors, [{
-    key: "has",
-    value: function has(field) {
-      // Underscore | Lodash
-      return this.errors.hasOwnProperty(field);
-    }
-
-    /*
-     *
-     * Determine if we have any error
-     *
-     * */
-
-  }, {
-    key: "any",
-    value: function any() {
-      return Object.keys(this.errors).length > 0;
-    }
-  }, {
-    key: "hasErrors",
-    value: function hasErrors() {
-      return this.any();
-    }
-  }, {
-    key: "all",
-    value: function all() {
-      return this.errors;
-    }
-
-    /**
-     *
-     * @param field
-     * @returns {*}
-     */
-
-  }, {
-    key: "get",
-    value: function get(field) {
-      if (this.errors[field]) {
-        return this.errors[field][0];
-      }
-    }
-  }, {
-    key: "onSuccess",
-    value: function onSuccess() {
-      // TODO: si va be
-      // EN algun cas faria falta reset, en aquest cas no this.reset
-      // TODO: si va be
-
-    }
-  }, {
-    key: "onFail",
-    value: function onFail() {
-      // TODO: si va be
-      this.errors.record(errors.response.data);
-    }
-  }, {
-    key: "getAllErrors",
-    value: function getAllErrors(field) {
-      if (this.errors[field]) {
-        return this.errors[field][0];
-      }
-    }
-
-    /**
-     *
-     * @param errors
-     */
-
-  }, {
-    key: "record",
-    value: function record(errors) {
-      this.set(errors);
-    }
-  }, {
-    key: "clear",
-    value: function clear(field) {
-      if (field) {
-        delete this.errors[field];
-        return;
-      }
-      this.errors = {};
-    }
-  }, {
-    key: "set",
-    value: function set(errors) {
-      this.errors = errors;
-    }
-  }, {
-    key: "forget",
-    value: function forget(field) {
-      this.clear(field);
-    }
-  }]);
-
-  return Errors;
-}();
-
-/* harmony default export */ __webpack_exports__["a"] = (Errors);
-
-/***/ }),
-/* 75 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Errors__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-
-
-
-var Form = function () {
-  /*
-   * Constructor.
-   */
-  function Form(fields) {
-    _classCallCheck(this, Form);
-
-    this.clearOnSubmit = false;
-
-    this.originalFields = fields;
-
-    this.errors = new __WEBPACK_IMPORTED_MODULE_0__Errors__["a" /* default */]();
-
-    this.resetStatus();
-
-    for (var field in fields) {
-      this[field] = fields[field];
-    }
-
-    this.errors = new __WEBPACK_IMPORTED_MODULE_0__Errors__["a" /* default */]();
-  }
-
-  /**
-   * Reset fields
-   */
-
-
-  _createClass(Form, [{
-    key: 'reset',
-    value: function reset() {
-      this.fields = {};
-      for (var field in this.originalFields) {
-        this[field] = '';
-      }
-      this.errors.clear();
-    }
-  }, {
-    key: 'clearOnSubmit',
-    value: function clearOnSubmit() {
-      this.clearOnSubmit = true;
-    }
-  }, {
-    key: 'resetStatus',
-    value: function resetStatus() {
-      this.errors.forget();
-      this.submitting = false;
-      this.submitted = false;
-      this.succeeded = false;
-    }
-  }, {
-    key: 'data',
-    value: function data() {
-      var data = {};
-
-      for (var field in this.originalFields) {
-        data[field] = this[field];
-      }
-
-      return data;
-    }
-
-    /**
-     * Start processing the form.
-     *
-     */
-
-  }, {
-    key: 'startProcessing',
-    value: function startProcessing() {
-      this.errors.forget();
-      this.submitting = true;
-      this.succeeded = false;
-    }
-  }, {
-    key: 'finishProcessing',
-
-
-    /**
-     * Finish processing the form.
-     *
-     */
-    value: function finishProcessing() {
-      this.submitting = false;
-      this.submitted = false;
-      this.succeeded = true;
-    }
-
-    /**
-     * Finish processing the form on errors.
-     */
-
-  }, {
-    key: 'finishProcessingOnErrors',
-    value: function finishProcessingOnErrors() {
-      this.submitting = false;
-      this.submitted = false;
-      this.succeeded = false;
-    }
-
-    /**
-     * Send a POST request to the given URL.
-     *
-     * @param url
-     * @returns {*}
-     */
-
-  }, {
-    key: 'post',
-    value: function post(url) {
-      return this.submit('post', url);
-    }
-
-    /**
-     * Send a PUT request to the given URL.
-     *
-     * @param url
-     * @returns {*}
-     */
-
-  }, {
-    key: 'put',
-    value: function put(url) {
-      return this.submit('put', url);
-    }
-
-    /**
-     * Send a PATCH request to the given URL.
-     *
-     * @param url
-     * @returns {*}
-     */
-
-  }, {
-    key: 'patch',
-    value: function patch(url) {
-      return this.submit('patch', url);
-    }
-
-    /**
-     * Send a DELETE request to the given URL.
-     *
-     * @param url
-     * @returns {*}
-     */
-
-  }, {
-    key: 'delete',
-    value: function _delete(url) {
-      return this.submit('delete', url);
-    }
-  }, {
-    key: 'submit',
-    value: function submit(requestType, url) {
-      var _this = this;
-
-      this.connecting = true;
-      return new Promise(function (resolve, reject) {
-        __WEBPACK_IMPORTED_MODULE_1_axios___default.a[requestType](url, _this.fields).then(function (response) {
-          // this.connecting = false
-          _this.onSuccess(response);
-          resolve(response);
-        }).catch(function (error) {
-          // this.connecting = false
-          console.log(error);
-          _this.onFail(error.response.data);
-          reject(error);
-          //              this.errors.record=error.response.data
-          //            console.log(this.errors)
-          //            errors.name=this.errors.name[0]
-        });
-      });
-    }
-
-    /**
-     * Process on success.
-     */
-
-  }, {
-    key: 'onSuccess',
-    value: function onSuccess() {
-      this.finishProcessing();
-      if (this.clearOnSubmit) this.reset();
-    }
-
-    /**
-     * Process on fail.
-     *
-     * @param errors
-     */
-
-  }, {
-    key: 'onFail',
-    value: function onFail(errors) {
-      this.errors.record(errors);
-      this.finishProcessingOnErrors();
-    }
-
-    /**
-     * Set the errors on the form.
-     *
-     * @param errors
-     */
-
-  }, {
-    key: 'setErrors',
-    value: function setErrors(errors) {
-      this.submitting = false;
-      this.errors.set(errors);
-    }
-  }]);
-
-  return Form;
-}();
-
-/* harmony default export */ __webpack_exports__["a"] = (Form);
-
-/***/ }),
+/* 74 */,
+/* 75 */,
 /* 76 */
 /***/ (function(module, exports) {
 
@@ -44758,6 +44455,10 @@ module.exports = Component.exports
 /* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
+
+/* styles */
+__webpack_require__(318)
+
 var Component = __webpack_require__(2)(
   /* script */
   __webpack_require__(66),
@@ -45035,7 +44736,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }, [_c('div', {
-    staticClass: "form-group has-feedback has-error"
+    staticClass: "form-group has-feedback",
+    class: {
+      'has-error': _vm.form.errors.has('name')
+    }
   }, [_c('input', {
     directives: [{
       name: "model",
@@ -45046,9 +44750,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "form-control",
     attrs: {
       "type": "text",
-      "placeholder": "",
+      "placeholder": "Your name here",
       "name": "name",
-      "value": ""
+      "value": "",
+      "autofocus": ""
     },
     domProps: {
       "value": (_vm.form.name)
@@ -45061,13 +44766,22 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('span', {
     staticClass: "glyphicon glyphicon-user form-control-feedback"
-  }), _vm._v(" "), (_vm.form.errors.has('name')) ? _c('span', {
+  }), _vm._v(" "), _c('transition', {
+    attrs: {
+      "name": "bounce",
+      "enter-active-class": "animated bounceIn",
+      "leave-active-class": "animated bounceOut"
+    }
+  }, [(_vm.form.errors.has('name')) ? _c('span', {
     staticClass: "help-block",
     domProps: {
       "textContent": _vm._s(_vm.form.errors.get('name'))
     }
-  }) : _vm._e()]), _vm._v(" "), _c('div', {
-    staticClass: "form-group has-feedback"
+  }) : _vm._e()])], 1), _vm._v(" "), _c('div', {
+    staticClass: "form-group has-feedback",
+    class: {
+      'has-error': _vm.form.errors.has('email')
+    }
   }, [_c('input', {
     directives: [{
       name: "model",
@@ -45078,7 +44792,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "form-control",
     attrs: {
       "type": "email",
-      "placeholder": "Your Email Here",
+      "placeholder": "Your email here",
       "name": "email",
       "value": ""
     },
@@ -45093,8 +44807,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('span', {
     staticClass: "glyphicon glyphicon-envelope form-control-feedback"
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "form-group has-feedback"
+  }), _vm._v(" "), _c('transition', {
+    attrs: {
+      "name": "fade"
+    }
+  }, [(_vm.form.errors.has('email')) ? _c('span', {
+    staticClass: "help-block",
+    domProps: {
+      "textContent": _vm._s(_vm.form.errors.get('email'))
+    }
+  }) : _vm._e()])], 1), _vm._v(" "), _c('div', {
+    staticClass: "form-group has-feedback",
+    class: {
+      'has-error': _vm.form.errors.has('password')
+    }
   }, [_c('input', {
     directives: [{
       name: "model",
@@ -45105,7 +44831,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "form-control",
     attrs: {
       "type": "password",
-      "placeholder": "Password Here",
+      "placeholder": "Password here",
       "name": "password"
     },
     domProps: {
@@ -45119,7 +44845,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('span', {
     staticClass: "glyphicon glyphicon-lock form-control-feedback"
-  })]), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), _c('transition', {
+    attrs: {
+      "name": "fade"
+    }
+  }, [(_vm.form.errors.has('password')) ? _c('span', {
+    staticClass: "help-block",
+    domProps: {
+      "textContent": _vm._s(_vm.form.errors.get('password'))
+    }
+  }) : _vm._e()])], 1), _vm._v(" "), _c('div', {
     staticClass: "form-group has-feedback"
   }, [_c('input', {
     directives: [{
@@ -45131,7 +44866,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "form-control",
     attrs: {
       "type": "password",
-      "placeholder": "Password Here",
+      "placeholder": "Password here",
       "name": "password_confirmation"
     },
     domProps: {
@@ -45143,11 +44878,61 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.form.password_confirmation = $event.target.value
       }
     }
-  }), _vm._v(" "), _c('span', {
-    staticClass: "glyphicon glyphicon-log-in form-control-feedback"
-  })]), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), _c('transition', {
+    attrs: {
+      "name": "fade"
+    }
+  }, [_c('span', {
+    staticClass: "glyphicon glyphicon-lock form-control-feedback"
+  })])], 1), _vm._v(" "), _c('div', {
     staticClass: "row"
-  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('div', {
+  }, [_c('div', {
+    staticClass: "col-xs-7"
+  }, [_c('label', [_c('div', {
+    staticClass: "checkbox_register icheck"
+  }, [_c('label', {
+    attrs: {
+      "data-toggle": "modal",
+      "data-target": "#termsModal"
+    }
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.terms),
+      expression: "form.terms"
+    }],
+    staticClass: "has-error",
+    attrs: {
+      "type": "checkbox",
+      "name": "terms"
+    },
+    domProps: {
+      "checked": Array.isArray(_vm.form.terms) ? _vm._i(_vm.form.terms, null) > -1 : (_vm.form.terms)
+    },
+    on: {
+      "__c": function($event) {
+        var $$a = _vm.form.terms,
+          $$el = $event.target,
+          $$c = $$el.checked ? (true) : (false);
+        if (Array.isArray($$a)) {
+          var $$v = null,
+            $$i = _vm._i($$a, $$v);
+          if ($$c) {
+            $$i < 0 && (_vm.form.terms = $$a.concat($$v))
+          } else {
+            $$i > -1 && (_vm.form.terms = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+          }
+        } else {
+          _vm.form.terms = $$c
+        }
+      }
+    }
+  }), _vm._v(" "), _c('a', {
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v("Terms and conditions")])])])])]), _vm._v(" "), _c('div', {
     staticClass: "col-xs-4 col-xs-push-1"
   }, [_c('button', {
     staticClass: "btn btn-primary btn-block btn-flat",
@@ -45157,33 +44942,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [(_vm.form.submitting) ? _c('i', {
     staticClass: "fa fa-refresh fa-spin"
-  }) : _vm._e(), _vm._v("Register")])])])])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "col-xs-1"
-  }, [_c('label', [_c('div', {
-    staticClass: "checkbox_register icheck"
-  }, [_c('label', [_c('input', {
-    attrs: {
-      "type": "checkbox",
-      "checked": "",
-      "name": "terms"
+  }) : _vm._e(), _vm._v(" Register")])])]), _vm._v(" "), (_vm.form.errors.has('terms')) ? _c('div', {
+    staticClass: "form-group has-feedback",
+    class: {
+      'has-error': _vm.form.errors.has('terms')
     }
-  })])])])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "col-xs-6"
-  }, [_c('div', {
-    staticClass: "form-group"
-  }, [_c('button', {
-    staticClass: "btn btn-block btn-flat",
-    attrs: {
-      "type": "button",
-      "data-toggle": "modal",
-      "data-target": "#termsModal"
+  }, [(_vm.form.errors.has('terms')) ? _c('span', {
+    staticClass: "help-block",
+    domProps: {
+      "textContent": _vm._s(_vm.form.errors.get('terms'))
     }
-  }, [_vm._v("Acceptar\n          condicions\n        ")])])])
-}]}
+  }) : _vm._e()]) : _vm._e()])
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -56128,6 +55898,204 @@ __webpack_require__(43);
 __webpack_require__(40);
 module.exports = __webpack_require__(41);
 
+
+/***/ }),
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */,
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */,
+/* 264 */,
+/* 265 */,
+/* 266 */,
+/* 267 */,
+/* 268 */,
+/* 269 */,
+/* 270 */,
+/* 271 */,
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */,
+/* 278 */,
+/* 279 */,
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */,
+/* 299 */,
+/* 300 */,
+/* 301 */,
+/* 302 */,
+/* 303 */,
+/* 304 */,
+/* 305 */,
+/* 306 */,
+/* 307 */,
+/* 308 */,
+/* 309 */,
+/* 310 */,
+/* 311 */,
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */,
+/* 317 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)();
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    -webkit-transition: opacity .5s ease;\n    transition: opacity .5s ease;\n}\n.fade-enter, .fade-leave-to {\n    opacity: 0;\n}\n\n", ""]);
+
+/***/ }),
+/* 318 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(317);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(7)("75769ebc", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-03ad6d23!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./RegisterForm.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-03ad6d23!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./RegisterForm.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
 
 /***/ })
 /******/ ]);

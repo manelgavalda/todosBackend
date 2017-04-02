@@ -28,4 +28,7 @@ Route::group(['prefix' => 'v1', 'middleware' => ['cors', 'auth:api']], function 
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+
+    Route::post('/user/gcmtoken', 'GcmTokensController@addToken');
+    Route::get('/user/messages', 'MessagesController@fetchMessages');
 });

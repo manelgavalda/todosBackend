@@ -9,11 +9,15 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use ManelGavalda\TodosBackend\Message;
 use ManelGavalda\TodosBackend\User;
+use NotificationChannels\Gcm\GcmChannel;
+use NotificationChannels\Gcm\GcmMessage;
 
 class MessageSent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
+
     public $user;
+
     public $message;
     /**
      * Create a new event instance.
@@ -33,5 +37,26 @@ class MessageSent implements ShouldBroadcast
     public function broadcastOn()
     {
         return new Channel('chat');
+    }
+
+    /**
+     * @param $notifiable
+     * @return array
+     */
+    public function via($notifiable)
+    {
+        return [GcmChannel::class];
+    }
+    /**
+     * @param $notifiable
+     * @return mixed
+     */
+    public function toGcm($notifiable)
+    {
+        return GcmMessage::create()
+            ->badge(1)
+            ->title($this->user->name)
+            ->message($this->message->message)
+            ->priority(GcmMessage::PRIORITY_HIGH);
     }
 }

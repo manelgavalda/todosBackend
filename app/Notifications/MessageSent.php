@@ -8,6 +8,10 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use NotificationChannels\Gcm\GcmChannel;
+use NotificationChannels\Gcm\GcmMessage;
+use NotificationChannels\Telegram\TelegramChannel;
+use NotificationChannels\Telegram\TelegramMessage;
 
 /**
  * Class MessageSent
@@ -41,7 +45,7 @@ class MessageSent extends Notification
      */
     public function via($notifiable)
     {
-        return [GcmChannel::class];
+        return [GcmChannel::class, TelegramChannel::class];
     }
 
     /**
@@ -85,11 +89,20 @@ class MessageSent extends Notification
      * @param $notifiable
      * @return mixed
      */
-    public function toOneSignal($notifiable)
+//    public function toOneSignal($notifiable)
+//    {
+//        return OneSignalMessage::create()
+//            ->subject($this->user)
+//            ->body($this->message);
+//    }
+
+    public function toTelegram($notifiable)
     {
-        return OneSignalMessage::create()
-            ->subject($this->user)
-            ->body($this->message);
+        $url = url('http://todosbackend.manelgavalda.2dam.acacha.org/');
+        return TelegramMessage::create()
+            ->to('@dam21617')
+            ->content($this->message->message) // Markdown supported.
+            ->button('View message', $url); // Inline Button
     }
 
 }

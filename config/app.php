@@ -180,6 +180,7 @@ return [
         Barryvdh\Cors\ServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         NotificationChannels\Gcm\GcmServiceProvider::class,
+        NotificationChannels\Telegram\TelegramServiceProvider::class,
         /*
          * Application Service Providers...
          */
