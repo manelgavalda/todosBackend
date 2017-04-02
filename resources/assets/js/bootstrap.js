@@ -25,13 +25,10 @@ require('sweetalert');
 
 window.Vue = require('vue');
 
-window.axios = require('axios');
-Vue.prototype.$http = axios;
-
 // Use trans function in Vue (equivalent to trans() Laravel Translations helper). See htmlheader.balde.php partial.
-// Vue.prototype.trans = (key) => {
-//     return _.get(window.trans, key, key);
-// };
+Vue.prototype.trans = (key) => {
+    return _.get(window.trans, key, key);
+};
 
 Vue.component('login-input-field', require('./components/LoginInputField.vue'));
 
@@ -41,12 +38,6 @@ Vue.component('login-input-field', require('./components/LoginInputField.vue'));
  * included with Laravel will automatically verify the header's value.
  */
 
-//Vue.http.interceptors.push((request, next) => {
-//request.headers['X-CSRF-TOKEN'] = Laravel.csrfToken;
-//-axios.defaults.headers.common['X-CSRF-TOKEN'] = Laravel.csrfToken;
-
-//    next();
-//});
 window.axios = require('axios');
 window.axios.defaults.headers.common = {
     'X-CSRF-TOKEN': window.Laravel.csrfToken,
@@ -58,12 +49,6 @@ window.axios.defaults.headers.common = {
  * allows your team to easily build robust real-time web applications.
  */
 
-// import Echo from "laravel-echo"
-
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: 'your-pusher-key'
-// });
 import Echo from "laravel-echo"
 
 import io from "socket.io-client"
