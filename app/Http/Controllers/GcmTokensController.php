@@ -1,12 +1,13 @@
 <?php
-namespace Manelgavalda\TodosBackend\Http\Controllers;
+namespace ManelGavalda\TodosBackend\Http\Controllers;
+
 use Manelgavalda\TodosBackend\Events\GcmTokenCreated;
 use Auth;
 use Illuminate\Http\Request;
 /**
  * Class GcmTokensController.
  *
- * @package App\Http\Controllers
+ * @package Manelgavalda\TodosBackend\Http\Controllers
  */
 class GcmTokensController extends TodosBaseController
 {
