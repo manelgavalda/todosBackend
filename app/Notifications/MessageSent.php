@@ -19,7 +19,7 @@ use NotificationChannels\Telegram\TelegramMessage;
  *
  * @package Manelgavalda\TodosBackend\Notifications
  */
-class MessageSent extends Notification
+class MessageSent extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -30,7 +30,8 @@ class MessageSent extends Notification
     /**
      * Create a new notification instance.
      *
-     * @return void
+     * @param User $user
+     * @param Message $message
      */
     public function __construct(User $user, Message $message)
     {
