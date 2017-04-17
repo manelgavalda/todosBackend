@@ -83,7 +83,7 @@ class MessageSent extends Notification implements ShouldQueue
     {
         return GcmMessage::create()
             ->badge(1)
-            ->title($this->user)
+            ->title($this->user->name)
             //Added
             ->message($this->message->message)
             ->data('message',$this->message )
@@ -109,5 +109,4 @@ class MessageSent extends Notification implements ShouldQueue
             ->content($this->message->message) // Markdown supported.
             ->button('TodosBackend Manel', $url); // Inline Button
     }
-
 }

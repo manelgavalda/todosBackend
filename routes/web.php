@@ -15,6 +15,10 @@ Route::group(['middleware' => 'auth'], function () {
         return view('tokens');
     });
 
+    Route::get('users', function () {
+        dd(ManelGavalda\TodosBackend\User::paginate());
+    });
+
     //adminlte_routes
     Route::get('messages', 'MessagesController@index')->name('messages');
 

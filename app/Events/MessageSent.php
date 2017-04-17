@@ -6,13 +6,14 @@ use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Notifications\Notification;
 use Illuminate\Queue\SerializesModels;
 use ManelGavalda\TodosBackend\Message;
 use ManelGavalda\TodosBackend\User;
 use NotificationChannels\Gcm\GcmChannel;
 use NotificationChannels\Gcm\GcmMessage;
 
-class MessageSent implements ShouldBroadcast
+class MessageSent extends Notification implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
