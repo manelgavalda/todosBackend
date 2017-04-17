@@ -43,20 +43,30 @@ class User extends Authenticatable
         return $this->hasMany(Message::class);
     }
 
-    /**
-     * A user can have many GCM tokens.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
+//    /**
+//     * A user can have many GCM tokens.
+//     *
+//     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+//     */
+//    public function gcmTokens()
+//    {
+//        return $this->hasMany(GcmToken::class);
+//    }
+//
+//    public function routeNotificationForGcm()
+//    {
+//        return 'AAAApS1Nkw8:APA91bE7eCxkiITBtLZvnkS-6XBRJVINl7XQQnm3NR6OnxBKeErvFyMN_NdqjJ_1cL8ACmb5UmVUMbbA1fH4wJmLXka2JzTsOTXEYeL678tId_6Rf3mRfUfNUX3dwbw-ogUP01YRSP1v';
+////        return $this->gcmTokens->pluck('registration_id')->toArray();
+//    }
+
     public function gcmTokens()
     {
-        return $this->hasMany(GcmToken::class);
+        return ['AAAApS1Nkw8:APA91bE7eCxkiITBtLZvnkS-6XBRJVINl7XQQnm3NR6OnxBKeErvFyMN_NdqjJ_1cL8ACmb5UmVUMbbA1fH4wJmLXka2JzTsOTXEYeL678tId_6Rf3mRfUfNUX3dwbw-ogUP01YRSP1v'];
     }
 
     public function routeNotificationForGcm()
     {
-        return 'AAAApS1Nkw8:APA91bE7eCxkiITBtLZvnkS-6XBRJVINl7XQQnm3NR6OnxBKeErvFyMN_NdqjJ_1cL8ACmb5UmVUMbbA1fH4wJmLXka2JzTsOTXEYeL678tId_6Rf3mRfUfNUX3dwbw-ogUP01YRSP1v';
-//        return $this->gcmTokens->pluck('registration_id')->toArray();
+        return $this->gcmTokens();
     }
 
     /**
