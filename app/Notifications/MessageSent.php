@@ -10,13 +10,14 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use NotificationChannels\Gcm\GcmChannel;
 use NotificationChannels\Gcm\GcmMessage;
+use NotificationChannels\OneSignal\OneSignalMessage;
 use NotificationChannels\Telegram\TelegramChannel;
 use NotificationChannels\Telegram\TelegramMessage;
 
 /**
  * Class MessageSent
  *
- * @package Acacha\TodosBackend\Notifications
+ * @package Manelgavalda\TodosBackend\Notifications
  */
 class MessageSent extends Notification
 {
@@ -98,17 +99,6 @@ class MessageSent extends Notification
             ->subject($this->user)
             ->body($this->message);
     }
-
-    /**
-     * @param $notifiable
-     * @return mixed
-     */
-//    public function toOneSignal($notifiable)
-//    {
-//        return OneSignalMessage::create()
-//            ->subject($this->user)
-//            ->body($this->message);
-//    }
 
     public function toTelegram($notifiable)
     {
