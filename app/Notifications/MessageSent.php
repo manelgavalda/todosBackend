@@ -82,11 +82,9 @@ class MessageSent extends Notification implements ShouldQueue
     public function toGcm($notifiable)
     {
         return GcmMessage::create()
-            ->badge(1)
             ->title($this->user->name)
-            //Added
             ->message($this->message->message)
-            ->data('message',$this->message )
+            ->data('message',$this->message)
             ->data('user',$this->user);
     }
 
