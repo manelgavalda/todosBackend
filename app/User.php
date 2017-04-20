@@ -61,7 +61,8 @@ class User extends Authenticatable
 
     public function gcmTokens()
     {
-        return ['ei0jEANYfY4:APA91bElPP08IIMLVGRX9BYveyml9debTqforM1fkQS8ZDFQZTfpqS5jCrYtgagiApvWnkzWNG8sM_05ggI2r9j0AyLCU1bvAmPYujhlXFkzIlEWlI9x1VT1KMacwU8zl7QtX2ijxv2h'];
+//        return ['ei0jEANYfY4:APA91bElPP08IIMLVGRX9BYveyml9debTqforM1fkQS8ZDFQZTfpqS5jCrYtgagiApvWnkzWNG8sM_05ggI2r9j0AyLCU1bvAmPYujhlXFkzIlEWlI9x1VT1KMacwU8zl7QtX2ijxv2h'];
+        return $this->gcmTokens->pluck('registration_id')->toArray();
     }
 
     public function routeNotificationForGcm()
