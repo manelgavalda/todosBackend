@@ -80,7 +80,7 @@
         },
         data: function () {
             return {
-                form: new Form( { name: '', email: '', password: '', password_confirmation: '', terms: ''  } )
+                form: new Form( { name: '', email: '', password: '', password_confirmation: '', terms: 'check'  } )
             }
         },
         watch: {
@@ -100,7 +100,7 @@
                     radioClass: 'iradio_square-blue',
                     increaseArea: '20%'
                 }).on('ifChecked', function(event){
-                    component.form.set('terms',true)
+                    component.form.set('terms','check')
                     component.form.errors.clear('terms')
                 }).on('ifUnchecked', function(event){
                     component.form.set('terms','')

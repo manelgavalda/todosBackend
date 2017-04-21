@@ -16827,7 +16827,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     data: function data() {
         return {
-            form: new __WEBPACK_IMPORTED_MODULE_0_acacha_forms__["a" /* default */]({ name: '', email: '', password: '', password_confirmation: '', terms: '' })
+            form: new __WEBPACK_IMPORTED_MODULE_0_acacha_forms__["a" /* default */]({ name: '', email: '', password: '', password_confirmation: '', terms: 'check' })
         };
     },
     watch: {
@@ -16847,7 +16847,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 radioClass: 'iradio_square-blue',
                 increaseArea: '20%'
             }).on('ifChecked', function (event) {
-                component.form.set('terms', true);
+                component.form.set('terms', 'check');
                 component.form.errors.clear('terms');
             }).on('ifUnchecked', function (event) {
                 component.form.set('terms', '');
