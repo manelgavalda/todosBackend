@@ -40,7 +40,7 @@
                     <div class="checkbox_register icheck">
                         <label data-toggle="modal" data-target="#termsModal">
                             <input type="checkbox" name="terms" v-model="form.terms" class="has-error">
-                            <a href="#">Terms and conditions</a>
+                            <a href="#" :class="{ 'text-danger': form.errors.has('terms') }">Terms and conditions</a>
                         </label>
                     </div>
                 </label>
@@ -70,7 +70,7 @@
 
 <script>
 
-//    import Form from 'acacha-forms'
+    import Form from 'acacha-forms'
 
     export default {
         mounted() {
@@ -127,3 +127,4 @@
     }
 
 </script>
+
