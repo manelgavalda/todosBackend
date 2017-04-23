@@ -56,7 +56,7 @@ class MessagesController extends TodosBaseController
     /**
      * Fetch all messages
      *
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     * @return Message
      */
     public function fetchMessages()
     {

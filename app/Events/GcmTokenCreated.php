@@ -1,9 +1,9 @@
 <?php
 
-namespace Manelgavalda\TodosBackend\Events;
+namespace ManelGavalda\TodosBackend\Events;
 
-use Manelgavalda\TodosBackend\GcmToken;
-use Manelgavalda\TodosBackend\User;
+use ManelGavalda\TodosBackend\GcmToken;
+use ManelGavalda\TodosBackend\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Notifications\Notification;
 use Illuminate\Queue\SerializesModels;
@@ -14,7 +14,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 /**
  * Class GcmTokenCreated.
  *
- * @package Manelgavalda\TodosBackend/Events
+ * @package ManelGavalda\TodosBackend/Events
  */
 class GcmTokenCreated extends Notification implements ShouldBroadcast
 {

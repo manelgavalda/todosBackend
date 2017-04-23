@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 /**
  * Class GcmTokensController.
  *
- * @package Manelgavalda\TodosBackend\Http\Controllers
+ * @package ManelGavalda\TodosBackend\Http\Controllers
  */
 class GcmTokensController extends TodosBaseController
 {

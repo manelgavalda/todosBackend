@@ -4,6 +4,7 @@ namespace ManelGavalda\TodosBackend\Http\Controllers;
 
 use ManelGavalda\TodosBackend\Repositories\UserRepository;
 use ManelGavalda\TodosBackend\Transformers\UserTransformer;
+use ManelGavalda\TodosBackend\User;
 use Illuminate\Http\Request;
 
 /**

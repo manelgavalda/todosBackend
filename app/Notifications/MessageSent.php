@@ -17,7 +17,7 @@ use NotificationChannels\Telegram\TelegramMessage;
 /**
  * Class MessageSent
  *
- * @package Manelgavalda\TodosBackend\Notifications
+ * @package ManelGavalda\TodosBackend\Notifications
  */
 class MessageSent extends Notification implements ShouldQueue
 {
