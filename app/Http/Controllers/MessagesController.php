@@ -35,8 +35,8 @@ class MessagesController extends TodosBaseController
      */
     public function sendMessage(Request $request)
     {
-        $user = Auth::user();
-
+//      $user = Auth::user();
+        $user = $request->user();
         $message = $user->messages()->create([
             'message' => $request->input('message')
         ]);
