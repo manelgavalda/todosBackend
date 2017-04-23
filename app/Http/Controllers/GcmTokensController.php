@@ -1,7 +1,7 @@
 <?php
 namespace ManelGavalda\TodosBackend\Http\Controllers;
 
-use Manelgavalda\TodosBackend\Events\GcmTokenCreated;
+use Manelgavalda\TodosBackend\Notifications\GcmTokenCreated;
 use Auth;
 use Illuminate\Http\Request;
 /**
