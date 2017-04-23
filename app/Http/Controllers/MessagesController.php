@@ -2,7 +2,6 @@
 
 namespace ManelGavalda\TodosBackend\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
 use ManelGavalda\TodosBackend\Events\MessageSent;
 use ManelGavalda\TodosBackend\Notifications\MessageSent as MessageSentNotification;
 use ManelGavalda\TodosBackend\Message;
@@ -61,6 +60,7 @@ class MessagesController extends TodosBaseController
      */
     public function fetchMessages()
     {
-        return DB::table('messages');
+        //Lazy loading -> Eager Loading
+        return Message::with('user')->get();
     }
 }
