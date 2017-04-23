@@ -61,6 +61,6 @@ class MessagesController extends TodosBaseController
     public function fetchMessages()
     {
         //Lazy loading -> Eager Loading
-        return Message::with('user')->get();
+        return Message::with('user');
     }
 }
