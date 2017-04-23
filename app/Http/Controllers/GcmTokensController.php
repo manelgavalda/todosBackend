@@ -1,10 +1,9 @@
 <?php
 namespace ManelGavalda\TodosBackend\Http\Controllers;
 
+use Manelgavalda\TodosBackend\Events\GcmTokenCreated;
 use Auth;
 use Illuminate\Http\Request;
-use Manelgavalda\TodosBackend\Notifications\GcmTokenCreated;
-
 /**
  * Class GcmTokensController.
  *
@@ -17,7 +16,7 @@ class GcmTokensController extends TodosBaseController
      */
     public function addToken(Request $request)
     {
-        $user = Auth::user();
+        $user = $request->user();
         $token = $user->gcmTokens()->firstOrCreate([
             'registration_id' => $request->input('registration_id')
         ]);
