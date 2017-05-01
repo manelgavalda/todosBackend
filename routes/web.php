@@ -3,20 +3,12 @@
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'can:show,ManelGavalda\TodosBackend\Task'], function () {
         Route::get('/tasks', function () {
-            $token = "TODO";
-            $data = [
-                "access_token" => $token
-            ];
-            return view('tasks',$data);
+            return view('tasks');
         });
     });
 
     Route::get('/profile/tokens', function () {
         return view('tokens');
-    });
-
-    Route::get('users', function () {
-        dd(ManelGavalda\TodosBackend\User::paginate());
     });
 
     //adminlte_routes
