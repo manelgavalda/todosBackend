@@ -31,3 +31,5 @@ Route::group(['prefix' => 'v1', 'middleware' => ['cors', 'auth:api']], function 
     Route::post('/user/gcmtoken', 'GcmTokensController@addToken');
     Route::get('/user/messages', 'MessagesController@fetchMessages');
 });
+// Unauthenticated
+Route::get('/user/messages', 'MessagesController@fetchMessages');
